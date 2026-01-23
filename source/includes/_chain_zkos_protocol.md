@@ -1,183 +1,134 @@
-# Twilight Modules
+# Twilight Chain API
 
-## ZKOS Module (Chain REST API)
+## ZKOS Module
 
-<h1 id="http-api-console-twilight-zkos">HTTP API Console — twilight-zkos v0.1.0</h1>
+The ZKOS module provides REST API endpoints for querying ZKOS-related data on the Twilight chain.
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+**Base URL:** `https://lcd.twilight.org`
 
-<h1 id="http-api-console-twilight-zkos-query">Query</h1>
+> 🔐 No authentication required.
 
-## TwilightprojectNyksZkosMintOrBurnTradingBtc
+---
 
-<a id="opIdTwilightprojectNyksZkosMintOrBurnTradingBtc"></a>
+## Endpoints
 
-> Code samples
+### Mint or Burn Trading BTC
 
 ```shell
-# You can also use wget
-curl -X GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress} \
+curl -X GET https://lcd.twilight.org/twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress} \
   -H 'Accept: */*'
+```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}');
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}`
 
 *Queries a list of MintOrBurnTradingBtc items.*
 
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-parameters">Parameters</h3>
+#### Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|twilightAddress|path|string|true|none|
+|twilightAddress|path|string|true|The Twilight address to query|
 
-> Example responses
+#### Responses
 
-> 200 Response
+|Status|Meaning|Description|
+|---|---|---|
+|200|OK|A successful response|
+|default|Default|An unexpected error response|
 
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-responses">Responses</h3>
+#### Response Schema (200)
 
-|Status|Meaning|Description|Schema|
+|Name|Type|Required|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
-|default|Default|An unexpected error response.|Inline|
+|mintOrBurn|boolean|false|Whether this is a mint or burn operation|
+|btcValue|string(uint64)|false|The BTC value|
+|qqAccount|string|false|The QQ account address|
+|encryptScalar|string|false|The encrypted scalar|
+|twilightAddress|string|false|The Twilight address|
 
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-responseschema">Response Schema</h3>
+> This operation does not require authentication
 
-Status Code **200**
+---
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» MintOrBurnTradingBtc|[object]|false|none|none|
-|»» mintOrBurn|boolean|false|none|none|
-|»» btcValue|string(uint64)|false|none|none|
-|»» qqAccount|string|false|none|none|
-|»» encryptScalar|string|false|none|none|
-|»» twilightAddress|string|false|none|none|
-
-Status Code **default**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» code|integer(int32)|false|none|none|
-|» message|string|false|none|none|
-|» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## TwilightprojectNyksZkosParams
-
-<a id="opIdTwilightprojectNyksZkosParams"></a>
-
-> Code samples
+### Get ZKOS Parameters
 
 ```shell
-# You can also use wget
-curl -X GET /twilight-project/nyks/zkos/params \
+curl -X GET https://lcd.twilight.org/twilight-project/nyks/zkos/params \
   -H 'Accept: */*'
+```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/zkos/params');
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/zkos/params`
 
 *Parameters queries the parameters of the module.*
 
-> Example responses
+#### Responses
 
-> 200 Response
+|Status|Meaning|Description|
+|---|---|---|
+|200|OK|A successful response|
+|default|Default|An unexpected error response|
 
-<h3 id="twilightprojectnykszkosparams-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
-|default|Default|An unexpected error response.|Inline|
-
-<h3 id="twilightprojectnykszkosparams-responseschema">Response Schema</h3>
-
-Status Code **200**
+#### Response Schema (200)
 
 *QueryParamsResponse is response type for the Query/Params RPC method.*
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» params|object|false|none|params holds all the parameters of this module.|
+|Name|Type|Required|Description|
+|---|---|---|---|
+|params|object|false|params holds all the parameters of this module|
 
-Status Code **default**
+> This operation does not require authentication
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» code|integer(int32)|false|none|none|
-|» message|string|false|none|none|
-|» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|none|
+---
 
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## TwilightprojectNyksZkosTransferTx
-
-<a id="opIdTwilightprojectNyksZkosTransferTx"></a>
-
-> Code samples
+### Get Transfer Transaction
 
 ```shell
-# You can also use wget
-curl -X GET /twilight-project/nyks/zkos/transfer_tx/{txId} \
+curl -X GET https://lcd.twilight.org/twilight-project/nyks/zkos/transfer_tx/{txId} \
   -H 'Accept: */*'
+```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/zkos/transfer_tx/{txId}');
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/zkos/transfer_tx/{txId}`
 
 *Queries a list of TransferTx items.*
 
-<h3 id="twilightprojectnykszkostransfertx-parameters">Parameters</h3>
+#### Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|txId|path|string|true|none|
+|txId|path|string|true|The transaction ID to query|
 
-> Example responses
+#### Responses
 
-> 200 Response
+|Status|Meaning|Description|
+|---|---|---|
+|200|OK|A successful response|
+|default|Default|An unexpected error response|
 
-<h3 id="twilightprojectnykszkostransfertx-responses">Responses</h3>
+#### Response Schema (200)
 
-|Status|Meaning|Description|Schema|
+|Name|Type|Required|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
-|default|Default|An unexpected error response.|Inline|
+|txId|string|false|The transaction ID|
+|txByteCode|string|false|The transaction bytecode|
+|txFee|string(uint64)|false|The transaction fee|
+|zkOracleAddress|string|false|The ZK Oracle address|
 
-<h3 id="twilightprojectnykszkostransfertx-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» TransferTx|object|false|none|none|
-|»» txId|string|false|none|none|
-|»» txByteCode|string|false|none|none|
-|»» txFee|string(uint64)|false|none|none|
-|»» zkOracleAddress|string|false|none|none|
-
-Status Code **default**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» code|integer(int32)|false|none|none|
-|» message|string|false|none|none|
-|» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
+> This operation does not require authentication
