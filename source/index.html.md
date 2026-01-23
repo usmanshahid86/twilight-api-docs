@@ -8,7 +8,7 @@ toc_footers:
   - Twilight © 2025
 includes:
   - zkos
-  #- sdk
+  - sdk
   - chain_zkos_protocol
 code_clipboard: true
 meta:
