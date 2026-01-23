@@ -1,11 +1,11 @@
 name: Dev Deploy
 
-on:
-  push:
-    branches: ["dev"]
+#on:
+ # push:
+  #  branches: ["dev"]
 
-jobs:
-  deploy_gh:
+#jobs:
+#  deploy_gh:
     permissions:
       contents: write
 
