@@ -14,7 +14,8 @@ toc_footers:
 includes:
   - zkos
   - sdk
-
+## Twilight Modules
+<%= partial "includes/chain_zkos_protocol" %>
 search: true
 
 code_clipboard: true
