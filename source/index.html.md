@@ -10,6 +10,7 @@ includes:
   - zkos
   - sdk
   - chain_zkos_protocol
+  - chain_twilight_bridge
 code_clipboard: true
 meta:
   - name: description

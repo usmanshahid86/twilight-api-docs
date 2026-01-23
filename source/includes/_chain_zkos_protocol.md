@@ -25,6 +25,25 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "MintOrBurnTradingBtc": [
+    {
+      "mintOrBurn": true,
+      "btcValue": "1000000",
+      "qqAccount": "qqAccount...",
+      "encryptScalar": "0xabcdef1234567890...",
+      "twilightAddress": "twilight1abc123def456..."
+    }
+  ]
+}
+```
+
+
+
+
 `GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}`
 
 *Queries a list of MintOrBurnTradingBtc items.*
@@ -69,6 +88,17 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "params": {}
+}
+```
+
+
+
+
 `GET /twilight-project/nyks/zkos/params`
 
 *Parameters queries the parameters of the module.*
@@ -104,6 +134,22 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/zko
 const data = await response.json();
 console.log(data);
 ```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "TransferTx": {
+    "txId": "0x1234567890abcdef...",
+    "txByteCode": "0x1234567890abcdef...",
+    "txFee": "1000000",
+    "zkOracleAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
+
+
 
 `GET /twilight-project/nyks/zkos/transfer_tx/{txId}`
 
