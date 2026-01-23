@@ -372,27 +372,13 @@
               </ul>
           </li>
           <li>
-            <a href="#twilight-modules" class="toc-h1 toc-link" data-title="Twilight Modules">Twilight Modules</a>
+            <a href="#twilight-chain-api" class="toc-h1 toc-link" data-title="Twilight Chain API">Twilight Chain API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#zkos-module-chain-rest-api" class="toc-h2 toc-link" data-title="ZKOS Module (Chain REST API)">ZKOS Module (Chain REST API)</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#http-api-console-twilight-zkos" class="toc-h1 toc-link" data-title="HTTP API Console — twilight-zkos v0.1.0">HTTP API Console — twilight-zkos v0.1.0</a>
-          </li>
-          <li>
-            <a href="#http-api-console-twilight-zkos-query" class="toc-h1 toc-link" data-title="Query">Query</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#twilightprojectnykszkosmintorburntradingbtc" class="toc-h2 toc-link" data-title="TwilightprojectNyksZkosMintOrBurnTradingBtc">TwilightprojectNyksZkosMintOrBurnTradingBtc</a>
+                    <a href="#zkos-module" class="toc-h2 toc-link" data-title="ZKOS Module">ZKOS Module</a>
                   </li>
                   <li>
-                    <a href="#twilightprojectnykszkosparams" class="toc-h2 toc-link" data-title="TwilightprojectNyksZkosParams">TwilightprojectNyksZkosParams</a>
-                  </li>
-                  <li>
-                    <a href="#twilightprojectnykszkostransfertx" class="toc-h2 toc-link" data-title="TwilightprojectNyksZkosTransferTx">TwilightprojectNyksZkosTransferTx</a>
+                    <a href="#endpoints" class="toc-h2 toc-link" data-title="Endpoints">Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -4085,31 +4071,26 @@ The Twilight Privacy SDK is a comprehensive Rust library for building privacy-pr
 </tbody></table>
 
 <hr>
-<h1 id='twilight-modules'>Twilight Modules</h1><h2 id='zkos-module-chain-rest-api'>ZKOS Module (Chain REST API)</h2>
-<h1 id="http-api-console-twilight-zkos">HTTP API Console — twilight-zkos v0.1.0</h1>
+<h1 id='twilight-chain-api'>Twilight Chain API</h1><h2 id='zkos-module'>ZKOS Module</h2>
+<p>The ZKOS module provides REST API endpoints for querying ZKOS-related data on the Twilight chain.</p>
+
+<p><strong>Base URL:</strong> <code>https://lcd.twilight.org</code></p>
 
 <blockquote>
-<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
+<p>🔐 No authentication required.</p>
 </blockquote>
 
-<h1 id="http-api-console-twilight-zkos-query">Query</h1>
-<h2 id='twilightprojectnykszkosmintorburntradingbtc'>TwilightprojectNyksZkosMintOrBurnTradingBtc</h2>
-<p><a id="opIdTwilightprojectNyksZkosMintOrBurnTradingBtc"></a></p>
-
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/<span class="o">{</span>twilightAddress<span class="o">}</span> <span class="se">\</span>
+<hr>
+<h2 id='endpoints'>Endpoints</h2><h3 id='mint-or-burn-trading-btc'>Mint or Burn Trading BTC</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://lcd.twilight.org/twilight-project/nyks/zkos/mint_or_burn_trading_btc/<span class="o">{</span>twilightAddress<span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span>
-
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://lcd.twilight.org/twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
 <p><code>GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}</code></p>
 
 <p><em>Queries a list of MintOrBurnTradingBtc items.</em></p>
-
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-parameters">Parameters</h3>
-
+<h4 id='parameters'>Parameters</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4124,197 +4105,103 @@ curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/mint_or_burn_tra
 <td>path</td>
 <td>string</td>
 <td>true</td>
-<td>none</td>
+<td>The Twilight address to query</td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<p>Example responses</p>
-
-<p>200 Response</p>
-</blockquote>
-
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-responses">Responses</h3>
-
+<h4 id='responses'>Responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
 <th>Meaning</th>
 <th>Description</th>
-<th>Schema</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A successful response.</td>
-<td>Inline</td>
+<td>OK</td>
+<td>A successful response</td>
 </tr>
 <tr>
 <td>default</td>
 <td>Default</td>
-<td>An unexpected error response.</td>
-<td>Inline</td>
+<td>An unexpected error response</td>
 </tr>
 </tbody></table>
-
-<h3 id="twilightprojectnykszkosmintorburntradingbtc-responseschema">Response Schema</h3>
-
-<p>Status Code <strong>200</strong></p>
-
+<h4 id='response-schema-200'>Response Schema (200)</h4>
 <table><thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
-<th>Restrictions</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>» MintOrBurnTradingBtc</td>
-<td>[object]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» mintOrBurn</td>
+<td>mintOrBurn</td>
 <td>boolean</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>Whether this is a mint or burn operation</td>
 </tr>
 <tr>
-<td>»» btcValue</td>
+<td>btcValue</td>
 <td>string(uint64)</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The BTC value</td>
 </tr>
 <tr>
-<td>»» qqAccount</td>
+<td>qqAccount</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The QQ account address</td>
 </tr>
 <tr>
-<td>»» encryptScalar</td>
+<td>encryptScalar</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The encrypted scalar</td>
 </tr>
 <tr>
-<td>»» twilightAddress</td>
+<td>twilightAddress</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The Twilight address</td>
 </tr>
 </tbody></table>
-
-<p>Status Code <strong>default</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» code</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» message</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» details</td>
-<td>[object]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» <strong>additionalProperties</strong></td>
-<td>any</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» @type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h2 id='twilightprojectnykszkosparams'>TwilightprojectNyksZkosParams</h2>
-<p><a id="opIdTwilightprojectNyksZkosParams"></a></p>
 
 <blockquote>
-<p>Code samples</p>
+<p>This operation does not require authentication</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/params <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span>
 
+<hr>
+<h3 id='get-zkos-parameters'>Get ZKOS Parameters</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://lcd.twilight.org/twilight-project/nyks/zkos/params <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://lcd.twilight.org/twilight-project/nyks/zkos/params</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
 <p><code>GET /twilight-project/nyks/zkos/params</code></p>
 
 <p><em>Parameters queries the parameters of the module.</em></p>
-
-<blockquote>
-<p>Example responses</p>
-
-<p>200 Response</p>
-</blockquote>
-
-<h3 id="twilightprojectnykszkosparams-responses">Responses</h3>
-
+<h4 id='responses-2'>Responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
 <th>Meaning</th>
 <th>Description</th>
-<th>Schema</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A successful response.</td>
-<td>Inline</td>
+<td>OK</td>
+<td>A successful response</td>
 </tr>
 <tr>
 <td>default</td>
 <td>Default</td>
-<td>An unexpected error response.</td>
-<td>Inline</td>
+<td>An unexpected error response</td>
 </tr>
 </tbody></table>
-
-<h3 id="twilightprojectnykszkosparams-responseschema">Response Schema</h3>
-
-<p>Status Code <strong>200</strong></p>
-
+<h4 id='response-schema-200-2'>Response Schema (200)</h4>
 <p><em>QueryParamsResponse is response type for the Query/Params RPC method.</em></p>
 
 <table><thead>
@@ -4322,87 +4209,32 @@ curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/params <span cla
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
-<th>Restrictions</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>» params</td>
+<td>params</td>
 <td>object</td>
 <td>false</td>
-<td>none</td>
-<td>params holds all the parameters of this module.</td>
+<td>params holds all the parameters of this module</td>
 </tr>
 </tbody></table>
-
-<p>Status Code <strong>default</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» code</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» message</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» details</td>
-<td>[object]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» <strong>additionalProperties</strong></td>
-<td>any</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» @type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h2 id='twilightprojectnykszkostransfertx'>TwilightprojectNyksZkosTransferTx</h2>
-<p><a id="opIdTwilightprojectNyksZkosTransferTx"></a></p>
 
 <blockquote>
-<p>Code samples</p>
+<p>This operation does not require authentication</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/transfer_tx/<span class="o">{</span>txId<span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span>
 
+<hr>
+<h3 id='get-transfer-transaction'>Get Transfer Transaction</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://lcd.twilight.org/twilight-project/nyks/zkos/transfer_tx/<span class="o">{</span>txId<span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://lcd.twilight.org/twilight-project/nyks/zkos/transfer_tx/{txId}</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
 <p><code>GET /twilight-project/nyks/zkos/transfer_tx/{txId}</code></p>
 
 <p><em>Queries a list of TransferTx items.</em></p>
-
-<h3 id="twilightprojectnykszkostransfertx-parameters">Parameters</h3>
-
+<h4 id='parameters-2'>Parameters</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4417,141 +4249,66 @@ curl <span class="nt">-X</span> GET /twilight-project/nyks/zkos/transfer_tx/<spa
 <td>path</td>
 <td>string</td>
 <td>true</td>
-<td>none</td>
+<td>The transaction ID to query</td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<p>Example responses</p>
-
-<p>200 Response</p>
-</blockquote>
-
-<h3 id="twilightprojectnykszkostransfertx-responses">Responses</h3>
-
+<h4 id='responses-3'>Responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
 <th>Meaning</th>
 <th>Description</th>
-<th>Schema</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>A successful response.</td>
-<td>Inline</td>
+<td>OK</td>
+<td>A successful response</td>
 </tr>
 <tr>
 <td>default</td>
 <td>Default</td>
-<td>An unexpected error response.</td>
-<td>Inline</td>
+<td>An unexpected error response</td>
 </tr>
 </tbody></table>
-
-<h3 id="twilightprojectnykszkostransfertx-responseschema">Response Schema</h3>
-
-<p>Status Code <strong>200</strong></p>
-
+<h4 id='response-schema-200-3'>Response Schema (200)</h4>
 <table><thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
-<th>Restrictions</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>» TransferTx</td>
-<td>object</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» txId</td>
+<td>txId</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The transaction ID</td>
 </tr>
 <tr>
-<td>»» txByteCode</td>
+<td>txByteCode</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The transaction bytecode</td>
 </tr>
 <tr>
-<td>»» txFee</td>
+<td>txFee</td>
 <td>string(uint64)</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The transaction fee</td>
 </tr>
 <tr>
-<td>»» zkOracleAddress</td>
+<td>zkOracleAddress</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
-<td>none</td>
+<td>The ZK Oracle address</td>
 </tr>
 </tbody></table>
 
-<p>Status Code <strong>default</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» code</td>
-<td>integer(int32)</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» message</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» details</td>
-<td>[object]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» <strong>additionalProperties</strong></td>
-<td>any</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>»» @type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-This operation does not require authentication
-</aside>
+<blockquote>
+<p>This operation does not require authentication</p>
+</blockquote>
 
       </div>
       <div class="dark-box">
