@@ -2,7 +2,7 @@
 
 ## Cosmos Gov
 
-## CosmosGovV1Beta1Params
+## Params
 
 > Code samples
 
@@ -105,7 +105,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Proposals
+## Proposals
 
 > Code samples
 
@@ -275,7 +275,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Proposal
+## Proposal
 
 > Code samples
 
@@ -420,7 +420,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Deposits
+## Deposits
 
 > Code samples
 
@@ -536,7 +536,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Deposit
+## Deposit
 
 > Code samples
 
@@ -619,7 +619,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1TallyResult
+## TallyResult
 
 > Code samples
 
@@ -705,7 +705,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Votes
+## Votes
 
 > Code samples
 
@@ -838,7 +838,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosGovV1Beta1Vote
+## Vote
 
 > Code samples
 

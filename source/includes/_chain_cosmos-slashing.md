@@ -2,7 +2,7 @@
 
 ## Cosmos Slashing
 
-## CosmosSlashingV1Beta1Params
+## Params
 
 > Code samples
 
@@ -79,7 +79,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosSlashingV1Beta1SigningInfos
+## SigningInfos
 
 > Code samples
 
@@ -197,7 +197,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosSlashingV1Beta1SigningInfo
+## SigningInfo
 
 > Code samples
 

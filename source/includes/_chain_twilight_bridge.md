@@ -2,7 +2,7 @@
 
 ## Twilight BTC Bridge
 
-## TwilightprojectNyksBridgeBroadcastTxRefund
+## BroadcastTxRefund
 
 > Code samples
 
@@ -100,7 +100,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeBroadcastTxRefundAll
+## BroadcastTxRefundAll
 
 
 > The result from the above endpoint looks like this:
@@ -236,7 +236,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeBroadcastTxSweep
+## BroadcastTxSweep
 
 > Code samples
 
@@ -364,7 +364,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeBroadcastTxSweepAll
+## BroadcastTxSweepAll
 
 > Code samples
 
@@ -451,7 +451,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeParams
+## Params
 
 > Code samples
 
@@ -550,7 +550,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeProposeRefundHashAll
+## ProposeRefundHashAll
 
 > Code samples
 
@@ -652,7 +652,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeProposeSweepAddress
+## ProposeSweepAddress
 
 > Code samples
 
@@ -770,7 +770,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeProposeSweepAddressesAll
+## ProposeSweepAddressesAll
 
 > Code samples
 
@@ -878,7 +878,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredBtcDepositAddress
+## RegisteredBtcDepositAddress
 
 > Code samples
 
@@ -968,7 +968,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredBtcDepositAddressByTwilightAddress
+## RegisteredBtcDepositAddressByTwilightAddress
 
 > Code samples
 
@@ -1070,7 +1070,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredBtcDepositAddresses
+## RegisteredBtcDepositAddresses
 
 
 > The result from the above endpoint looks like this:
@@ -1197,7 +1197,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredJudgeAddressByValidatorAddress
+## RegisteredJudgeAddressByValidatorAddress
 
 > Code samples
 
@@ -1314,7 +1314,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredJudges
+## RegisteredJudges
 
 > Code samples
 
@@ -1411,7 +1411,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeRegisteredReserveAddresses
+## RegisteredReserveAddresses
 
 > Code samples
 
@@ -1489,7 +1489,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeSignRefund
+## SignRefund
 
 > Code samples
 
@@ -1642,7 +1642,7 @@ Status Code **default**
 ```
 
 
-## TwilightprojectNyksBridgeSignRefundAll
+## SignRefundAll
 
 > Code samples
 
@@ -1755,7 +1755,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeSignSweep
+## SignSweep
 
 > Code samples
 
@@ -1886,7 +1886,7 @@ Status Code **default**
 ```
 
 
-## TwilightprojectNyksBridgeSignSweepAll
+## SignSweepAll
 
 > Code samples
 
@@ -1978,7 +1978,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeUnsignedTxRefund
+## UnsignedTxRefund
 
 > Code samples
 
@@ -2092,7 +2092,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeUnsignedTxRefundAll
+## UnsignedTxRefundAll
 
 > The result from the above endpoint looks like this:
 
@@ -2245,7 +2245,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeUnsignedTxSweep
+## UnsignedTxSweep
 
 > Code samples
 
@@ -2331,7 +2331,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeUnsignedTxSweepAll
+## UnsignedTxSweepAll
 
 > Code samples
 
@@ -2398,7 +2398,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksBridgeWithdrawBtcRequestAll
+## WithdrawBtcRequestAll
 
 > Code samples
 

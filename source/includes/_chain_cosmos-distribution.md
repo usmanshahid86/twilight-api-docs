@@ -2,7 +2,7 @@
 
 ## Cosmos Distribution
 
-## CosmosDistributionV1Beta1CommunityPool
+## CommunityPool
 
 > Code samples
 
@@ -76,7 +76,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1DelegationTotalRewards
+## DelegationTotalRewards
 
 > Code samples
 
@@ -173,7 +173,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1DelegationRewards
+## DelegationRewards
 
 > Code samples
 
@@ -263,7 +263,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1DelegatorValidators
+## DelegatorValidators
 
 > Code samples
 
@@ -336,7 +336,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1DelegatorWithdrawAddress
+## DelegatorWithdrawAddress
 
 > Code samples
 
@@ -414,7 +414,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1Params
+## Params
 
 > Code samples
 
@@ -491,7 +491,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1ValidatorCommission
+## ValidatorCommission
 
 > Code samples
 
@@ -574,7 +574,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1ValidatorOutstandingRewards
+## ValidatorOutstandingRewards
 
 > Code samples
 
@@ -659,7 +659,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosDistributionV1Beta1ValidatorSlashes
+## ValidatorSlashes
 
 > Code samples
 

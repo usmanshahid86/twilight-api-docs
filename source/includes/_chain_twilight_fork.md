@@ -2,7 +2,7 @@
 
 ## Forkscanner Module
 
-## TwilightprojectNyksForksDelegateKeysAll
+## DelegateKeysAll
 
 > Code samples
 
@@ -77,7 +77,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksForksDelegateKeysByBtcOracleAddress
+## DelegateKeysByBtcOracleAddress
 
 > Code samples
 

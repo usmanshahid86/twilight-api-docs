@@ -2,7 +2,7 @@
 
 ## Twilight Volt
 
-## TwilightprojectNyksVoltBtcReserve
+## BtcReserve
 
 > Code samples
 
@@ -92,7 +92,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltBtcWithdrawRequest
+## BtcWithdrawRequest
 
 > Code samples
 
@@ -180,7 +180,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltClearingAccount
+## ClearingAccount
 
 > Code samples
 
@@ -299,7 +299,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltFragmentById
+## FragmentById
 
 > Code samples
 
@@ -408,7 +408,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltGetAllFragments
+## GetAllFragments
 
 > Code samples
 
@@ -489,7 +489,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltParams
+## Params
 
 > Code samples
 
@@ -566,7 +566,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltRefundTxSnapshot
+## RefundTxSnapshot
 
 > Code samples
 
@@ -659,7 +659,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltReserveClearingAccountsAll
+## ReserveClearingAccountsAll
 
 > Code samples
 
@@ -748,7 +748,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltReserveWithdrawPool
+## ReserveWithdrawPool
 
 > Code samples
 
@@ -834,7 +834,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltReserveWithdrawSnapshot
+## ReserveWithdrawSnapshot
 
 > Code samples
 
@@ -922,7 +922,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## TwilightprojectNyksVoltSignerApplications
+## SignerApplications
 
 > Code samples
 

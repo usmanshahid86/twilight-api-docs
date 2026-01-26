@@ -2,7 +2,7 @@
 
 ## Cosmos Auth
 
-## CosmosAuthV1Beta1Accounts
+## Accounts
 
 > Code samples
 
@@ -117,7 +117,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosAuthV1Beta1Account
+## Account
 
 > Code samples
 
@@ -193,7 +193,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosAuthV1Beta1Params
+## Params
 
 > Code samples
 

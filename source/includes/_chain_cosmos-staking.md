@@ -2,7 +2,7 @@
 
 ## Cosmos Staking
 
-## CosmosStakingV1Beta1DelegatorDelegations
+## DelegatorDelegations
 
 > Code samples
 
@@ -128,7 +128,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Redelegations
+## Redelegations
 
 > Code samples
 
@@ -271,7 +271,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1DelegatorUnbondingDelegations
+## DelegatorUnbondingDelegations
 
 > Code samples
 
@@ -419,7 +419,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1DelegatorValidators
+## DelegatorValidators
 
 > Code samples
 
@@ -580,7 +580,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1DelegatorValidator
+## DelegatorValidator
 
 > Code samples
 
@@ -705,7 +705,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1HistoricalInfo
+## HistoricalInfo
 
 > Code samples
 
@@ -838,7 +838,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Params
+## Params
 
 > Code samples
 
@@ -912,7 +912,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Pool
+## Pool
 
 > Code samples
 
@@ -992,7 +992,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Validators
+## Validators
 
 > Code samples
 
@@ -1151,7 +1151,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Validator
+## Validator
 
 > Code samples
 
@@ -1271,7 +1271,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1ValidatorDelegations
+## ValidatorDelegations
 
 > Code samples
 
@@ -1391,7 +1391,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1Delegation
+## Delegation
 
 > Code samples
 
@@ -1481,7 +1481,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1UnbondingDelegation
+## UnbondingDelegation
 
 > The result from the above endpoint looks like this:
 
@@ -1579,7 +1579,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosStakingV1Beta1ValidatorUnbondingDelegations
+## ValidatorUnbondingDelegations
 
 > Code samples
 

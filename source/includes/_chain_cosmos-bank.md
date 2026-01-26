@@ -2,7 +2,7 @@
 
 ## Cosmos Bank
 
-## CosmosBankV1Beta1AllBalances
+## AllBalances
 
 > Code samples
 
@@ -116,7 +116,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1Balance
+## Balance
 
 > Code samples
 
@@ -194,7 +194,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1DenomsMetadata
+## DenomsMetadata
 
 > Code samples
 
@@ -347,7 +347,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1DenomMetadata
+## DenomMetadata
 
 > Code samples
 
@@ -437,7 +437,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1Params
+## Params
 
 > Code samples
 
@@ -516,7 +516,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1SpendableBalances
+## SpendableBalances
 
 > Code samples
 
@@ -631,7 +631,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1TotalSupply
+## TotalSupply
 
 > Code samples
 
@@ -738,7 +738,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosBankV1Beta1SupplyOf
+## SupplyOf
 
 > Code samples
 

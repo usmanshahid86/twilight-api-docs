@@ -2,7 +2,7 @@
 
 ## Cosmos Tx - Service
 
-## CosmosTxV1Beta1Simulate
+## Simulate
 
 > Code samples
 
@@ -189,7 +189,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosTxV1Beta1GetTxsEvent
+## GetTxsEvent
 
 > Code samples
 
@@ -346,7 +346,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosTxV1Beta1BroadcastTx
+## BroadcastTx
 
 > Code samples
 
@@ -486,7 +486,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosTxV1Beta1GetBlockWithTxs
+## GetBlockWithTxs
 
 > Code samples
 
@@ -580,7 +580,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-## CosmosTxV1Beta1GetTx
+## GetTx
 
 > Code samples
 
