@@ -7,10 +7,24 @@ language_tabs:
 toc_footers:
   - Twilight © 2025
 includes:
-  - zkos
-  - sdk
+
   - chain_zkos_protocol
   - chain_twilight_bridge
+  - chain_twilight_fork
+  - chain_twilight_volt
+  - chain_cosmos_auth
+  - chain_cosmos_bank
+  - chain_cosmos_distribution
+  - chain_cosmos_gov
+  - chain_cosmos_slashing
+  - chain_cosmos_staking
+  - chain_cosmos_tendermint
+  - chain_cosmos_tx
+  - chain_ibc
+  - chain_misc_other
+  - chain_tendermint
+  - zkos
+  - sdk
 code_clipboard: true
 meta:
   - name: description

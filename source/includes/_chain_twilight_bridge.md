@@ -1,6 +1,6 @@
-# Twilight Chain API — Twilight_Bridge
+# Twilight Chain API 
 
-## Endpoints
+## Twilight BTC Bridge
 
 ## TwilightprojectNyksBridgeBroadcastTxRefund
 
@@ -37,6 +37,20 @@ curl --request GET \
   }
 }
 ```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "broadcastRefundMsg": {
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "signedRefundTx": "0x1234567890abcdef...",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
 
 
 
@@ -130,6 +144,22 @@ curl --request GET \
 
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_refund_all', {
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "BroadcastTxRefundMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signedRefundTx": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
   headers: {
     'Accept': '*/*'
   }
@@ -211,6 +241,20 @@ Status Code **default**
 > Code samples
 
 ```shell
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "broadcastSweepMsg": {
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "signedSweepTx": "0x1234567890abcdef...",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_sweep/string/string \
   --header 'Accept: */*'
@@ -302,6 +346,22 @@ Status Code **default**
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "BroadcastTxSweepMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signedSweepTx": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 > This operation does not require authentication
 
 ## TwilightprojectNyksBridgeBroadcastTxSweepAll
@@ -373,6 +433,15 @@ Status Code **200**
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "params": {}
+}
+```
+
 |---|---|---|---|---|
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
@@ -450,6 +519,20 @@ console.log(data);
 Status Code **200**
 
 *QueryParamsResponse is response type for the Query/Params RPC method.*
+
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "proposeRefundHashMsg": [
+    {
+      "refundHash": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
@@ -531,6 +614,21 @@ console.log(data);
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "proposeSweepAddressMsg": {
+    "btcAddress": "0x1234567890abcdef...",
+    "btcScript": "btcScript...",
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
 
 ### Response Schema
 
@@ -625,6 +723,23 @@ console.log(data);
 
 ### Responses
 
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "proposeSweepAddressMsgs": [
+    {
+      "btcAddress": "0x1234567890abcdef...",
+      "btcScript": "btcScript...",
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
@@ -715,6 +830,16 @@ console.log(data);
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
+
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "depositAddress": "0x1234567890abcdef...",
+  "twilightDepositAddress": "twilight1abc123def456..."
+}
+```
 
 ### Response Schema
 
@@ -897,6 +1022,24 @@ curl --request GET \
 Status Code **200**
 
 
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "addresses": [
+    {
+      "btcDepositAddress": "0x1234567890abcdef...",
+      "btcSatoshiTestAmount": "1000000",
+      "twilightStakingAmount": "1000000",
+      "twilightAddress": "twilight1abc123def456...",
+      "isConfirmed": true,
+      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
+    }
+  ]
+}
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -989,6 +1132,20 @@ Status Code **200**
 ```json
 {
   "Judges": [
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "judgeAddress": "0x1234567890abcdef...",
+  "numOfSigners": "1000000",
+  "threshold": "1000000",
+  "signerApplicationFee": "1000000",
+  "arbitraryData": "arbitraryData...",
+  "validatorAddress": "0x1234567890abcdef..."
+}
+```
+
     {
       "judgeAddress": "0x1234567890abcdef...",
       "numOfSigners": "1000000",
@@ -1080,6 +1237,25 @@ console.log(data);
 > The result from the above endpoint looks like this:
 
 ```json
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "Judges": [
+    {
+      "judgeAddress": "0x1234567890abcdef...",
+      "numOfSigners": "1000000",
+      "threshold": "1000000",
+      "signerApplicationFee": "1000000",
+      "fragmentFeeBips": "1000000",
+      "arbitraryData": "arbitraryData...",
+      "validatorAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 {
   "addresses": [
     {
@@ -1154,6 +1330,22 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
     'Accept': '*/*'
   }
 });
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "addresses": [
+    {
+      "fragmentId": "1000000",
+      "reserveScript": "reserveScript...",
+      "reserveAddress": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 const data = await response.json();
 console.log(data);
 ```
@@ -1360,6 +1552,25 @@ curl --request GET \
 
 > 200 Response
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "signRefundMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signerPublicKey": "signerPublicKey...",
+      "refundSignature": [
+        "item..."
+      ],
+      "signerAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -1446,6 +1657,25 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
   headers: {
     'Accept': '*/*'
   }
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "signSweepMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signerPublicKey": "signerPublicKey...",
+      "sweepSignature": [
+        "item..."
+      ],
+      "signerAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 });
 const data = await response.json();
 console.log(data);
@@ -1537,6 +1767,25 @@ curl --request GET \
 
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_sweep/string/string', {
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "signSweepMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signerPublicKey": "signerPublicKey...",
+      "sweepSignature": [
+        "item..."
+      ],
+      "signerAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
   headers: {
     'Accept': '*/*'
   }
@@ -1622,6 +1871,20 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxRefundMsg": {
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "btcUnsignedRefundTx": "0x1234567890abcdef...",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
 
 ## TwilightprojectNyksBridgeSignSweepAll
 
@@ -1730,6 +1993,22 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
   headers: {
     'Accept': '*/*'
   }
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxRefundMsgs": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "btcUnsignedRefundTx": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 });
 const data = await response.json();
 console.log(data);
@@ -1827,6 +2106,21 @@ Status Code **default**
       "roundId": "1000000",
       "judgeAddress": "0x1234567890abcdef..."
     }
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxSweepMsg": {
+    "txId": "0x1234567890abcdef...",
+    "btcUnsignedSweepTx": "0x1234567890abcdef...",
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
   ]
 }
 ```
@@ -1887,6 +2181,23 @@ console.log(data);
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxSweepMsgs": [
+    {
+      "txId": "0x1234567890abcdef...",
+      "btcUnsignedSweepTx": "0x1234567890abcdef...",
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
 
@@ -1947,6 +2258,25 @@ curl --request GET \
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_sweep/string/string', {
   headers: {
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "withdrawRequest": [
+    {
+      "withdrawIdentifier": 0,
+      "withdrawAddress": "0x1234567890abcdef...",
+      "withdrawReserveId": "1000000",
+      "withdrawAmount": "1000000",
+      "twilightAddress": "twilight1abc123def456...",
+      "isConfirmed": true,
+      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
+    }
+  ]
+}
+```
+
     'Accept': '*/*'
   }
 });

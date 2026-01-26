@@ -41,9 +41,6 @@ console.log(data);
 }
 ```
 
-
-
-
 `GET /twilight-project/nyks/zkos/mint_or_burn_trading_btc/{twilightAddress}`
 
 *Queries a list of MintOrBurnTradingBtc items.*
@@ -96,6 +93,15 @@ console.log(data);
 }
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "params": {}
+}
+```
+
+
 
 
 
@@ -140,6 +146,20 @@ console.log(data);
 ```json
 {
   "TransferTx": {
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "TransferTx": {
+    "txId": "0x1234567890abcdef...",
+    "txByteCode": "0x1234567890abcdef...",
+    "txFee": "1000000",
+    "zkOracleAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
     "txId": "0x1234567890abcdef...",
     "txByteCode": "0x1234567890abcdef...",
     "txFee": "1000000",
