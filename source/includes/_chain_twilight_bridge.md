@@ -128,6 +128,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_refund_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/broadcast_tx_refund_all`
 
 *Queries a list of BroadcastTxRefundAll items.*
@@ -204,6 +214,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_sweep/string/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_sweep/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/broadcast_tx_sweep/{reserveId}/{roundId}`
@@ -294,6 +314,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_sweep_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/broadcast_tx_sweep_all`
 
 *Queries a list of BroadcastTxSweepAll items.*
@@ -360,6 +390,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/params \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/params', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/params`
@@ -437,6 +477,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/propose_refund_hash_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/propose_refund_hash_all`
 
 *Queries a list of ProposeRefundHashAll items.*
@@ -512,6 +562,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/propose_sweep_address/string/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/propose_sweep_address/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/propose_sweep_address/{reserveId}/{roundId}`
@@ -605,6 +665,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/propose_sweep_addresses_all/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/propose_sweep_addresses_all/{limit}`
 
 > The result from the above endpoint looks like this:
@@ -691,6 +761,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_address/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_address/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/registered_btc_deposit_address/{depositAddress}`
@@ -871,6 +951,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_addresses', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/registered_btc_deposit_addresses`
 
 *Queries a list of RegisteredBtcDepositAddresses items.*
@@ -958,6 +1048,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/registered_judge_address_by_validator_address/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_judge_address_by_validator_address/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/registered_judge_address_by_validator_address/{validatorAddress}`
@@ -1048,6 +1148,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_judges', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/registered_judges`
 
 
@@ -1117,6 +1227,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/registered_reserve_addresses \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_reserve_addresses', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/registered_reserve_addresses`
@@ -1321,6 +1441,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_refund_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/sign_refund_all`
 
 *Queries a list of SignRefundAll items.*
@@ -1403,6 +1533,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/sign_sweep/string/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_sweep/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/sign_sweep/{reserveId}/{roundId}`
@@ -1493,6 +1633,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_sweep_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/sign_sweep_all`
 
 *Queries a list of SignSweepAll items.*
@@ -1573,6 +1723,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_refund/string/string \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_refund/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/unsigned_tx_refund/{reserveId}/{roundId}`
@@ -1680,6 +1840,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_refund_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/unsigned_tx_refund_all`
 
 *Queries a list of UnsignedTxRefundAll items.*
@@ -1774,6 +1944,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_sweep/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/unsigned_tx_sweep/{reserveId}/{roundId}`
 
 *Queries a list of UnsignedTxSweep items.*
@@ -1831,6 +2011,16 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_sweep_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+
 `GET /twilight-project/nyks/bridge/unsigned_tx_sweep_all`
 
 *Queries a list of UnsignedTxSweepAll items.*
@@ -1886,6 +2076,16 @@ Status Code **default**
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/withdraw_btc_request_all \
   --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/withdraw_btc_request_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/withdraw_btc_request_all`
