@@ -11,17 +11,17 @@ includes:
   - chain_zkos_protocol
   - chain_twilight_bridge
   - chain_twilight_fork
-  - chain_twilight_volt
-  - chain_cosmos_auth
-  - chain_cosmos_bank
-  - chain_cosmos_distribution
-  - chain_cosmos_gov
-  - chain_cosmos_slashing
-  - chain_cosmos_staking
-  - chain_cosmos_tendermint
-  - chain_cosmos_tx
+  - chain_twilight-volt
+  - chain_cosmos-auth
+  - chain_cosmos-bank
+  - chain_cosmos-distribution
+  - chain_cosmos-gov
+  - chain_cosmos-slashing
+  - chain_cosmos-staking
+  - chain_cosmos-tendermint
+  - chain_cosmos-tx
   - chain_ibc
-  - chain_misc_other
+  - chain_misc-other
   - chain_tendermint
   - zkos
   - sdk
