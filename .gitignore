@@ -28,3 +28,5 @@ ubuntu-*-console.log
 github_token.env
 relayer-test rpc staging.postman_environment.json
 Twilight RelayerAPI HMAC.postman_collection.json
+# Python artifacts
+scripts/*
