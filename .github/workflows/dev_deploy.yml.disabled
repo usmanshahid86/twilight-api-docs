@@ -1,11 +1,11 @@
 name: Dev Deploy
 
-on:
-  push:
-    branches: ["dev"]
+#on:
+ # push:
+  #  branches: ["dev"]
 
-jobs:
-  deploy_gh:
+#jobs:
+#  deploy_gh:
     permissions:
       contents: write
 
@@ -40,4 +40,4 @@ jobs:
           destination_dir: dev
           publish_dir: ./build
           keep_files: true
-          publish_branch: deploy_gh
+          publish_branch: gh-pages

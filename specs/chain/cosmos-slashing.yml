@@ -1,0 +1,291 @@
+swagger: '2.0'
+info:
+  title: HTTP API Console — cosmos-slashing
+  name: ''
+  description: ''
+paths:
+  /cosmos/slashing/v1beta1/params:
+    get:
+      summary: Params queries the parameters of slashing module
+      operationId: CosmosSlashingV1Beta1Params
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              params:
+                type: object
+                properties:
+                  signed_blocks_window:
+                    type: string
+                    format: int64
+                  min_signed_per_window:
+                    type: string
+                    format: byte
+                  downtime_jail_duration:
+                    type: string
+                  slash_fraction_double_sign:
+                    type: string
+                    format: byte
+                  slash_fraction_downtime:
+                    type: string
+                    format: byte
+                description: Params represents the parameters used for by the slashing
+                  module.
+            title: QueryParamsResponse is the response type for the Query/Params RPC
+              method
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+      - Query
+  /cosmos/slashing/v1beta1/signing_infos:
+    get:
+      summary: SigningInfos queries signing info of all validators
+      operationId: CosmosSlashingV1Beta1SigningInfos
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              info:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    address:
+                      type: string
+                    start_height:
+                      type: string
+                      format: int64
+                      title: Height at which validator was first a candidate OR was
+                        unjailed
+                    index_offset:
+                      type: string
+                      format: int64
+                      description: 'Index which is incremented each time the validator
+                        was a bonded
+
+                        in a block and may have signed a precommit or not. This in
+                        conjunction with the
+
+                        `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.'
+                    jailed_until:
+                      type: string
+                      format: date-time
+                      description: Timestamp until which the validator is jailed due
+                        to liveness downtime.
+                    tombstoned:
+                      type: boolean
+                      description: 'Whether or not a validator has been tombstoned
+                        (killed out of validator set). It is set
+
+                        once the validator commits an equivocation or for any other
+                        configured misbehiavor.'
+                    missed_blocks_counter:
+                      type: string
+                      format: int64
+                      description: 'A counter kept to avoid unnecessary array reads.
+
+                        Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.'
+                  description: 'ValidatorSigningInfo defines a validator''s signing
+                    info for monitoring their
+
+                    liveness activity.'
+                title: info is the signing info of all validators
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                    title: 'next_key is the key to be passed to PageRequest.key to
+
+                      query the next page most efficiently'
+                  total:
+                    type: string
+                    format: uint64
+                    title: 'total is total number of results available if PageRequest.count_total
+
+                      was set, its value is undefined otherwise'
+                description: "PageResponse is to be embedded in gRPC response messages\
+                  \ where the\ncorresponding request message has used PageRequest.\n\
+                  \n message SomeResponse {\n         repeated Bar results = 1;\n\
+                  \         PageResponse page = 2;\n }"
+            title: 'QuerySigningInfosResponse is the response type for the Query/SigningInfos
+              RPC
+
+              method'
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+      - name: pagination.key
+        description: 'key is a value returned in PageResponse.next_key to begin
+
+          querying the next page most efficiently. Only one of offset or key
+
+          should be set.'
+        in: query
+        required: false
+        type: string
+        format: byte
+      - name: pagination.offset
+        description: 'offset is a numeric offset that can be used when key is unavailable.
+
+          It is less efficient than using key. Only one of offset or key should
+
+          be set.'
+        in: query
+        required: false
+        type: string
+        format: uint64
+      - name: pagination.limit
+        description: 'limit is the total number of results to be returned in the result
+          page.
+
+          If left empty it will default to a value to be set by each app.'
+        in: query
+        required: false
+        type: string
+        format: uint64
+      - name: pagination.count_total
+        description: 'count_total is set to true  to indicate that the result set
+          should include
+
+          a count of the total number of items available for pagination in UIs.
+
+          count_total is only respected when offset is used. It is ignored when key
+
+          is set.'
+        in: query
+        required: false
+        type: boolean
+      - name: pagination.reverse
+        description: 'reverse is set to true if results are to be returned in the
+          descending order.
+
+
+          Since: cosmos-sdk 0.43'
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - Query
+  /cosmos/slashing/v1beta1/signing_infos/{cons_address}:
+    get:
+      summary: SigningInfo queries the signing info of given cons address
+      operationId: CosmosSlashingV1Beta1SigningInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              val_signing_info:
+                title: val_signing_info is the signing info of requested val cons
+                  address
+                type: object
+                properties:
+                  address:
+                    type: string
+                  start_height:
+                    type: string
+                    format: int64
+                    title: Height at which validator was first a candidate OR was
+                      unjailed
+                  index_offset:
+                    type: string
+                    format: int64
+                    description: 'Index which is incremented each time the validator
+                      was a bonded
+
+                      in a block and may have signed a precommit or not. This in conjunction
+                      with the
+
+                      `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.'
+                  jailed_until:
+                    type: string
+                    format: date-time
+                    description: Timestamp until which the validator is jailed due
+                      to liveness downtime.
+                  tombstoned:
+                    type: boolean
+                    description: 'Whether or not a validator has been tombstoned (killed
+                      out of validator set). It is set
+
+                      once the validator commits an equivocation or for any other
+                      configured misbehiavor.'
+                  missed_blocks_counter:
+                    type: string
+                    format: int64
+                    description: 'A counter kept to avoid unnecessary array reads.
+
+                      Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.'
+                description: 'ValidatorSigningInfo defines a validator''s signing
+                  info for monitoring their
+
+                  liveness activity.'
+            title: 'QuerySigningInfoResponse is the response type for the Query/SigningInfo
+              RPC
+
+              method'
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+      - name: cons_address
+        description: cons_address is the address to query signing info of
+        in: path
+        required: true
+        type: string
+      tags:
+      - Query
+definitions: {}

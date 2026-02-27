@@ -1,26 +1,26 @@
-# Twilight Relayer API Documentation
+# Twilight API Documentation
 
 <h1 style="font-size: 48px; font-weight: bold; vertical-align: middle;"><p align="center">
  <img src="source/images/image.avif" alt="Twilight Pool" width="32"> Twilight
 </p></h1>
 
 <p align="center">
-  <strong>Complete API documentation for Twilight's Relayer service</strong>
+  <strong>Central API documentation for the Twilight Protocol stack</strong>
 </p>
 
 <p align="center">
-  <a href="https://docs.twilight.rest">📖 Read Full Documentation</a>
+  <a href="tba">📖 Read Full Documentation</a>
 </p>
 
 ---
 
 ## Overview
 
-The Twilight Relayer API provides comprehensive access to decentralized trading, lending, and market data functionality built on Twilight's revolutionary Bitcoin reserve architecture. Twilight combines the security of distributed Bitcoin custody with the flexibility of twilight pools - Alternative Trading Systems that allow selective information revelation for sophisticated DeFi strategies.
+This repository is the single source of truth for all API documentation across the Twilight Protocol stack. It documents the Nyks chain, zkOS privacy layer, Client SDK, and related services—providing developers with one place to discover and integrate with Twilight's APIs.
 
 ### 🏦 What is Twilight?
 
-Twilight serves as an antidote to rising walled gardens of centralized custody, maintaining Bitcoin's core value of distributed trust while providing advanced DeFi capabilities. Key properties include:
+Twilight combines the security of distributed Bitcoin custody with advanced DeFi capabilities. Key properties include:
 
 - **Always Inflight Bitcoin** - Your Bitcoin is constantly moving between validators, preventing any single party from claiming custody
 - **Bitcoin-Derived Security** - Direct security inheritance from Bitcoin with inscribed exit hatches for permissionless fund recovery
@@ -28,17 +28,21 @@ Twilight serves as an antidote to rising walled gardens of centralized custody, 
 - **Distributed Signing** - All validators share signatures on the distributed ledger, eliminating centralized aggregation servers
 - **Fast Confirmations** - 2-block deposit confirmation using validity gadgets for predictive finality
 
-### 📡 API Categories
+### 📡 Documentation Layers
 
-This documentation covers three main API categories:
+This documentation covers the Twilight Protocol stack:
 
-- **Nyks API** - Chain Information
-- **Zkos API** - Underlying privacy layer. Utxo related information 
-- **Client SDK** - Information on interating with the Twilight protocol stack including the **Nyks chain**, **zkOS RPC layer**, and **App APIs(e.g., Exchange/Relayer)**,
+| Layer | Description |
+|-------|-------------|
+| **Nyks Chain** | Cosmos SDK–based blockchain. REST APIs for auth, bank, staking, gov, distribution, and Twilight-specific modules (bridge, fork, volt, zkOS protocol). |
+| **zkOS** | Privacy layer. JSON-RPC for UTXO queries, transaction submission, and encrypted account state. |
+| **Client SDK** | Rust SDK for building apps that interact with the Nyks chain, zkOS RPC, and app APIs (e.g., Exchange/Relayer). |
+
+*Indexer API documentation is planned for future releases.*
 
 ## 🌐 API Endpoints
 
-### Mainnet-beta
+### Mainnet
 
 - **REST API**: `https://lcd.twilight.org`
 - **WebSocket**: `wss://lcd.twilight.org/ws`
@@ -50,7 +54,9 @@ This documentation covers three main API categories:
 
 ## 📚 Complete Documentation
 
-**👉 [Visit docs.twilight.rest](https://docs.twilight.org/api) for the complete interactive API documentation**
+**👉 [Visit docs.twilight.rest](https://docs.twilight.rest) for the complete interactive API documentation**
+
+- **Production (main)**: [docs.twilight.rest](https://docs.twilight.rest)
 
 
 ## 🪃 Boomerang Protocol
@@ -87,102 +93,55 @@ Twilight's unique security approach:
 - **Minimal Collateral Requirements** - Efficient capital utilization compared to traditional systems
 - **Dynamic Stake Adjustment** - Validator stakes adjust based on network conditions and security needs
 
-## Zkos Privacy Layer 
+## ZkOS Privacy Layer
 
-ZkOS is a privacy-preserving blockchain infrastructure that powers Twilight's confidential transaction system. It provides a zero-knowledge enabled transaction layer that enables private value transfers, programmable data containers, and smart contract state management while maintaining transaction privacy.
+ZkOS is a privacy-preserving blockchain infrastructure that powers Twilight's confidential transaction system. It provides a zero-knowledge enabled transaction layer for private value transfers, programmable data containers, and smart contract state management.
 
 ### Key Capabilities
 
-ZkOS enables:
-
-- **Confidential Transactions** - Private value transfers using ElGamal encryption and zero-knowledge proofs, hiding transaction amounts and relationships
-- **Privacy-Preserving State Management** - UTXO-based state management with immutability and efficient verification of state transitions
+- **Confidential Transactions** - Private value transfers using ElGamal encryption and zero-knowledge proofs
+- **Privacy-Preserving State Management** - UTXO-based state with immutability and efficient verification
 - **Programmable Privacy** - Time-bound data access controls and smart contract state
-- **Cryptographic Proof Generation** - Range proofs, same-value proofs, and shuffle proofs to verify transactions without revealing sensitive information
-- **Blockchain Integration** - Seamless integration with Cosmos-based blockchains through chain oracle services
-- **RESTful API Access** - JSON-RPC interface for querying UTXO state, submitting transactions, and interacting with the privacy layer
-
-ZkOS enhances the traditional privacy layers with the QuisQuis protocol, providing enhanced privacy guarantees that enable sophisticated DeFi strategies while maintaining confidentiality of user transactions and balances.
-
-## 🔓 Chain API Features
-
-The Chain API provides access to market data and general information without authentication:
-
-### Available Endpoints
-
-
-### Example: 
-
-
-
-## 🔐 Zkos API Features
-
-The Zkos API requires authentication and provides trading and account management functionality:
-
-### Available Endpoints
-
-
-### Example: 
-
-
-
-## 🔄  Client SDK Features
-
-
-
-###
-
-
-
+- **Cryptographic Proof Generation** - Range proofs, same-value proofs, and shuffle proofs
+- **Blockchain Integration** - Integration with Cosmos-based blockchains through chain oracle services
+- **JSON-RPC Interface** - Query UTXO state, submit transactions, and interact with the privacy layer
 
 ## 🛠 Technical Details
 
-### JSON-RPC Protocol
+### Build & Deploy
 
-All APIs use JSON-RPC 2.0 protocol with the following structure:
+- **Build**: `bundle exec middleman build`
+- **Local preview**: `bundle exec middleman server` (port 4567)
+- **Deploy**: Pushes to `main` and `dev` trigger GitHub Actions; `main` deploys to the root, `dev` to `/dev`
+
+### JSON-RPC (zkOS)
+
+zkOS uses JSON-RPC 2.0:
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "method_name",
   "id": 123,
-  "params": {
-    /* method parameters */
-  }
+  "params": { }
 }
 ```
 
-### zkOS Integration
-
-Private API endpoints utilize zkOS (Zero-Knowledge Operating System) for:
-
-- **Privacy-preserving transactions**
-- **Cryptographic proof generation**
-- **Secure order execution**
-- **Decentralized settlement**
-
-
 ## 🚀 Getting Started
 
-1. **Explore Chain APIs** - Start with public endpoints to understand the data structure
-
+1. **Nyks Chain** - Use REST endpoints for chain data (auth, bank, staking, etc.)
+2. **zkOS** - Use JSON-RPC for UTXO queries and transaction submission
+3. **Client SDK** - Use the Rust SDK for wallet, trading, and relayer integration
 
 ## 📖 Full Documentation
 
-This README provides a high-level overview. For complete API documentation including:
+For complete API documentation including parameter specifications, response schemas, examples, and SDK guides:
 
-- **Detailed parameter specifications**
-- **Response schemas and examples**
-- **Authentication guides**
-- **Error handling**
-- **Rate limiting information**
-- **SDK and integration examples**
-
-**Visit: [https://docs.twilight.rest](https://docs.twilight.org/api)**
+**Visit: [https://docs.twilight.rest](tba)**
 
 ## 🔗 Links
 
-- **API Documentation**: [docs.twilight.org/api](https://docs.twilight.org/api)
+- **API Documentation**: [docs.twilight.rest](tba)
 - **Protocol Documentation**: [docs.twilight.org](https://docs.twilight.org)
 - **Twilight Protocol**: [twilight.org](https://twilight.org)
 - **Support**: Contact through official channels
@@ -190,5 +149,5 @@ This README provides a high-level overview. For complete API documentation inclu
 ---
 
 <p align="center">
-  <em>Built with ❤️ by the Twilight team</em>
+  <em>Built by the Twilight team</em>
 </p>
