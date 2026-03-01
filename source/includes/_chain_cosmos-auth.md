@@ -1,4 +1,4 @@
-## Cosmos Auth Module
+# Nyks Auth Module
  
 ## Accounts
 

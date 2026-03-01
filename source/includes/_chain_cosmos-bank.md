@@ -1,4 +1,4 @@
-## Cosmos Bank Module
+# Nyks Bank Module
 
 ## AllBalances
 

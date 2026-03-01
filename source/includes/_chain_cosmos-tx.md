@@ -1,4 +1,4 @@
-## Cosmos Tx - Service Module
+# Nyks Tx - Service Module
 
 ## Simulate
 

@@ -1,4 +1,4 @@
-## Tendermint Queries
+# Nyks Tendermint Queries
 
 ## TendermintSpnMonitoringpConnectionChannelID
 

@@ -1,4 +1,4 @@
-## Twilight BTC Bridge Module
+# Twilight BTC Bridge Module
 
 ## BroadcastTxRefund
 

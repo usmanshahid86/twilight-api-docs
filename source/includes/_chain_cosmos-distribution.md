@@ -1,4 +1,4 @@
-## Cosmos Distribution Module
+# Nyks Distribution Module
 
 ## CommunityPool
 

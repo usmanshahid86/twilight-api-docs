@@ -1,4 +1,4 @@
-## Cosmos Governance Module
+# Nyks Governance Module
 
 ## Params
 

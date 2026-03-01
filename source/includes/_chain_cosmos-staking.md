@@ -1,4 +1,4 @@
-x## Cosmos Staking Module
+# Nyks Staking Module
 
 ## DelegatorDelegations
 

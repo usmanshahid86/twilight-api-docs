@@ -1,4 +1,4 @@
-# Nyks Indexer
+# Nyks Indexer Design
 
 ## Overview
 

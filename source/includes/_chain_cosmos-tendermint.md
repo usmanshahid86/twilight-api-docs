@@ -1,4 +1,4 @@
-## Cosmos Tendermint Module
+# Nyks Tendermint Module
 
 ## CosmosBaseTendermintV1Beta1GetLatestBlock
 

@@ -1,4 +1,4 @@
-## Cosmos Slashing Module
+# Nyks Slashing Module
 
 ## Params
 

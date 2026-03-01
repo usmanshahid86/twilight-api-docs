@@ -1,4 +1,4 @@
-## IBC Module
+# Nyks IBC Module
 
 ## IbcApplicationsTransferV1DenomTraces
 
