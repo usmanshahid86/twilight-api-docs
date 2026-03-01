@@ -1,5 +1,3 @@
-# Twilight Chain API 
-
 ## Forkscanner Module
 
 ## DelegateKeysAll

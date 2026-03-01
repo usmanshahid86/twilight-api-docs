@@ -1,5 +1,3 @@
-# Twilight Chain API 
-
 ## IBC Module
 
 ## IbcApplicationsTransferV1DenomTraces

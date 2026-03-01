@@ -1,5 +1,3 @@
-# Twilight Chain API — 
-
 ## Miscellaneous
 
 ## CosmosEvidenceV1Beta1AllEvidence

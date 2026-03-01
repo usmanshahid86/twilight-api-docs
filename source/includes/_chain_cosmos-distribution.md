@@ -1,6 +1,4 @@
-# Twilight Chain API — Cosmos Distribution
-
-## Cosmos Distribution
+## Cosmos Distribution Module
 
 ## CommunityPool
 

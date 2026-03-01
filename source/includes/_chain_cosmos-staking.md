@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Cosmos Staking
+x## Cosmos Staking Module
 
 ## DelegatorDelegations
 

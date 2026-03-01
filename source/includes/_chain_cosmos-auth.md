@@ -1,7 +1,5 @@
-# Twilight Chain API 
-
-## Cosmos Auth
-
+## Cosmos Auth Module
+ 
 ## Accounts
 
 > Code samples

@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Cosmos Gov
+## Cosmos Governance Module
 
 ## Params
 

@@ -1,6 +1,4 @@
-# Twilight Chain API
-
-## ZKOS Module
+## Zkos Module
 
 The ZKOS module provides REST API endpoints for querying ZKOS-related data on the Twilight chain.
 

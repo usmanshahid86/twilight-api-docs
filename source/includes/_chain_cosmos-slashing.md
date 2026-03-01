@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Cosmos Slashing
+## Cosmos Slashing Module
 
 ## Params
 

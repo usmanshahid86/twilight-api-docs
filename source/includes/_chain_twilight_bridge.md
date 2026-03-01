@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Twilight BTC Bridge
+## Twilight BTC Bridge Module
 
 ## BroadcastTxRefund
 

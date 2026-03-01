@@ -1,4 +1,4 @@
-# ZkOS RPC API 
+# Zkos RPC API 
 
 ## Overview
 

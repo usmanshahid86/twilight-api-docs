@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Cosmos Bank
+## Cosmos Bank Module
 
 ## AllBalances
 

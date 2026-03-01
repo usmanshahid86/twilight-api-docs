@@ -1,6 +1,4 @@
-# Twilight Chain API  
-
-## Cosmos Tendermint
+## Cosmos Tendermint Module
 
 ## CosmosBaseTendermintV1Beta1GetLatestBlock
 

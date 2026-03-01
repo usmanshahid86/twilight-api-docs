@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Twilight Volt
+## Twilight Volt Module
 
 ## BtcReserve
 

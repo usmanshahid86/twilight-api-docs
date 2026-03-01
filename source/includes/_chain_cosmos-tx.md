@@ -1,6 +1,4 @@
-# Twilight Chain API 
-
-## Cosmos Tx - Service
+## Cosmos Tx - Service Module
 
 ## Simulate
 
