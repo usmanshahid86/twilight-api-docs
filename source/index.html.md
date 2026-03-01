@@ -1,5 +1,5 @@
 ---
-title: Twilight Relayer API Reference
+title: Twilight Protocol API Reference
 language_tabs:
   - shell
   - javascript
@@ -7,8 +7,12 @@ language_tabs:
 toc_footers:
   - Twilight © 2025
 includes:
-
-  - chain_zkos_protocol
+  # === START HERE ===
+  - getting_started          # Which API? Networks Quick links
+  - conventions
+  
+  # === NYKS CHAIN (LCD REST) ===
+  - chain_zkos_protocol      # Twilight zkOS module on chain  
   - chain_twilight_bridge
   - chain_twilight_fork
   - chain_twilight-volt
@@ -23,9 +27,18 @@ includes:
   - chain_ibc
   - chain_misc-other
   - chain_tendermint
+
+  # === Zkos RPC ===
   - zkos
+
+  # === INDEXER ===
+  - indexer_api      # REST API (primary for developers)
+  - indexer          # Service architecture (for operators)
+
+  # === CLIENT SDK ===
   - sdk
 code_clipboard: true
+search: true
 meta:
   - name: description
     content: Documentation for the Twilight protocol API
@@ -33,4 +46,14 @@ meta:
 
 # Introduction
 
-Welcome to the Twilight protocol API! You can utilize our API to access chain API endpoints, which provide information on various operations within our protocol stack.
+Welcome to the Twilight Protocol API documentation. This guide helps you integrate with the Nyks chain, zkOS privacy layer, Indexer, and Client SDK.
+
+**New to Twilight?** Start with [Which API Should I Use?](#which-api-should-i-use) to pick the right interface for your use case, then jump to the relevant API reference.
+
+**Quick navigation:**
+- [Start Here](#start-here) — Chain info, networks, API decision table
+- [Conventions](#conventions) — Pagination, data formats, common patterns
+- [Nyks Chain API](#twilight-chain-api) — REST endpoints for on-chain state
+- [zkOS RPC](#zkos-rpc-api) — Privacy layer (UTXOs, shielded transfers)
+- [Indexer API](#indexer-api) — Indexed data, search, WebSocket
+- [Client SDK](#twilight-client-sdk) — Rust SDK for wallets and apps

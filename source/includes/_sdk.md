@@ -1,4 +1,4 @@
-# Twilight Clinet SDK
+# Twilight Client SDK
 
 ## Overview
 
