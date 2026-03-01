@@ -9,7 +9,7 @@
             name="description"
             content="Documentation for the Twilight protocol API"
         >
-    <title>Twilight Relayer API Reference</title>
+    <title>Twilight Protocol API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -288,7 +288,7 @@
     </style>
     <link href="stylesheets/screen-6e4f8a2e.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all_nosearch-18c3ed8e.js"></script>
+      <script src="javascripts/all-b12a2749.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -309,9 +309,47 @@
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="rust">rust</a>
         </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#start-here" class="toc-h1 toc-link" data-title="Start Here">Start Here</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#which-api-should-i-use" class="toc-h2 toc-link" data-title="Which API Should I Use?">Which API Should I Use?</a>
+                  </li>
+                  <li>
+                    <a href="#chain-info" class="toc-h2 toc-link" data-title="Chain Info">Chain Info</a>
+                  </li>
+                  <li>
+                    <a href="#networks-amp-endpoints" class="toc-h2 toc-link" data-title="Networks &amp; Endpoints">Networks &amp; Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#typical-developer-workflows" class="toc-h2 toc-link" data-title="Typical Developer Workflows">Typical Developer Workflows</a>
+                  </li>
+                  <li>
+                    <a href="#quick-links" class="toc-h2 toc-link" data-title="Quick Links">Quick Links</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#conventions" class="toc-h1 toc-link" data-title="Conventions">Conventions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                  </li>
+                  <li>
+                    <a href="#data-formats" class="toc-h2 toc-link" data-title="Data Formats">Data Formats</a>
+                  </li>
+                  <li>
+                    <a href="#indexer-vs-lcd" class="toc-h2 toc-link" data-title="Indexer vs LCD">Indexer vs LCD</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#twilight-chain-api" class="toc-h1 toc-link" data-title="Twilight Chain API">Twilight Chain API</a>
@@ -907,7 +945,125 @@
               </ul>
           </li>
           <li>
-            <a href="#twilight-clinet-sdk" class="toc-h1 toc-link" data-title="Twilight Clinet SDK">Twilight Clinet SDK</a>
+            <a href="#indexer-api" class="toc-h1 toc-link" data-title="Indexer API">Indexer API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#rate-limiting" class="toc-h2 toc-link" data-title="Rate Limiting">Rate Limiting</a>
+                  </li>
+                  <li>
+                    <a href="#conventions" class="toc-h2 toc-link" data-title="Conventions">Conventions</a>
+                  </li>
+                  <li>
+                    <a href="#table-of-contents" class="toc-h2 toc-link" data-title="Table of Contents">Table of Contents</a>
+                  </li>
+                  <li>
+                    <a href="#health-checks" class="toc-h2 toc-link" data-title="Health Checks">Health Checks</a>
+                  </li>
+                  <li>
+                    <a href="#blocks" class="toc-h2 toc-link" data-title="Blocks">Blocks</a>
+                  </li>
+                  <li>
+                    <a href="#transactions" class="toc-h2 toc-link" data-title="Transactions">Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#accounts" class="toc-h2 toc-link" data-title="Accounts">Accounts</a>
+                  </li>
+                  <li>
+                    <a href="#validators" class="toc-h2 toc-link" data-title="Validators">Validators</a>
+                  </li>
+                  <li>
+                    <a href="#statistics" class="toc-h2 toc-link" data-title="Statistics">Statistics</a>
+                  </li>
+                  <li>
+                    <a href="#btc-deposits" class="toc-h2 toc-link" data-title="BTC Deposits">BTC Deposits</a>
+                  </li>
+                  <li>
+                    <a href="#btc-withdrawals" class="toc-h2 toc-link" data-title="BTC Withdrawals">BTC Withdrawals</a>
+                  </li>
+                  <li>
+                    <a href="#reserves" class="toc-h2 toc-link" data-title="Reserves">Reserves</a>
+                  </li>
+                  <li>
+                    <a href="#fragments" class="toc-h2 toc-link" data-title="Fragments">Fragments</a>
+                  </li>
+                  <li>
+                    <a href="#zkos-transfers" class="toc-h2 toc-link" data-title="zkOS Transfers">zkOS Transfers</a>
+                  </li>
+                  <li>
+                    <a href="#zkos-mint-burn" class="toc-h2 toc-link" data-title="zkOS Mint/Burn">zkOS Mint/Burn</a>
+                  </li>
+                  <li>
+                    <a href="#bitcoin-info" class="toc-h2 toc-link" data-title="Bitcoin Info">Bitcoin Info</a>
+                  </li>
+                  <li>
+                    <a href="#search" class="toc-h2 toc-link" data-title="Search">Search</a>
+                  </li>
+                  <li>
+                    <a href="#delegate-keys" class="toc-h2 toc-link" data-title="Delegate Keys">Delegate Keys</a>
+                  </li>
+                  <li>
+                    <a href="#sweep-addresses" class="toc-h2 toc-link" data-title="Sweep Addresses">Sweep Addresses</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-api" class="toc-h2 toc-link" data-title="WebSocket API">WebSocket API</a>
+                  </li>
+                  <li>
+                    <a href="#http-status-codes" class="toc-h2 toc-link" data-title="HTTP Status Codes">HTTP Status Codes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#nyks-indexer" class="toc-h1 toc-link" data-title="Nyks Indexer">Nyks Indexer</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#architecture" class="toc-h2 toc-link" data-title="Architecture">Architecture</a>
+                  </li>
+                  <li>
+                    <a href="#configuration" class="toc-h2 toc-link" data-title="Configuration">Configuration</a>
+                  </li>
+                  <li>
+                    <a href="#startup-sequence" class="toc-h2 toc-link" data-title="Startup Sequence">Startup Sequence</a>
+                  </li>
+                  <li>
+                    <a href="#advisory-lock" class="toc-h2 toc-link" data-title="Advisory Lock">Advisory Lock</a>
+                  </li>
+                  <li>
+                    <a href="#block-processing" class="toc-h2 toc-link" data-title="Block Processing">Block Processing</a>
+                  </li>
+                  <li>
+                    <a href="#message-types" class="toc-h2 toc-link" data-title="Message Types">Message Types</a>
+                  </li>
+                  <li>
+                    <a href="#enrichment-worker" class="toc-h2 toc-link" data-title="Enrichment Worker">Enrichment Worker</a>
+                  </li>
+                  <li>
+                    <a href="#database-schema" class="toc-h2 toc-link" data-title="Database Schema">Database Schema</a>
+                  </li>
+                  <li>
+                    <a href="#redis-pub-sub" class="toc-h2 toc-link" data-title="Redis Pub/Sub">Redis Pub/Sub</a>
+                  </li>
+                  <li>
+                    <a href="#graceful-shutdown" class="toc-h2 toc-link" data-title="Graceful Shutdown">Graceful Shutdown</a>
+                  </li>
+                  <li>
+                    <a href="#lcd-api-endpoints-used" class="toc-h2 toc-link" data-title="LCD API Endpoints Used">LCD API Endpoints Used</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#twilight-client-sdk" class="toc-h1 toc-link" data-title="Twilight Client SDK">Twilight Client SDK</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
@@ -944,7 +1100,193 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Twilight protocol API! You can utilize our API to access chain API endpoints, which provide information on various operations within our protocol stack.</p>
+<p>Welcome to the Twilight Protocol API documentation. This guide helps you integrate with the Nyks chain, zkOS privacy layer, Indexer, and Client SDK.</p>
+
+<p><strong>New to Twilight?</strong> Start with <a href="#which-api-should-i-use">Which API Should I Use?</a> to pick the right interface for your use case, then jump to the relevant API reference.</p>
+
+<p><strong>Quick navigation:</strong>
+- <a href="#start-here">Start Here</a> — Chain info, networks, API decision table
+- <a href="#conventions">Conventions</a> — Pagination, data formats, common patterns
+- <a href="#twilight-chain-api">Nyks Chain API</a> — REST endpoints for on-chain state
+- <a href="#zkos-rpc-api">zkOS RPC</a> — Privacy layer (UTXOs, shielded transfers)
+- <a href="#indexer-api">Indexer API</a> — Indexed data, search, WebSocket
+- <a href="#twilight-client-sdk">Client SDK</a> — Rust SDK for wallets and apps</p>
+<h1 id='start-here'>Start Here</h1>
+<p>This section helps you choose the right API and get the network details you need.</p>
+<h2 id='which-api-should-i-use'>Which API Should I Use?</h2>
+<table><thead>
+<tr>
+<th>Your goal</th>
+<th>Use</th>
+<th>Base URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Query on-chain state (accounts, balances, staking, gov)</td>
+<td><strong>Nyks Chain (LCD REST)</strong></td>
+<td><code>https://lcd.twilight.org</code></td>
+</tr>
+<tr>
+<td>Submit transactions, simulate gas, broadcast txs</td>
+<td><strong>Nyks Chain (LCD REST)</strong></td>
+<td><code>https://lcd.twilight.org</code></td>
+</tr>
+<tr>
+<td>Privacy layer: UTXOs, shielded transfers, burn/mint</td>
+<td><strong>zkOS RPC</strong></td>
+<td><code>https://nykschain.twilight.rest/zkos/</code></td>
+</tr>
+<tr>
+<td>Indexed data: blocks, tx history, search, analytics</td>
+<td><strong>Indexer API</strong></td>
+<td><code>https://indexer.twilight.org/api</code></td>
+</tr>
+<tr>
+<td>Build wallets, trading apps, relayer integrations</td>
+<td><strong>Client SDK</strong></td>
+<td>Rust crate</td>
+</tr>
+</tbody></table>
+<h2 id='chain-info'>Chain Info</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Mainnet</th>
+<th>Testnet</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Chain ID</strong></td>
+<td>nyks</td>
+<td>nyks-testnet</td>
+</tr>
+<tr>
+<td><strong>Bech32 prefix</strong></td>
+<td>twilight</td>
+<td>twilight</td>
+</tr>
+<tr>
+<td><strong>Denom</strong></td>
+<td>NYKS, SATS</td>
+<td>NYKS, SATS</td>
+</tr>
+</tbody></table>
+<h2 id='networks-amp-endpoints'>Networks &amp; Endpoints</h2>
+<table><thead>
+<tr>
+<th>Network</th>
+<th>LCD</th>
+<th>Indexer</th>
+<th>zkOS</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Mainnet</strong></td>
+<td>lcd.twilight.org</td>
+<td>indexer.twilight.org</td>
+<td>nykschain.twilight.rest/zkos</td>
+</tr>
+<tr>
+<td><strong>Testnet</strong></td>
+<td>lcd.twilight.rest</td>
+<td>(if available)</td>
+<td>nykschain.twilight.rest/zkos</td>
+</tr>
+</tbody></table>
+<h2 id='typical-developer-workflows'>Typical Developer Workflows</h2>
+<table><thead>
+<tr>
+<th>Workflow</th>
+<th>APIs used</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Query account balance</strong></td>
+<td>LCD REST → <code>/cosmos/bank/v1beta1/balances/{address}</code></td>
+</tr>
+<tr>
+<td><strong>Build &amp; broadcast a tx</strong></td>
+<td>LCD REST → <code>/cosmos/tx/v1beta1/simulate</code>, <code>/cosmos/tx/v1beta1/txs</code></td>
+</tr>
+<tr>
+<td><strong>Get shielded UTXOs</strong></td>
+<td>zkOS RPC → <code>getUtxos</code>, <code>getMemoUtxos</code>, <code>getStateUtxos</code></td>
+</tr>
+<tr>
+<td><strong>Submit private transfer</strong></td>
+<td>zkOS RPC → <code>txCommit</code></td>
+</tr>
+<tr>
+<td><strong>Search blocks / txs by address</strong></td>
+<td>Indexer API → <code>/api/blocks</code>, <code>/api/transactions</code>, <code>/api/search</code></td>
+</tr>
+<tr>
+<td><strong>Real-time block / tx events</strong></td>
+<td>Indexer API → WebSocket</td>
+</tr>
+<tr>
+<td><strong>Build a wallet or trading app</strong></td>
+<td>Client SDK (Rust)</td>
+</tr>
+</tbody></table>
+<h2 id='quick-links'>Quick Links</h2>
+<ul>
+<li><a href="#twilight-chain-api">Nyks Chain API</a> — REST endpoints</li>
+<li><a href="#zkos-rpc-api">zkOS RPC</a> — Privacy layer</li>
+<li><a href="#indexer-api">Indexer API</a> — Indexed data &amp; search</li>
+<li><a href="#twilight-client-sdk">Client SDK</a> — Rust SDK</li>
+</ul>
+<h1 id='conventions'>Conventions</h1>
+<p>Common patterns across Twilight APIs.</p>
+<h2 id='pagination'>Pagination</h2>
+<table><thead>
+<tr>
+<th>API</th>
+<th>Parameters</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>LCD REST</strong></td>
+<td><code>pagination.key</code>, <code>pagination.limit</code>, <code>pagination.offset</code></td>
+<td>Use <code>key</code> for cursor-based; <code>offset</code> for page-based</td>
+</tr>
+<tr>
+<td><strong>Indexer</strong></td>
+<td><code>page</code>, <code>limit</code></td>
+<td>Default <code>limit</code>: 20, max: 100</td>
+</tr>
+</tbody></table>
+<h2 id='data-formats'>Data Formats</h2>
+<ul>
+<li><strong>BigInt</strong>: Balances, gas amounts, and volumes are returned as <strong>strings</strong> in JSON.</li>
+<li><strong>Timestamps</strong>: ISO 8601 format.</li>
+<li><strong>Addresses</strong>: Bech32 with <code>twilight</code> prefix.</li>
+</ul>
+<h2 id='indexer-vs-lcd'>Indexer vs LCD</h2>
+<table><thead>
+<tr>
+<th>Use case</th>
+<th>Prefer</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authoritative on-chain state</td>
+<td>LCD REST</td>
+</tr>
+<tr>
+<td>Historical queries, search, analytics</td>
+<td>Indexer API</td>
+</tr>
+<tr>
+<td>Real-time events (blocks, txs)</td>
+<td>Indexer WebSocket</td>
+</tr>
+<tr>
+<td>Transaction submission</td>
+<td>LCD REST or zkOS RPC</td>
+</tr>
+</tbody></table>
 <h1 id='twilight-chain-api'>Twilight Chain API</h1><h2 id='zkos-module'>ZKOS Module</h2>
 <p>The ZKOS module provides REST API endpoints for querying ZKOS-related data on the Twilight chain.</p>
 
@@ -36955,7 +37297,3012 @@ curl <span class="nt">-X</span> POST https://nykschain.twilight.rest/zkos/ <span
 <li>Some endpoints return empty results with error messages if no data is found</li>
 <li>Transaction verification is performed before committing transactions</li>
 </ol>
-<h1 id='twilight-clinet-sdk'>Twilight Clinet SDK</h1><h2 id='overview'>Overview</h2>
+<h1 id='indexer-api'>Indexer API</h1><h2 id='overview'>Overview</h2>
+<p>The <strong>Twilight Indexer API</strong> is a read-only REST API that provides comprehensive access to indexed Nyks blockchain data including blocks, transactions, accounts, validators, BTC bridge operations, fragments, and zkOS transactions.</p>
+
+<p>The API includes:
+- Paginated list and detail endpoints for all indexed data
+- Real-time WebSocket subscriptions for new blocks, transactions, deposits, and withdrawals
+- Swagger UI for interactive endpoint testing</p>
+
+<blockquote>
+<p><strong>Note</strong>
+This API serves indexed data from PostgreSQL. For authoritative on-chain state, refer to the Twilight LCD: <strong>https://lcd.twilight.org</strong>.</p>
+</blockquote>
+
+<hr>
+<h2 id='base-url'>Base URL</h2>
+<p><strong>Production</strong>
+<code>https://indexer.twilight.org/api</code></p>
+
+<p><strong>Local development</strong>
+<code>http://localhost:3001/api</code></p>
+
+<p><strong>Swagger UI</strong>
+<code>https://indexer.twilight.org/api/docs</code></p>
+
+<hr>
+<h2 id='authentication'>Authentication</h2>
+<p>No authentication is required.</p>
+
+<hr>
+<h2 id='rate-limiting'>Rate Limiting</h2>
+<p>All <code>/api</code> routes are rate limited.</p>
+
+<table><thead>
+<tr>
+<th>Setting</th>
+<th style="text-align: right">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Window</td>
+<td style="text-align: right">60 seconds</td>
+</tr>
+<tr>
+<td>Max requests</td>
+<td style="text-align: right">100 per window</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='conventions'>Conventions</h2>
+<ul>
+<li><strong>Pagination</strong>: All list endpoints accept <code>page</code> (default: 1) and <code>limit</code> (default: 20, max: 100) query parameters.</li>
+<li><strong>BigInt values</strong>: Balances, gas amounts, and volumes are returned as <strong>strings</strong> for JSON safety.</li>
+<li><strong>Timestamps</strong>: ISO 8601 format.</li>
+<li><strong>Response format</strong>: JSON.</li>
+</ul>
+
+<hr>
+<h2 id='table-of-contents'>Table of Contents</h2>
+<ol>
+<li><a href="#health-checks">Health Checks</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#transactions">Transactions</a></li>
+<li><a href="#accounts">Accounts</a></li>
+<li><a href="#validators">Validators</a></li>
+<li><a href="#statistics">Statistics</a></li>
+<li><a href="#btc-deposits">BTC Deposits</a></li>
+<li><a href="#btc-withdrawals">BTC Withdrawals</a></li>
+<li><a href="#reserves">Reserves</a></li>
+<li><a href="#fragments">Fragments</a></li>
+<li><a href="#zkos-transfers">zkOS Transfers</a></li>
+<li><a href="#zkos-mint-burn">zkOS Mint/Burn</a></li>
+<li><a href="#bitcoin-info">Bitcoin Info</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#websocket-api">WebSocket API</a></li>
+</ol>
+
+<hr>
+<h2 id='health-checks'>Health Checks</h2><h3 id='liveness-probe'>Liveness Probe</h3>
+<p><strong>Description</strong>
+Simple liveness check. Returns 200 if the API process is running.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/health/live</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/health/live"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='readiness-probe'>Readiness Probe</h3>
+<p><strong>Description</strong>
+Comprehensive readiness check. Verifies database, Redis, and indexer state.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/health/ready</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/health/ready"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"checks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"database"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redis"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastIndexedHeight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"428041"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Response Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>status</code></td>
+<td style="text-align: right">string</td>
+<td><code>ready</code> or <code>not_ready</code></td>
+</tr>
+<tr>
+<td><code>checks.database</code></td>
+<td style="text-align: right">string</td>
+<td><code>ok</code> or <code>failed</code></td>
+</tr>
+<tr>
+<td><code>checks.redis</code></td>
+<td style="text-align: right">string</td>
+<td><code>ok</code>, <code>failed</code>, or <code>unavailable</code></td>
+</tr>
+<tr>
+<td><code>checks.lastIndexedHeight</code></td>
+<td style="text-align: right">string</td>
+<td>Last indexed block height</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td style="text-align: right">string</td>
+<td>ISO 8601 timestamp</td>
+</tr>
+</tbody></table>
+
+<p>Returns <code>200</code> when healthy, <code>503</code> when not ready.</p>
+
+<hr>
+<h2 id='blocks'>Blocks</h2><h3 id='list-blocks'>List Blocks</h3>
+<p><strong>Description</strong>
+Returns a paginated list of blocks ordered by height descending.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/blocks</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/blocks?page=1&amp;limit=20"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://indexer.twilight.org/api/blocks?page=1&amp;limit=20</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3D4..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"proposer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64address"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"proposerMoniker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight-validator-1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"proposerOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilightvaloper1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gasWanted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">21403</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Response Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>data[].height</code></td>
+<td style="text-align: right">integer</td>
+<td>Block height</td>
+</tr>
+<tr>
+<td><code>data[].hash</code></td>
+<td style="text-align: right">string</td>
+<td>Block hash</td>
+</tr>
+<tr>
+<td><code>data[].timestamp</code></td>
+<td style="text-align: right">string</td>
+<td>Block time (ISO 8601)</td>
+</tr>
+<tr>
+<td><code>data[].proposer</code></td>
+<td style="text-align: right">string</td>
+<td>Proposer address (base64)</td>
+</tr>
+<tr>
+<td><code>data[].proposerMoniker</code></td>
+<td style="text-align: right">string</td>
+<td>Validator moniker</td>
+</tr>
+<tr>
+<td><code>data[].txCount</code></td>
+<td style="text-align: right">integer</td>
+<td>Transaction count</td>
+</tr>
+<tr>
+<td><code>data[].gasUsed</code></td>
+<td style="text-align: right">string</td>
+<td>Total gas used</td>
+</tr>
+<tr>
+<td><code>data[].gasWanted</code></td>
+<td style="text-align: right">string</td>
+<td>Total gas wanted</td>
+</tr>
+</tbody></table>
+
+<p><strong>Cache:</strong> 10 seconds</p>
+
+<hr>
+<h3 id='get-latest-block'>Get Latest Block</h3>
+<p><strong>Description</strong>
+Returns the most recent block with its last 10 transactions.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/blocks/latest</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/blocks/latest"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3D4..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"proposer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64address"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-block-by-height'>Get Block by Height</h3>
+<p><strong>Description</strong>
+Returns a specific block by height with all transactions and events.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/blocks/{height}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>height</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">Yes</td>
+<td>Block height</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/blocks/428041"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3D4..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"proposer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64address"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gasWanted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-block-transactions'>Get Block Transactions</h3>
+<p><strong>Description</strong>
+Returns paginated transactions for a specific block.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/blocks/{height}/transactions</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>height</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">Yes</td>
+<td>Block height</td>
+</tr>
+</tbody></table>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/blocks/428041/transactions?page=1&amp;limit=20"</span>
+</code></pre></div>
+<hr>
+<h2 id='transactions'>Transactions</h2><h3 id='list-transactions'>List Transactions</h3>
+<p><strong>Description</strong>
+Returns a paginated, filterable list of transactions.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/txs</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by message type</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td><code>success</code> or <code>failed</code></td>
+</tr>
+<tr>
+<td><code>module</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td><code>bridge</code>, <code>forks</code>, <code>volt</code>, or <code>zkos</code></td>
+</tr>
+<tr>
+<td><code>programType</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>zkOS program type filter</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/txs?module=bridge&amp;page=1&amp;limit=20"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://indexer.twilight.org/api/txs?module=bridge&amp;page=1&amp;limit=20</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3D4..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/twilight-project.nyks.bridge.MsgConfirmBtcDeposit"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"messageTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/twilight-project.nyks.bridge.MsgConfirmBtcDeposit"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">654321</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">32717</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 10 seconds</p>
+
+<hr>
+<h3 id='get-recent-transactions'>Get Recent Transactions</h3>
+<p><strong>Description</strong>
+Returns the most recent transactions.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/txs/recent</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Number of results (default: 10, max: 50)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/txs/recent?limit=10"</span>
+</code></pre></div>
+<p><strong>Cache:</strong> 10 seconds</p>
+
+<hr>
+<h3 id='get-transaction-by-hash'>Get Transaction by Hash</h3>
+<p><strong>Description</strong>
+Returns complete transaction details including decoded messages, events, and zkOS data.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/txs/{hash}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>hash</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Transaction hash (case-insensitive)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/txs/A1B2C3D4..."</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3D4..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/twilight-project.nyks.bridge.MsgConfirmBtcDeposit"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"messageTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/twilight-project.nyks.bridge.MsgConfirmBtcDeposit"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"typeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRM_BTC_DEPOSIT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gasWanted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"errorLog"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"zkosDecodedData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Response Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>hash</code></td>
+<td style="text-align: right">string</td>
+<td>Transaction hash</td>
+</tr>
+<tr>
+<td><code>blockHeight</code></td>
+<td style="text-align: right">integer</td>
+<td>Block containing this transaction</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td style="text-align: right">string</td>
+<td>Primary message type</td>
+</tr>
+<tr>
+<td><code>messageTypes</code></td>
+<td style="text-align: right">array</td>
+<td>All message types</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td style="text-align: right">array</td>
+<td>Decoded messages with type, typeName, and data</td>
+</tr>
+<tr>
+<td><code>fee</code></td>
+<td style="text-align: right">object</td>
+<td>Fee object</td>
+</tr>
+<tr>
+<td><code>gasUsed</code></td>
+<td style="text-align: right">string</td>
+<td>Gas used</td>
+</tr>
+<tr>
+<td><code>gasWanted</code></td>
+<td style="text-align: right">string</td>
+<td>Gas wanted</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td style="text-align: right">string</td>
+<td><code>success</code> or <code>failed</code></td>
+</tr>
+<tr>
+<td><code>errorLog</code></td>
+<td style="text-align: right">string</td>
+<td>Error message if failed</td>
+</tr>
+<tr>
+<td><code>signers</code></td>
+<td style="text-align: right">array</td>
+<td>Signer public keys</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td style="text-align: right">array</td>
+<td>Transaction events</td>
+</tr>
+<tr>
+<td><code>zkosDecodedData</code></td>
+<td style="text-align: right">object</td>
+<td>Decoded zkOS data (if applicable)</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h3 id='get-transaction-type-stats'>Get Transaction Type Stats</h3>
+<p><strong>Description</strong>
+Returns the top 20 transaction types by count.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/txs/types/stats</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/txs/types/stats"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/twilight-project.nyks.bridge.MsgConfirmBtcDeposit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='get-transactions-by-script-address'>Get Transactions by Script Address</h3>
+<p><strong>Description</strong>
+Returns transactions associated with a zkOS script address.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/txs/script/{scriptAddress}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>scriptAddress</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>zkOS script address (min 10 chars)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/txs/script/script1abc..."</span>
+</code></pre></div>
+<p><strong>Cache:</strong> 10 seconds</p>
+
+<hr>
+<h2 id='accounts'>Accounts</h2><h3 id='list-accounts'>List Accounts</h3>
+<p><strong>Description</strong>
+Returns accounts ordered by transaction count.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/accounts</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/accounts?page=1&amp;limit=20"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">272</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-account-details'>Get Account Details</h3>
+<p><strong>Description</strong>
+Returns comprehensive account details including balances, deposits, withdrawals, clearing account, zkOS operations, and fragment signer records.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/accounts/{address}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Twilight address (<code>twilight1...</code> or <code>twilightvaloper1...</code>)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/accounts/twilight1..."</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"balances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"denom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"utlx"</span><span class="p">,</span><span class="w"> </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"deposits"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"withdrawals"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"clearingAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zkosOperations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"fragmentSigners"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Response Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>account</code></td>
+<td style="text-align: right">object</td>
+<td>Basic account info (address, balance, txCount)</td>
+</tr>
+<tr>
+<td><code>balances</code></td>
+<td style="text-align: right">array</td>
+<td>On-chain token balances from LCD</td>
+</tr>
+<tr>
+<td><code>deposits</code></td>
+<td style="text-align: right">array</td>
+<td>Recent BTC deposits</td>
+</tr>
+<tr>
+<td><code>withdrawals</code></td>
+<td style="text-align: right">array</td>
+<td>Recent BTC withdrawals</td>
+</tr>
+<tr>
+<td><code>clearingAccount</code></td>
+<td style="text-align: right">object</td>
+<td>Clearing account info (if exists)</td>
+</tr>
+<tr>
+<td><code>zkosOperations</code></td>
+<td style="text-align: right">array</td>
+<td>Recent zkOS mint/burn operations</td>
+</tr>
+<tr>
+<td><code>fragmentSigners</code></td>
+<td style="text-align: right">array</td>
+<td>Fragment signer records</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h3 id='get-account-transactions'>Get Account Transactions</h3>
+<p><strong>Description</strong>
+Returns transactions involving an address (as signer or in message data).</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/accounts/{address}/transactions</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Twilight address</td>
+</tr>
+</tbody></table>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/accounts/twilight1.../transactions?page=1&amp;limit=20"</span>
+</code></pre></div>
+<hr>
+<h2 id='validators'>Validators</h2><h3 id='list-validators'>List Validators</h3>
+<p><strong>Description</strong>
+Returns validators from LCD.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/validators</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>status</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td><code>BOND_STATUS_BONDED</code> (default), <code>BOND_STATUS_UNBONDED</code>, <code>BOND_STATUS_UNBONDING</code></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Max results (default: 200, max: 500)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/validators?status=BOND_STATUS_BONDED"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"validators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"operator_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilightvaloper1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"jailed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BOND_STATUS_BONDED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"moniker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validator Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"commission"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"commission_rates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.100000000000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"max_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.200000000000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"max_change_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.010000000000000000"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h3 id='get-validator-details'>Get Validator Details</h3>
+<p><strong>Description</strong>
+Returns a single validator&#39;s details.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/validators/{address}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Validator operator address (<code>twilightvaloper1...</code>)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/validators/twilightvaloper1..."</span>
+</code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h3 id='get-validator-block-production'>Get Validator Block Production</h3>
+<p><strong>Description</strong>
+Returns block production statistics for a validator.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/validators/{address}/blocks</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Validator operator address</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/validators/twilightvaloper1.../blocks"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"totalBlocks"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blocks24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blocks7d"</span><span class="p">:</span><span class="w"> </span><span class="mi">847</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.43</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='get-validator-count'>Get Validator Count</h3>
+<p><strong>Description</strong>
+Returns the count of validators for a given status.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/validators/count</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>status</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Bond status (default: <code>BOND_STATUS_BONDED</code>)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/validators/count"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h2 id='statistics'>Statistics</h2><h3 id='chain-overview'>Chain Overview</h3>
+<p><strong>Description</strong>
+Returns overall chain statistics.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"latestBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"totalBlocks"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalTransactions"</span><span class="p">:</span><span class="w"> </span><span class="mi">654321</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalAccounts"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionsLast24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionsByStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='module-statistics'>Module Statistics</h3>
+<p><strong>Description</strong>
+Returns per-module statistics for bridge, forks, volt, and zkos.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/modules</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/modules"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bridge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"deposits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdrawals"</span><span class="p">:</span><span class="w"> </span><span class="mi">567</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"depositVolume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"withdrawalVolume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"567890123"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"forks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"delegateKeys"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"volt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"fragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activeFragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">98</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"zkos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"transfers"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mintBurns"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678900"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 60 seconds</p>
+
+<hr>
+<h3 id='network-performance'>Network Performance</h3>
+<p><strong>Description</strong>
+Returns network performance metrics including block time, TPS, and gas utilization.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/network-performance</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/network-performance"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"averageBlockTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.42</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tps"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.89</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"blockProductionRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gasUtilization"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"proposerDistribution"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64address"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.43</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='bridge-analytics'>Bridge Analytics</h3>
+<p><strong>Description</strong>
+Returns BTC bridge deposit/withdrawal analytics.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/bridge-analytics</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/bridge-analytics"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"totalVolume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678900"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"depositVolume24h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"withdrawalVolume24h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pendingWithdrawals"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedWithdrawals"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"averageDepositSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"averageWithdrawalSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"withdrawalSuccessRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">98.15</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='active-accounts'>Active Accounts</h3>
+<p><strong>Description</strong>
+Returns active account metrics over various time windows.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/active-accounts</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/active-accounts"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"active24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active7d"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active30d"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"newAccounts24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"growthRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.34</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='fragment-health'>Fragment Health</h3>
+<p><strong>Description</strong>
+Returns fragment health and signer statistics.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/fragment-health</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/fragment-health"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"totalFragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activeFragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bootstrappingFragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"inactiveFragments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"averageSignersPerFragment"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalSigners"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fragmentSuccessRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">79.67</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='block-chart-data'>Block Chart Data</h3>
+<p><strong>Description</strong>
+Returns daily aggregated block and transaction data for charting.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/charts/blocks</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>days</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Number of days (default: 7)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/charts/blocks?days=7"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125000000"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='transaction-chart-data'>Transaction Chart Data</h3>
+<p><strong>Description</strong>
+Returns daily transaction data by status and module.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/stats/charts/transactions</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>days</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Number of days (default: 7)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/stats/charts/transactions?days=7"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">5398</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"byModule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"bridge"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forks"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"volt"</span><span class="p">:</span><span class="w"> </span><span class="mi">567</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"zkos"</span><span class="p">:</span><span class="w"> </span><span class="mi">3397</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h2 id='btc-deposits'>BTC Deposits</h2><h3 id='list-btc-deposits'>List BTC Deposits</h3>
+<p><strong>Description</strong>
+Returns paginated BTC deposits with optional filtering.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/deposits</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by Twilight deposit address</td>
+</tr>
+<tr>
+<td><code>reserveAddress</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by reserve address</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Search by address or reserve</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/deposits?page=1&amp;limit=20"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reserveAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc1q..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"depositAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"btcHeight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"878000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"btcHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"twilightDepositAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"oracleAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"votes"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-btc-deposit-by-id'>Get BTC Deposit by ID</h3>
+<p><strong>Description</strong>
+Returns a single BTC deposit by ID.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/deposits/{id}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">Yes</td>
+<td>Deposit ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/deposits/1"</span>
+</code></pre></div>
+<hr>
+<h2 id='btc-withdrawals'>BTC Withdrawals</h2><h3 id='list-btc-withdrawals'>List BTC Withdrawals</h3>
+<p><strong>Description</strong>
+Returns paginated BTC withdrawals with optional filtering.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/withdrawals</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+<tr>
+<td><code>confirmed</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by Twilight address</td>
+</tr>
+<tr>
+<td><code>withdrawAddress</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by BTC withdraw address</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Search term</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/withdrawals?confirmed=true&amp;page=1&amp;limit=20"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"withdrawIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"twilightAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"withdrawAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc1q..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"withdrawReserveId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"withdrawAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:00.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-btc-withdrawal-by-id'>Get BTC Withdrawal by ID</h3>
+<p><strong>Description</strong>
+Returns a single BTC withdrawal by ID.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/withdrawals/{id}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">Yes</td>
+<td>Withdrawal ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/withdrawals/1"</span>
+</code></pre></div>
+<hr>
+<h2 id='reserves'>Reserves</h2><h3 id='list-reserves'>List Reserves</h3>
+<p><strong>Description</strong>
+Returns all BTC reserves.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/reserves</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/reserves"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"btcRelayCapacityValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"privatePoolValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"publicValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"feePool"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unlockHeight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"878000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"roundId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-reserve-by-id'>Get Reserve by ID</h3>
+<p><strong>Description</strong>
+Returns a single reserve by ID.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/reserves/{id}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Reserve ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/reserves/1"</span>
+</code></pre></div>
+<hr>
+<h2 id='fragments'>Fragments</h2><h3 id='list-live-fragments'>List Live Fragments</h3>
+<p><strong>Description</strong>
+Returns current fragment state from LCD with signers.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/fragments/live</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/fragments/live"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"judgeAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"signerApplicationFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"feePool"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"feeBips"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"signers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"fragmentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"signerAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"btcPubKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02abc..."</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"applicationFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"signersCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h3 id='get-live-fragment-by-id'>Get Live Fragment by ID</h3>
+<p><strong>Description</strong>
+Returns a single live fragment from LCD.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/fragments/live/{id}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Fragment ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/fragments/live/1"</span>
+</code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h3 id='list-fragments-database'>List Fragments (Database)</h3>
+<p><strong>Description</strong>
+Returns fragments from the indexed database with pagination.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/fragments</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/fragments?page=1&amp;limit=20"</span>
+</code></pre></div>
+<hr>
+<h3 id='list-fragment-signers'>List Fragment Signers</h3>
+<p><strong>Description</strong>
+Returns fragment signers with optional filtering by fragment ID.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/fragment-signers</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+<tr>
+<td><code>fragmentId</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td>Filter by fragment ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/fragment-signers?fragmentId=1"</span>
+</code></pre></div>
+<hr>
+<h2 id='zkos-transfers'>zkOS Transfers</h2><h3 id='list-zkos-transfers'>List zkOS Transfers</h3>
+<p><strong>Description</strong>
+Returns paginated zkOS transfer transactions.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/zkos/transfers</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/zkos/transfers?page=1&amp;limit=20"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"zkTxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"programType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"decodedData"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"txFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='get-zkos-transfer-by-id'>Get zkOS Transfer by ID</h3>
+<p><strong>Description</strong>
+Returns a single zkOS transfer by transaction ID.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/zkos/transfers/{txId}</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>txId</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>zkOS transaction ID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/zkos/transfers/abc123..."</span>
+</code></pre></div>
+<hr>
+<h2 id='zkos-mint-burn'>zkOS Mint/Burn</h2><h3 id='list-mint-burn-operations'>List Mint/Burn Operations</h3>
+<p><strong>Description</strong>
+Returns paginated zkOS mint and burn operations.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/zkos/mint-burns</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Results per page (default: 20, max: 100)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">No</td>
+<td><code>mint</code> or <code>burn</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/zkos/mint-burns?type=mint&amp;page=1&amp;limit=20"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">428041</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"twilightAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mintOrBurn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"btcValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h2 id='bitcoin-info'>Bitcoin Info</h2><h3 id='get-bitcoin-node-info'>Get Bitcoin Node Info</h3>
+<p><strong>Description</strong>
+Returns Bitcoin node block height and fee estimates.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/bitcoin/info</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/bitcoin/info"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">878000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"feeEstimate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"satPerVbyte"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"btcPerKb"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00012</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"targetBlocks"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Cache:</strong> 30 seconds</p>
+
+<hr>
+<h3 id='get-bitcoin-address-balance'>Get Bitcoin Address Balance</h3>
+<p><strong>Description</strong>
+Returns the balance of a Bitcoin address via mempool.space API.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/bitcoin/address/{address}/balance</code></p>
+
+<p><strong>Path Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Bitcoin address (bc1, 1, 3, or tb1 prefix)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/bitcoin/address/bc1q.../balance"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc1q..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"balanceSats"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Response Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td style="text-align: right">string</td>
+<td>Bitcoin address</td>
+</tr>
+<tr>
+<td><code>balanceSats</code></td>
+<td style="text-align: right">integer</td>
+<td>Balance in satoshis (confirmed + mempool)</td>
+</tr>
+<tr>
+<td><code>txCount</code></td>
+<td style="text-align: right">integer</td>
+<td>Total transaction count</td>
+</tr>
+</tbody></table>
+
+<p><strong>Cache:</strong> 12 hours</p>
+
+<hr>
+<h2 id='search'>Search</h2><h3 id='global-search'>Global Search</h3>
+<p><strong>Description</strong>
+Searches across blocks, transactions, accounts, and deposits. Auto-detects query type.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/search</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>q</code></td>
+<td style="text-align: right">string</td>
+<td style="text-align: center">Yes</td>
+<td>Search query (min 3 chars). Accepts block height, tx hash, or address</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/search?q=twilight1abc..."</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"block"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1abc..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"deposits"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h2 id='delegate-keys'>Delegate Keys</h2><h3 id='list-delegate-keys'>List Delegate Keys</h3>
+<p><strong>Description</strong>
+Returns all validator delegate key mappings (validator to oracle addresses).</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/delegates</code></p>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/delegates"</span>
+</code></pre></div>
+<blockquote>
+<p>The result from the above endpoint looks like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"validatorAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilightvaloper1..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"btcOracleAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"btcPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02abc..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zkOracleAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight1..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h2 id='sweep-addresses'>Sweep Addresses</h2><h3 id='list-sweep-addresses'>List Sweep Addresses</h3>
+<p><strong>Description</strong>
+Returns proposed BTC sweep addresses from LCD.</p>
+
+<p><strong>HTTP Method</strong>
+<code>GET</code></p>
+
+<p><strong>Path</strong>
+<code>/api/twilight/sweep-addresses</code></p>
+
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right">Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>limit</code></td>
+<td style="text-align: right">integer</td>
+<td style="text-align: center">No</td>
+<td>Max results (default: 100, max: 200)</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example</strong></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://indexer.twilight.org/api/twilight/sweep-addresses?limit=100"</span>
+</code></pre></div>
+<p><strong>Cache:</strong> 10 minutes</p>
+
+<hr>
+<h2 id='websocket-api'>WebSocket API</h2><h3 id='connection'>Connection</h3>
+<p><strong>URL</strong>
+<code>wss://indexer.twilight.org/ws</code></p>
+
+<p><strong>Local</strong>
+<code>ws://localhost:3001/ws</code></p>
+
+<p>Clients subscribe to all channels by default. Server pings every 30 seconds; unresponsive clients are terminated.</p>
+
+<hr>
+<h3 id='channels'>Channels</h3>
+<table><thead>
+<tr>
+<th>Channel</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>twilight:block:new</code></td>
+<td>New blocks</td>
+</tr>
+<tr>
+<td><code>twilight:tx:new</code></td>
+<td>New transactions</td>
+</tr>
+<tr>
+<td><code>twilight:deposit:new</code></td>
+<td>New BTC deposits</td>
+</tr>
+<tr>
+<td><code>twilight:withdrawal:new</code></td>
+<td>New BTC withdrawals</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h3 id='client-messages'>Client Messages</h3>
+<p><strong>Subscribe to a channel</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">,</span><span class="w"> </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight:block:new"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Unsubscribe from a channel</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribe"</span><span class="p">,</span><span class="w"> </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twilight:block:new"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Subscribe to all channels</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe_all"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Unsubscribe from all channels</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribe_all"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Ping</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h3 id='server-messages'>Server Messages</h3>
+<p><strong>Connection confirmation</strong></p>
+
+<blockquote>
+<p>The server sends a connection message on connect:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connected to Twilight Explorer WebSocket"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"blocks"</span><span class="p">,</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w"> </span><span class="s2">"deposits"</span><span class="p">,</span><span class="w"> </span><span class="s2">"withdrawals"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>New block event</strong></p>
+
+<blockquote>
+<p>When a new block is indexed:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">428042</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1B2C3..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:05.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"txCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-26T10:00:05.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Pong response</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pong"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1708942800000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<hr>
+<h2 id='http-status-codes'>HTTP Status Codes</h2>
+<table><thead>
+<tr>
+<th style="text-align: right">Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><code>200</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td style="text-align: right"><code>400</code></td>
+<td>Invalid request parameters</td>
+</tr>
+<tr>
+<td style="text-align: right"><code>404</code></td>
+<td>Resource not found</td>
+</tr>
+<tr>
+<td style="text-align: right"><code>429</code></td>
+<td>Rate limit exceeded</td>
+</tr>
+<tr>
+<td style="text-align: right"><code>500</code></td>
+<td>Internal server error</td>
+</tr>
+<tr>
+<td style="text-align: right"><code>503</code></td>
+<td>Service unavailable (health check failed)</td>
+</tr>
+</tbody></table>
+<h1 id='nyks-indexer'>Nyks Indexer</h1><h2 id='overview'>Overview</h2>
+<p>The <strong>Nyks Chain Indexer</strong> is a background service that syncs the Nyks blockchain into PostgreSQL. It processes blocks from the LCD API, decodes 23 custom module message types, and publishes real-time events via Redis pub/sub.</p>
+
+<p><strong>Key features:</strong>
+- PostgreSQL advisory lock prevents concurrent indexer instances
+- Block linkage validation detects chain reorganizations
+- Async enrichment worker decodes zkOS transactions without blocking sync
+- Real-time events via Redis pub/sub for WebSocket delivery</p>
+
+<hr>
+<h2 id='architecture'>Architecture</h2><div class="highlight"><pre class="highlight plaintext"><code>Nyks Chain (LCD API)
+       |
+       v
+  Sync Loop ──&gt; PostgreSQL &lt;── API Server
+       |              ^
+       |              |
+       +──&gt; Redis ────+──&gt; WebSocket
+       |
+  Enrichment Worker ──&gt; zkOS Decode API
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Component</th>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Sync loop</td>
+<td><code>src/sync.ts</code></td>
+<td>Main block processor</td>
+</tr>
+<tr>
+<td>Enrichment worker</td>
+<td><code>src/enrichment.ts</code></td>
+<td>Async zkOS decoder</td>
+</tr>
+<tr>
+<td>LCD client</td>
+<td><code>src/lcd-client.ts</code></td>
+<td>Chain API client</td>
+</tr>
+<tr>
+<td>Message decoders</td>
+<td><code>src/decoders/</code></td>
+<td>23 message type parsers</td>
+</tr>
+<tr>
+<td>Entry point</td>
+<td><code>src/index.ts</code></td>
+<td>Startup, shutdown, Redis</td>
+</tr>
+<tr>
+<td>Config</td>
+<td><code>src/config.ts</code></td>
+<td>Environment configuration</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='configuration'>Configuration</h2>
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td><code>postgresql://...</code></td>
+<td>PostgreSQL connection</td>
+</tr>
+<tr>
+<td><code>REDIS_URL</code></td>
+<td><code>redis://localhost:6379</code></td>
+<td>Redis for pub/sub</td>
+</tr>
+<tr>
+<td><code>TWILIGHT_LCD_URL</code></td>
+<td><code>https://lcd.twilight.org</code></td>
+<td>Cosmos LCD endpoint</td>
+</tr>
+<tr>
+<td><code>ZKOS_DECODE_URL</code></td>
+<td><code>https://indexer.twilight.org</code></td>
+<td>zkOS decode API</td>
+</tr>
+<tr>
+<td><code>INDEXER_START_HEIGHT</code></td>
+<td><code>1</code></td>
+<td>Starting block height</td>
+</tr>
+<tr>
+<td><code>INDEXER_POLL_INTERVAL</code></td>
+<td><code>2000</code></td>
+<td>Milliseconds between polls</td>
+</tr>
+<tr>
+<td><code>INDEXER_BATCH_SIZE</code></td>
+<td><code>10</code></td>
+<td>Blocks per batch</td>
+</tr>
+<tr>
+<td><code>CHAIN_ID</code></td>
+<td><code>nyks</code></td>
+<td>Chain identifier</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='startup-sequence'>Startup Sequence</h2>
+<ol>
+<li>Connect to PostgreSQL (fail if unavailable)</li>
+<li>Connect to LCD API and verify by fetching latest block</li>
+<li>Initialize Redis connection (optional, non-blocking)</li>
+<li>Setup Redis pub/sub event publishing</li>
+<li>Register SIGINT/SIGTERM signal handlers</li>
+<li>Start enrichment worker (async, non-blocking)</li>
+<li>Start sync loop (blocking, main loop)</li>
+</ol>
+
+<hr>
+<h2 id='advisory-lock'>Advisory Lock</h2>
+<p>The indexer acquires a PostgreSQL advisory lock (<code>pg_try_advisory_lock(123456789)</code>) at startup.</p>
+
+<ul>
+<li>If the lock cannot be acquired, another indexer is already running — log a warning and exit</li>
+<li>Lock is released on graceful shutdown</li>
+<li>Prevents duplicate writes from concurrent instances</li>
+<li>Running multiple instances is safe — extras exit immediately</li>
+</ul>
+
+<hr>
+<h2 id='block-processing'>Block Processing</h2><h3 id='sync-loop'>Sync Loop</h3>
+<p>The sync loop polls the LCD API for new blocks and processes them in batches.</p>
+
+<ol>
+<li>Read <code>lastIndexedHeight</code> from the <code>IndexerState</code> table</li>
+<li>Fetch latest chain height from LCD</li>
+<li>If caught up: sleep for <code>INDEXER_POLL_INTERVAL</code>, then check again</li>
+<li>Otherwise: process blocks from <code>lastIndexed + 1</code> to <code>lastIndexed + INDEXER_BATCH_SIZE</code></li>
+<li>On error: wait 5 seconds, then retry</li>
+</ol>
+<h3 id='per-block-processing'>Per-Block Processing</h3>
+<p>For each block height:</p>
+
+<ol>
+<li><strong>Fetch</strong> block header from LCD</li>
+<li><strong>Validate linkage</strong> — compare <code>last_block_id.hash</code> with previous block&#39;s hash in DB
+
+<ul>
+<li>On mismatch: log error and halt (possible chain reorganization)</li>
+<li>Skip for genesis block (height 1)</li>
+</ul></li>
+<li><strong>Fetch</strong> all transactions for the block</li>
+<li><strong>Decode</strong> each transaction&#39;s messages using module decoders</li>
+<li><strong>Atomic write</strong> to database:
+
+<ul>
+<li>Upsert Block record</li>
+<li>Create Transaction records</li>
+<li>Create Event records</li>
+<li>Update Account activity</li>
+<li>Update <code>lastIndexedHeight</code> in IndexerState</li>
+</ul></li>
+<li><strong>Process custom messages</strong> (separate transaction):
+
+<ul>
+<li>Write module-specific records (deposits, withdrawals, fragments, etc.)</li>
+</ul></li>
+<li><strong>Emit events</strong> via EventEmitter → Redis pub/sub</li>
+</ol>
+
+<hr>
+<h2 id='message-types'>Message Types</h2>
+<p>The indexer decodes <strong>23 custom Cosmos SDK message types</strong> across 4 modules.</p>
+<h3 id='bridge-module-17-types'>Bridge Module (17 types)</h3>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Description</th>
+<th>DB Table</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>MsgConfirmBtcDeposit</code></td>
+<td>Oracle confirms BTC deposit</td>
+<td><code>BtcDeposit</code></td>
+</tr>
+<tr>
+<td><code>MsgRegisterBtcDepositAddress</code></td>
+<td>Register BTC deposit address</td>
+<td><code>BtcDepositAddress</code></td>
+</tr>
+<tr>
+<td><code>MsgRegisterReserveAddress</code></td>
+<td>Register reserve address</td>
+<td><code>Reserve</code></td>
+</tr>
+<tr>
+<td><code>MsgBootstrapFragment</code></td>
+<td>Initialize multisig fragment</td>
+<td><code>Fragment</code></td>
+</tr>
+<tr>
+<td><code>MsgWithdrawBtcRequest</code></td>
+<td>Request BTC withdrawal</td>
+<td><code>BtcWithdrawal</code></td>
+</tr>
+<tr>
+<td><code>MsgConfirmBtcWithdraw</code></td>
+<td>Confirm withdrawal on BTC chain</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgWithdrawTxSigned</code></td>
+<td>Validator signs withdrawal</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgWithdrawTxFinal</code></td>
+<td>Judge submits final signed withdrawal</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgSweepProposal</code></td>
+<td>Propose reserve sweep</td>
+<td><code>SweepProposal</code></td>
+</tr>
+<tr>
+<td><code>MsgSignSweep</code></td>
+<td>Sign sweep transaction</td>
+<td><code>SweepSignature</code></td>
+</tr>
+<tr>
+<td><code>MsgSignRefund</code></td>
+<td>Sign refund transaction</td>
+<td><code>RefundSignature</code></td>
+</tr>
+<tr>
+<td><code>MsgBroadcastTxSweep</code></td>
+<td>Broadcast signed sweep</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgBroadcastTxRefund</code></td>
+<td>Broadcast signed refund</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgProposeSweepAddress</code></td>
+<td>Propose sweep destination</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgProposeRefundHash</code></td>
+<td>Propose refund hash</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgUnsignedTxSweep</code></td>
+<td>Propose unsigned sweep tx</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MsgUnsignedTxRefund</code></td>
+<td>Propose unsigned refund tx</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3 id='forks-module-2-types'>Forks Module (2 types)</h3>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Description</th>
+<th>DB Table</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>MsgSetDelegateAddresses</code></td>
+<td>Validator sets oracle delegates</td>
+<td><code>DelegateKey</code></td>
+</tr>
+<tr>
+<td><code>MsgSeenBtcChainTip</code></td>
+<td>Oracle reports BTC chain tip</td>
+<td><code>BtcChainTip</code></td>
+</tr>
+</tbody></table>
+<h3 id='volt-module-2-types'>Volt Module (2 types)</h3>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Description</th>
+<th>DB Table</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>MsgSignerApplication</code></td>
+<td>Apply to join a fragment</td>
+<td><code>FragmentSigner</code></td>
+</tr>
+<tr>
+<td><code>MsgAcceptSigners</code></td>
+<td>Judge accepts signer applications</td>
+<td><code>FragmentSigner</code> (update)</td>
+</tr>
+</tbody></table>
+<h3 id='zkos-module-2-types'>zkOS Module (2 types)</h3>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Description</th>
+<th>DB Table</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>MsgTransferTx</code></td>
+<td>Zero-knowledge transfer</td>
+<td><code>ZkosTransfer</code></td>
+</tr>
+<tr>
+<td><code>MsgMintBurnTradingBtc</code></td>
+<td>Mint or burn trading BTC</td>
+<td><code>ZkosMintBurn</code></td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='enrichment-worker'>Enrichment Worker</h2>
+<p>The enrichment worker runs in the background alongside the sync loop. It decodes zkOS transaction bytecode asynchronously so the main sync loop is never blocked by slow external API calls.</p>
+
+<table><thead>
+<tr>
+<th>Setting</th>
+<th style="text-align: right">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Batch size</td>
+<td style="text-align: right">20 records</td>
+</tr>
+<tr>
+<td>Poll interval</td>
+<td style="text-align: right">10 seconds</td>
+</tr>
+<tr>
+<td>Max attempts</td>
+<td style="text-align: right">5 per record</td>
+</tr>
+</tbody></table>
+<h3 id='workflow'>Workflow</h3>
+<ol>
+<li>Query <code>ZkosTransfer</code> records where <code>decodeStatus = &#39;pending&#39;</code> and <code>decodeAttempts &lt; 5</code></li>
+<li>For each record, POST to the zkOS decode API with <code>txByteCode</code></li>
+<li>On success: store <code>decodedData</code>, <code>inputs</code>, <code>outputs</code>, <code>programType</code>; set <code>decodeStatus = &#39;ok&#39;</code></li>
+<li>On failure: increment <code>decodeAttempts</code>, store error in <code>lastDecodeError</code></li>
+<li>After 5 failures: set <code>decodeStatus = &#39;failed&#39;</code></li>
+</ol>
+<h3 id='decode-statuses'>Decode Statuses</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>pending</code></td>
+<td>Waiting to be decoded (initial state)</td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td>Successfully decoded</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td>Max attempts reached, requires manual inspection</td>
+</tr>
+</tbody></table>
+<h3 id='external-api'>External API</h3><div class="highlight"><pre class="highlight plaintext"><code>POST {ZKOS_DECODE_URL}/api/decode-zkos-transaction
+Content-Type: application/json
+
+{ "tx_byte_code": "hex_encoded_bytecode" }
+</code></pre></div>
+<p>Returns decoded transaction with inputs, outputs, witnesses, and fee.</p>
+
+<hr>
+<h2 id='database-schema'>Database Schema</h2><h3 id='core-tables'>Core Tables</h3>
+<table><thead>
+<tr>
+<th>Table</th>
+<th>Primary Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Block</code></td>
+<td><code>height</code></td>
+<td>Block headers with proposer, gas, tx count</td>
+</tr>
+<tr>
+<td><code>Transaction</code></td>
+<td><code>id</code> (auto)</td>
+<td>Transactions with decoded messages</td>
+</tr>
+<tr>
+<td><code>Event</code></td>
+<td><code>id</code> (auto)</td>
+<td>Block and transaction events</td>
+</tr>
+<tr>
+<td><code>Account</code></td>
+<td><code>address</code></td>
+<td>Account activity tracking</td>
+</tr>
+<tr>
+<td><code>IndexerState</code></td>
+<td><code>key</code></td>
+<td>Sync state (e.g., <code>lastIndexedHeight</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='bridge-tables'>Bridge Tables</h3>
+<table><thead>
+<tr>
+<th>Table</th>
+<th>Unique Constraint</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>BtcDeposit</code></td>
+<td><code>(btcHash, twilightDepositAddress)</code></td>
+<td>Confirmed BTC deposits</td>
+</tr>
+<tr>
+<td><code>BtcDepositAddress</code></td>
+<td><code>btcDepositAddress</code></td>
+<td>Registered deposit addresses</td>
+</tr>
+<tr>
+<td><code>BtcWithdrawal</code></td>
+<td><code>withdrawIdentifier</code></td>
+<td>Withdrawal requests</td>
+</tr>
+<tr>
+<td><code>Reserve</code></td>
+<td><code>id</code> (BigInt)</td>
+<td>BTC reserves</td>
+</tr>
+<tr>
+<td><code>SweepProposal</code></td>
+<td>—</td>
+<td>Reserve sweep proposals</td>
+</tr>
+<tr>
+<td><code>SweepSignature</code></td>
+<td><code>(reserveId, roundId, signerAddress)</code></td>
+<td>Sweep signatures</td>
+</tr>
+<tr>
+<td><code>RefundSignature</code></td>
+<td><code>(reserveId, roundId, signerAddress)</code></td>
+<td>Refund signatures</td>
+</tr>
+</tbody></table>
+<h3 id='forks-tables'>Forks Tables</h3>
+<table><thead>
+<tr>
+<th>Table</th>
+<th>Unique Constraint</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>DelegateKey</code></td>
+<td><code>validatorAddress</code></td>
+<td>Validator oracle delegations</td>
+</tr>
+<tr>
+<td><code>BtcChainTip</code></td>
+<td><code>(btcHeight, btcOracleAddress)</code></td>
+<td>BTC chain observations</td>
+</tr>
+</tbody></table>
+<h3 id='volt-tables'>Volt Tables</h3>
+<table><thead>
+<tr>
+<th>Table</th>
+<th>Unique Constraint</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Fragment</code></td>
+<td><code>id</code> (BigInt)</td>
+<td>Multisig fragments</td>
+</tr>
+<tr>
+<td><code>FragmentSigner</code></td>
+<td><code>(fragmentId, signerAddress)</code></td>
+<td>Fragment signers</td>
+</tr>
+<tr>
+<td><code>ClearingAccount</code></td>
+<td><code>twilightAddress</code></td>
+<td>Clearing accounts</td>
+</tr>
+</tbody></table>
+<h3 id='zkos-tables'>zkOS Tables</h3>
+<table><thead>
+<tr>
+<th>Table</th>
+<th>Unique Constraint</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ZkosTransfer</code></td>
+<td><code>zkTxId</code></td>
+<td>Zero-knowledge transfers (with decode status)</td>
+</tr>
+<tr>
+<td><code>ZkosMintBurn</code></td>
+<td>—</td>
+<td>Mint and burn operations</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h2 id='redis-pub-sub'>Redis Pub/Sub</h2>
+<p>Events are published after each block is processed. The API&#39;s WebSocket server subscribes and delivers to connected clients.</p>
+
+<table><thead>
+<tr>
+<th>Channel</th>
+<th>Payload</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>twilight:block:new</code></td>
+<td>Block data</td>
+</tr>
+<tr>
+<td><code>twilight:tx:new</code></td>
+<td>Transaction data</td>
+</tr>
+<tr>
+<td><code>twilight:deposit:new</code></td>
+<td>BTC deposit data</td>
+</tr>
+<tr>
+<td><code>twilight:withdrawal:new</code></td>
+<td>BTC withdrawal data</td>
+</tr>
+</tbody></table>
+
+<p>All payloads are JSON with BigInt values serialized as strings.</p>
+
+<hr>
+<h2 id='graceful-shutdown'>Graceful Shutdown</h2>
+<p>On <code>SIGINT</code> or <code>SIGTERM</code>:</p>
+
+<ol>
+<li>Stop enrichment worker</li>
+<li>Stop sync loop (wait for current block to finish)</li>
+<li>Release PostgreSQL advisory lock</li>
+<li>Disconnect Prisma</li>
+<li>Disconnect Redis</li>
+<li>Exit with code 0</li>
+</ol>
+
+<hr>
+<h2 id='lcd-api-endpoints-used'>LCD API Endpoints Used</h2><h3 id='block-amp-transaction'>Block &amp; Transaction</h3>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/base/tendermint/v1beta1/blocks/latest</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/base/tendermint/v1beta1/blocks/{height}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/tx/v1beta1/txs/block/{height}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/tx/v1beta1/txs/{hash}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/tx/v1beta1/txs?events=tx.height={height}</code></td>
+</tr>
+</tbody></table>
+<h3 id='module-queries'>Module Queries</h3>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/bridge/registered_btc_deposit_addresses</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/bridge/withdraw_btc_request_all</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/forks/delegate_keys_all</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/volt/btc_reserve</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/volt/fragments</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/volt/fragment/{id}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/volt/clearing_account/{address}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/twilightproject/nyks/zkos/transfer_tx/{txId}</code></td>
+</tr>
+</tbody></table>
+<h3 id='account-amp-node'>Account &amp; Node</h3>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/auth/v1beta1/accounts/{address}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/bank/v1beta1/balances/{address}</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/base/tendermint/v1beta1/node_info</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/cosmos/base/tendermint/v1beta1/syncing</code></td>
+</tr>
+</tbody></table>
+<h1 id='twilight-client-sdk'>Twilight Client SDK</h1><h2 id='overview'>Overview</h2>
 <p>Welcome to the Twilight Client SDK documentation!<br>
 The Twilight Privacy SDK is a comprehensive Rust library for building privacy-preserving wallet applications on the Twilight blockchain ecosystem. This SDK provides complete client-side functionality for managing zero-knowledge transactions, interacting with Twilight relayers, and handling decentralized trading operations.</p>
 
