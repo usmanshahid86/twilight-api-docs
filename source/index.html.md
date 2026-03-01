@@ -1,59 +1,62 @@
 ---
-title: Twilight Protocol API Reference
-language_tabs:
-  - shell
-  - javascript
-  - rust
+title: Twilight Protocol API Documentation
+language_tabs: []
 toc_footers:
   - Twilight © 2025
-includes:
-  # === START HERE ===
-  - getting_started          # Which API? Networks Quick links
-  - conventions
-  
-  # === NYKS CHAIN (LCD REST) ===
-  - chain_zkos_protocol      # Twilight zkOS module on chain  
-  - chain_twilight_bridge
-  - chain_twilight_fork
-  - chain_twilight-volt
-  - chain_cosmos-auth
-  - chain_cosmos-bank
-  - chain_cosmos-distribution
-  - chain_cosmos-gov
-  - chain_cosmos-slashing
-  - chain_cosmos-staking
-  - chain_cosmos-tendermint
-  - chain_cosmos-tx
-  - chain_ibc
-  - chain_misc-other
-  - chain_tendermint
-
-  # === Zkos RPC ===
-  - zkos
-
-  # === INDEXER ===
-  - indexer_api      # REST API (primary for developers)
-  - indexer          # Service architecture (for operators)
-
-  # === CLIENT SDK ===
-  - sdk
-code_clipboard: true
 search: true
+code_clipboard: false
 meta:
   - name: description
-    content: Documentation for the Twilight protocol API
+    content: Developer documentation for the Twilight Protocol — Nyks Chain API, zkOS RPC, Indexer API, and Client SDK.
 ---
 
-# Introduction
+# Twilight Protocol
 
-Welcome to the Twilight Protocol API documentation. This guide helps you integrate with the Nyks chain, zkOS privacy layer, Indexer, and Client SDK.
+Welcome to the Twilight Protocol developer documentation. Twilight is a privacy-preserving Bitcoin DeFi protocol built on the Nyks Cosmos SDK chain.
 
-**New to Twilight?** Start with [Which API Should I Use?](#which-api-should-i-use) to pick the right interface for your use case, then jump to the relevant API reference.
+## Which API Should I Use?
 
-**Quick navigation:**
-- [Start Here](#start-here) — Chain info, networks, API decision table
-- [Conventions](#conventions) — Pagination, data formats, common patterns
-- [Nyks Chain API](#twilight-chain-api) — REST endpoints for on-chain state
-- [zkOS RPC](#zkos-rpc-api) — Privacy layer (UTXOs, shielded transfers)
-- [Indexer API](#indexer-api) — Indexed data, search, WebSocket
-- [Client SDK](#twilight-client-sdk) — Rust SDK for wallets and apps
+| Your goal | Use | Link |
+|-----------|-----|------|
+| Query on-chain state (accounts, balances, staking, gov) | **Nyks Chain API** | [Chain API](chain) |
+| Submit or simulate transactions, broadcast txs | **Nyks Chain API** | [Chain API](chain) |
+| Privacy layer: UTXOs, shielded transfers, burn/mint | **zkOS RPC** | [zkOS RPC](zkos) |
+| Indexed data: blocks, tx history, search, analytics | **Indexer API** | [Indexer API](indexer) |
+| Build wallets, trading apps, relayer integrations | **Client SDK** | [Client SDK](sdk) |
+| Browse everything in one page | **Full Reference** | [Full Reference](reference) |
+
+## Section Guides
+
+### [Nyks Chain API →](chain)
+
+REST endpoints served by the LCD (Light Client Daemon). Query accounts, balances, staking state, governance proposals, IBC channels, and Twilight-specific modules.
+
+**Base URL:** `https://lcd.twilight.org`
+
+---
+
+### [zkOS RPC →](zkos)
+
+Zero-knowledge privacy layer. Manage UTXOs, submit shielded transfers, and interact with the proof system.
+
+**Base URL:** `https://nykschain.twilight.rest/zkos/`
+
+---
+
+### [Indexer API →](indexer)
+
+Read-only REST + WebSocket API for indexed chain data. Search blocks, transactions, accounts, validators, and BTC bridge operations.
+
+**Base URL:** `https://indexer.twilight.org/api`
+
+---
+
+### [Client SDK →](sdk)
+
+Rust crate that wraps all APIs into a high-level interface. The recommended starting point for building wallets and applications.
+
+---
+
+### [Full Reference →](reference)
+
+All sections combined in a single scrollable page with unified sidebar and search.
