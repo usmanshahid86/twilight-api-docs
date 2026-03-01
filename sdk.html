@@ -286,9 +286,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-6e4f8a2e.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-2ea0ad63.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-b12a2749.js"></script>
+      <script src="javascripts/all-28e276f9.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -325,24 +325,314 @@
                   </li>
                   <li>
                     <a href="#wallet-operations" class="toc-h2 toc-link" data-title="Wallet Operations">Wallet Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#initialize-or-load-wallet" class="toc-h3 toc-link" data-title="Initialize or Load Wallet">Initialize or Load Wallet</a>
+                          </li>
+                          <li>
+                            <a href="#function" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#get-public-key" class="toc-h3 toc-link" data-title="Get Public Key">Get Public Key</a>
+                          </li>
+                          <li>
+                            <a href="#function-2" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-2" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-2" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#transfer-operations" class="toc-h2 toc-link" data-title="Transfer Operations">Transfer Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-private-transfer" class="toc-h3 toc-link" data-title="Create Private Transfer">Create Private Transfer</a>
+                          </li>
+                          <li>
+                            <a href="#function-3" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-3" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-3" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-private-transfer-with-anonymity-set" class="toc-h3 toc-link" data-title="Create Private Transfer with Anonymity Set">Create Private Transfer with Anonymity Set</a>
+                          </li>
+                          <li>
+                            <a href="#function-4" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-4" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-4" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-burn-message" class="toc-h3 toc-link" data-title="Create Burn Message">Create Burn Message</a>
+                          </li>
+                          <li>
+                            <a href="#function-5" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-5" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-5" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#trading-operations" class="toc-h2 toc-link" data-title="Trading Operations">Trading Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-trader-order" class="toc-h3 toc-link" data-title="Create Trader Order">Create Trader Order</a>
+                          </li>
+                          <li>
+                            <a href="#function-6" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-6" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-6" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#settle-trader-order" class="toc-h3 toc-link" data-title="Settle Trader Order">Settle Trader Order</a>
+                          </li>
+                          <li>
+                            <a href="#function-7" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-7" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-7" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#cancel-trader-order" class="toc-h3 toc-link" data-title="Cancel Trader Order">Cancel Trader Order</a>
+                          </li>
+                          <li>
+                            <a href="#function-8" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-8" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-8" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#query-trader-order" class="toc-h3 toc-link" data-title="Query Trader Order">Query Trader Order</a>
+                          </li>
+                          <li>
+                            <a href="#function-9" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-9" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-9" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#liquidity-pool-operations" class="toc-h2 toc-link" data-title="Liquidity Pool Operations">Liquidity Pool Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#deposit-to-twilight-liquidity-pool" class="toc-h3 toc-link" data-title="Deposit to Twilight Liquidity Pool">Deposit to Twilight Liquidity Pool</a>
+                          </li>
+                          <li>
+                            <a href="#function-10" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-10" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-10" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#query-lend-order" class="toc-h3 toc-link" data-title="Query Lend Order">Query Lend Order</a>
+                          </li>
+                          <li>
+                            <a href="#function-11" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-11" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-11" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#blockchain-interaction" class="toc-h2 toc-link" data-title="Blockchain Interaction">Blockchain Interaction</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#get-coin-utxos-by-address" class="toc-h3 toc-link" data-title="Get Coin UTXOs by Address">Get Coin UTXOs by Address</a>
+                          </li>
+                          <li>
+                            <a href="#function-12" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-12" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-12" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#get-coin-output-by-utxo-id" class="toc-h3 toc-link" data-title="Get Coin Output by UTXO ID">Get Coin Output by UTXO ID</a>
+                          </li>
+                          <li>
+                            <a href="#function-13" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-13" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-13" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#broadcast-transaction" class="toc-h3 toc-link" data-title="Broadcast Transaction">Broadcast Transaction</a>
+                          </li>
+                          <li>
+                            <a href="#function-14" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-14" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-14" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#smart-contract-operations" class="toc-h2 toc-link" data-title="Smart Contract Operations">Smart Contract Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#deploy-contract" class="toc-h3 toc-link" data-title="Deploy Contract">Deploy Contract</a>
+                          </li>
+                          <li>
+                            <a href="#function-15" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-15" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-15" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-state-for-deployment" class="toc-h3 toc-link" data-title="Create State for Deployment">Create State for Deployment</a>
+                          </li>
+                          <li>
+                            <a href="#function-16" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-16" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-16" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-memo-for-deployment" class="toc-h3 toc-link" data-title="Create Memo for Deployment">Create Memo for Deployment</a>
+                          </li>
+                          <li>
+                            <a href="#function-17" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-17" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-17" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#import-contract-programs" class="toc-h3 toc-link" data-title="Import Contract Programs">Import Contract Programs</a>
+                          </li>
+                          <li>
+                            <a href="#function-18" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-18" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-18" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-contract-address" class="toc-h3 toc-link" data-title="Create Contract Address">Create Contract Address</a>
+                          </li>
+                          <li>
+                            <a href="#function-19" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-19" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-19" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-call-proof" class="toc-h3 toc-link" data-title="Create Call Proof">Create Call Proof</a>
+                          </li>
+                          <li>
+                            <a href="#function-20" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-20" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-20" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#utility-functions" class="toc-h2 toc-link" data-title="Utility Functions">Utility Functions</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-input-from-output" class="toc-h3 toc-link" data-title="Create Input from Output">Create Input from Output</a>
+                          </li>
+                          <li>
+                            <a href="#function-21" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-21" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-21" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-trader-memo-output" class="toc-h3 toc-link" data-title="Create Trader Memo Output">Create Trader Memo Output</a>
+                          </li>
+                          <li>
+                            <a href="#function-22" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-22" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-22" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                          <li>
+                            <a href="#create-lender-memo-output" class="toc-h3 toc-link" data-title="Create Lender Memo Output">Create Lender Memo Output</a>
+                          </li>
+                          <li>
+                            <a href="#function-23" class="toc-h3 toc-link" data-title="Function">Function</a>
+                          </li>
+                          <li>
+                            <a href="#function-parameters-23" class="toc-h3 toc-link" data-title="Function Parameters">Function Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#return-type-23" class="toc-h3 toc-link" data-title="Return Type">Return Type</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -355,7 +645,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='twilight-client-sdk'>Twilight Client SDK</h1>
-<p>The Twilight Client SDK is a Rust crate that wraps the Chain API, zkOS RPC, and Indexer API into a high-level interface. Use it to build wallets, trading applications, and relayer integrations without managing raw HTTP calls.</p>
+<p>The Twilight Client SDK is a Rust crate that wraps the Chain API, zkOS RPC, and Indexer API into a high-level interface. Use it to build wallets, trading applications, and relayer integrations without managing raw HTTP calls. The SDK handles authentication, retries, and type-safe responses. Recommended starting point for application developers.</p>
 
 <p><strong>Install:</strong> Add <code>twilight-client</code> to your <code>Cargo.toml</code>.</p>
 

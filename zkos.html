@@ -286,9 +286,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-6e4f8a2e.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-2ea0ad63.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-b12a2749.js"></script>
+      <script src="javascripts/all-28e276f9.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -331,15 +331,248 @@
                   </li>
                   <li>
                     <a href="#transaction-operations" class="toc-h2 toc-link" data-title="Transaction Operations">Transaction Operations</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#submit-transaction" class="toc-h3 toc-link" data-title="Submit Transaction">Submit Transaction</a>
+                          </li>
+                          <li>
+                            <a href="#http-method" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#utxo-queries" class="toc-h2 toc-link" data-title="UTXO Queries">UTXO Queries</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#get-utxos-by-address" class="toc-h3 toc-link" data-title="Get UTXOs by Address">Get UTXOs by Address</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-2" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-2" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-2" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-2" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-memo-utxos-by-address" class="toc-h3 toc-link" data-title="Get Memo UTXOs by Address">Get Memo UTXOs by Address</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-3" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-3" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-3" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-3" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-state-utxos-by-address" class="toc-h3 toc-link" data-title="Get State UTXOs by Address">Get State UTXOs by Address</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-4" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-4" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-4" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-4" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-all-coin-utxos" class="toc-h3 toc-link" data-title="Get All Coin UTXOs">Get All Coin UTXOs</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-5" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-5" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-5" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-5" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-all-memo-utxos" class="toc-h3 toc-link" data-title="Get All Memo UTXOs">Get All Memo UTXOs</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-6" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-6" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-6" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-6" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-all-state-utxos" class="toc-h3 toc-link" data-title="Get All State UTXOs">Get All State UTXOs</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-7" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-7" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-7" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-7" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-utxo-ids-by-address" class="toc-h3 toc-link" data-title="Get UTXO IDs by Address">Get UTXO IDs by Address</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-8" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-8" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-8" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-8" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-utxo-details-by-address" class="toc-h3 toc-link" data-title="Get UTXO Details by Address">Get UTXO Details by Address</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-9" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-9" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-9" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-9" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-output-by-utxo-key-structured" class="toc-h3 toc-link" data-title="Get Output by UTXO Key (Structured)">Get Output by UTXO Key (Structured)</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-10" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-10" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-10" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-10" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#output-queries" class="toc-h2 toc-link" data-title="Output Queries">Output Queries</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#get-all-coin-outputs" class="toc-h3 toc-link" data-title="Get All Coin Outputs">Get All Coin Outputs</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-11" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-11" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-11" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-11" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-specific-coin-output" class="toc-h3 toc-link" data-title="Get Specific Coin Output">Get Specific Coin Output</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-12" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-12" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-12" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-12" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-specific-memo-output" class="toc-h3 toc-link" data-title="Get Specific Memo Output">Get Specific Memo Output</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-13" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-13" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-13" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-13" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                          <li>
+                            <a href="#get-specific-state-output" class="toc-h3 toc-link" data-title="Get Specific State Output">Get Specific State Output</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-14" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-14" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-14" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-14" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#database-queries" class="toc-h2 toc-link" data-title="Database Queries">Database Queries</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#query-utxos-from-database" class="toc-h3 toc-link" data-title="Query UTXOs from Database">Query UTXOs from Database</a>
+                          </li>
+                          <li>
+                            <a href="#http-method-15" class="toc-h3 toc-link" data-title="HTTP Method">HTTP Method</a>
+                          </li>
+                          <li>
+                            <a href="#rpc-method-15" class="toc-h3 toc-link" data-title="RPC Method">RPC Method</a>
+                          </li>
+                          <li>
+                            <a href="#message-parameters-15" class="toc-h3 toc-link" data-title="Message Parameters">Message Parameters</a>
+                          </li>
+                          <li>
+                            <a href="#response-fields-15" class="toc-h3 toc-link" data-title="Response Fields">Response Fields</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#notes" class="toc-h2 toc-link" data-title="Notes">Notes</a>
@@ -355,7 +588,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='zkos-rpc-api'>zkOS RPC API</h1>
-<p>The zkOS RPC API provides access to Twilight&#39;s privacy layer. Use it to manage UTXOs, submit shielded transfers, and interact with the zero-knowledge proof system.</p>
+<p>The zkOS RPC API provides access to Twilight&#39;s privacy layer. Use it to manage UTXOs, submit shielded transfers, and interact with the zero-knowledge proof system. All requests use JSON-RPC 2.0. Ideal for wallet integration and privacy-preserving transaction flows.</p>
 
 <p><strong>Base URL:</strong> <code>https://nykschain.twilight.rest/zkos/</code></p>
 
