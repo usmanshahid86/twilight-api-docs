@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="tba">📖 Read Full Documentation</a>
+  <a href="https://docs.twilight.rest">📖 Read Full Documentation</a>
 </p>
 
 ---
@@ -37,8 +37,8 @@ This documentation covers the Twilight Protocol stack:
 | **Nyks Chain** | Cosmos SDK–based blockchain. REST APIs for auth, bank, staking, gov, distribution, and Twilight-specific modules (bridge, fork, volt, zkOS protocol). |
 | **zkOS** | Privacy layer. JSON-RPC for UTXO queries, transaction submission, and encrypted account state. |
 | **Client SDK** | Rust SDK for building apps that interact with the Nyks chain, zkOS RPC, and app APIs (e.g., Exchange/Relayer). |
+| **Indexer API** | Read-only REST + WebSocket API for indexed chain data, search, and analytics. |
 
-*Indexer API documentation is planned for future releases.*
 
 ## 🌐 API Endpoints
 
@@ -57,6 +57,7 @@ This documentation covers the Twilight Protocol stack:
 **👉 [Visit docs.twilight.rest](https://docs.twilight.rest) for the complete interactive API documentation**
 
 - **Production (main)**: [docs.twilight.rest](https://docs.twilight.rest)
+- **Development (dev)**: [docs.twilight.rest/dev](https://docs.twilight.rest/dev)
 
 
 ## 🪃 Boomerang Protocol
@@ -137,11 +138,11 @@ zkOS uses JSON-RPC 2.0:
 
 For complete API documentation including parameter specifications, response schemas, examples, and SDK guides:
 
-**Visit: [https://docs.twilight.rest](tba)**
+**Visit: [https://docs.twilight.rest](https://docs.twilight.rest)**
 
 ## 🔗 Links
 
-- **API Documentation**: [docs.twilight.rest](tba)
+- **API Documentation**: [docs.twilight.rest](https://docs.twilight.rest)
 - **Protocol Documentation**: [docs.twilight.org](https://docs.twilight.org)
 - **Twilight Protocol**: [twilight.org](https://twilight.org)
 - **Support**: Contact through official channels

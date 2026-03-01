@@ -59,4 +59,4 @@ This page consolidates all Twilight API documentation in a single scrollable vie
 ---
 
 **Browse by section:**
-[Home](./) · [Chain API](chain) · [zkOS RPC](zkos) · [Indexer API](indexer) · [Client SDK](sdk)
+[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Client SDK](sdk.html)

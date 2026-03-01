@@ -17,11 +17,11 @@ meta:
 
 # Twilight Client SDK
 
-The Twilight Client SDK is a Rust crate that wraps the Chain API, zkOS RPC, and Indexer API into a high-level interface. Use it to build wallets, trading applications, and relayer integrations without managing raw HTTP calls.
+The Twilight Client SDK is a Rust crate that wraps the Chain API, zkOS RPC, and Indexer API into a high-level interface. Use it to build wallets, trading applications, and relayer integrations without managing raw HTTP calls. The SDK handles authentication, retries, and type-safe responses. Recommended starting point for application developers.
 
 **Install:** Add `twilight-client` to your `Cargo.toml`.
 
 ---
 
 **Navigate to another section:**
-[Home](./) · [Chain API](chain) · [zkOS RPC](zkos) · [Indexer API](indexer) · [Full Reference](reference)
+[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Full Reference](reference.html)

@@ -31,11 +31,11 @@ meta:
 
 # Twilight Chain API
 
-The Nyks Chain exposes a Cosmos SDK LCD (Light Client Daemon) REST API. Use it to query on-chain state, simulate and broadcast transactions, and interact with Twilight-specific modules.
+The Nyks Chain exposes a Cosmos SDK LCD (Light Client Daemon) REST API. Use it to query on-chain state, simulate and broadcast transactions, and interact with Twilight-specific modules (bridge, fork, volt, zkOS protocol). All endpoints follow REST conventions; no authentication required for public queries.
 
 **Base URL:** `https://lcd.twilight.org`
 
 ---
 
 **Navigate to another section:**
-[Home](./) · [zkOS RPC](zkos) · [Indexer API](indexer) · [Client SDK](sdk) · [Full Reference](reference)
+[Home](index.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Client SDK](sdk.html) · [Full Reference](reference.html)

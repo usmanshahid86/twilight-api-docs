@@ -18,11 +18,11 @@ meta:
 
 # Indexer API
 
-The Twilight Indexer API is a read-only REST API that provides comprehensive access to indexed Nyks blockchain data, including blocks, transactions, accounts, validators, BTC bridge operations, and zkOS transactions. It also exposes a WebSocket interface for real-time events.
+The Twilight Indexer API is a read-only REST API that provides comprehensive access to indexed Nyks blockchain data, including blocks, transactions, accounts, validators, BTC bridge operations, and zkOS transactions. It also exposes a WebSocket interface for real-time events. Use REST for historical queries and search; use WebSocket for live block and transaction streams. For authoritative on-chain state, use the LCD API.
 
 **Base URL:** `https://indexer.twilight.org/api`
 
 ---
 
 **Navigate to another section:**
-[Home](./) · [Chain API](chain) · [zkOS RPC](zkos) · [Client SDK](sdk) · [Full Reference](reference)
+[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Client SDK](sdk.html) · [Full Reference](reference.html)
