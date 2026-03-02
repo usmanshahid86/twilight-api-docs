@@ -3,7 +3,6 @@ title: Indexer API — Twilight Protocol
 language_tabs:
   - shell
   - javascript
-  - rust
 toc_footers:
   - Twilight © 2025
 includes:
@@ -25,4 +24,4 @@ The Twilight Indexer API is a read-only REST API that provides comprehensive acc
 ---
 
 **Navigate to another section:**
-[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Client SDK](sdk.html) · [Full Reference](reference.html)
+[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Full Reference](reference.html)

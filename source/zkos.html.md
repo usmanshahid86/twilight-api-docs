@@ -3,7 +3,6 @@ title: zkOS RPC API — Twilight Protocol
 language_tabs:
   - shell
   - javascript
-  - rust
 toc_footers:
   - Twilight © 2025
 includes:
@@ -24,4 +23,4 @@ The zkOS RPC API provides access to Twilight's privacy layer. Use it to manage U
 ---
 
 **Navigate to another section:**
-[Home](index.html) · [Chain API](chain.html) · [Indexer API](indexer.html) · [Client SDK](sdk.html) · [Full Reference](reference.html)
+[Home](index.html) · [Chain API](chain.html) · [Indexer API](indexer.html) · [Full Reference](reference.html)

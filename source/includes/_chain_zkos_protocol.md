@@ -1,10 +1,10 @@
 # Nyks Zkos Module
 
-The ZKOS module provides REST API endpoints for querying ZKOS-related data on the Twilight chain.
+The zkOS chain module stores the on-chain record of zero-knowledge transactions. Use these LCD endpoints to query mint/burn trading BTC operations, module parameters, and transfer transaction records. For submitting zkOS transactions or querying UTXOs, use the [zkOS RPC API](#zkos-rpc-api) instead.
 
 **Base URL:** `https://lcd.twilight.org`
 
-> 🔐 No authentication required.
+> No authentication required.
 
 ---
 
@@ -91,18 +91,6 @@ console.log(data);
 }
 ```
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "params": {}
-}
-```
-
-
-
-
-
 `GET /twilight-project/nyks/zkos/params`
 
 *Parameters queries the parameters of the module.*
@@ -144,12 +132,6 @@ console.log(data);
 ```json
 {
   "TransferTx": {
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "TransferTx": {
     "txId": "0x1234567890abcdef...",
     "txByteCode": "0x1234567890abcdef...",
     "txFee": "1000000",
@@ -157,17 +139,6 @@ console.log(data);
   }
 }
 ```
-
-    "txId": "0x1234567890abcdef...",
-    "txByteCode": "0x1234567890abcdef...",
-    "txFee": "1000000",
-    "zkOracleAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-
-
 
 `GET /twilight-project/nyks/zkos/transfer_tx/{txId}`
 
