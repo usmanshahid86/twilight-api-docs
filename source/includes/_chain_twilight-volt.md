@@ -1,5 +1,11 @@
 # Twilight Volt Module
 
+The Volt module manages BTC reserves, fragments (multi-signature key groups), signer applications, clearing accounts, and withdrawal pools. Fragments are groups of validators that collectively control reserve Bitcoin addresses using threshold signatures. Clearing accounts track per-user balances across reserves.
+
+**Base URL:** `https://lcd.twilight.org`
+
+---
+
 ## BtcReserve
 
 > Code samples
@@ -40,7 +46,6 @@ console.log(data);
   ]
 }
 ```
-
 
 `GET /twilight-project/nyks/volt/btc_reserve`
 
@@ -90,6 +95,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## BtcWithdrawRequest
 
 > Code samples
@@ -102,6 +109,13 @@ curl --request GET \
 
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/btc_withdraw_request/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -117,14 +131,6 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/vol
     "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
   }
 }
-```
-
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/volt/btc_withdraw_request/{twilightAddress}`
@@ -178,11 +184,27 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ClearingAccount
 
 > Code samples
 
 ```shell
+curl --request GET \
+  --url https://lcd.twilight.org/twilight-project/nyks/volt/clearing_account/string \
+  --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/clearing_account/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -202,21 +224,6 @@ Status Code **default**
     ]
   }
 }
-```
-
-curl --request GET \
-  --url https://lcd.twilight.org/twilight-project/nyks/volt/clearing_account/string \
-  --header 'Accept: */*'
-```
-
-```javascript
-const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/clearing_account/string', {
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/volt/clearing_account/{twilightAddress}`
@@ -266,6 +273,29 @@ Status Code **default**
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
+> This operation does not require authentication
+
+---
+
+## FragmentById
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url https://lcd.twilight.org/twilight-project/nyks/volt/fragment_by_id/string \
+  --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/fragment_by_id/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -293,28 +323,6 @@ Status Code **default**
     ]
   }
 }
-```
-
-> This operation does not require authentication
-
-## FragmentById
-
-> Code samples
-
-```shell
-curl --request GET \
-  --url https://lcd.twilight.org/twilight-project/nyks/volt/fragment_by_id/string \
-  --header 'Accept: */*'
-```
-
-```javascript
-const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/fragment_by_id/string', {
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/volt/fragment_by_id/{fragmentId}`
@@ -366,6 +374,36 @@ Status Code **200**
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» code|integer(int32)|false|none|none|
+|» message|string|false|none|none|
+|» details|[object]|false|none|none|
+|»» **additionalProperties**|any|false|none|none|
+|»» @type|string|false|none|none|
+
+> This operation does not require authentication
+
+---
+
+## GetAllFragments
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url https://lcd.twilight.org/twilight-project/nyks/volt/get_all_fragments \
+  --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/get_all_fragments', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -395,35 +433,6 @@ Status Code **default**
     }
   ]
 }
-```
-
-|---|---|---|---|---|
-|» code|integer(int32)|false|none|none|
-|» message|string|false|none|none|
-|» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|none|
-
-> This operation does not require authentication
-
-## GetAllFragments
-
-> Code samples
-
-```shell
-curl --request GET \
-  --url https://lcd.twilight.org/twilight-project/nyks/volt/get_all_fragments \
-  --header 'Accept: */*'
-```
-
-```javascript
-const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/volt/get_all_fragments', {
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/volt/get_all_fragments`
@@ -462,15 +471,6 @@ Status Code **200**
 |»» SignerApplicationFee|string(uint64)|false|none|none|
 |»» Threshold|string(uint64)|false|none|none|
 |»» FeePool|string(uint64)|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "params": {}
-}
-```
-
 |»» FragmentFeeBips|string(uint64)|false|none|none|
 |»» arbitraryData|string|false|none|none|
 |»» ReserveIds|[string]|false|none|none|
@@ -486,6 +486,8 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## Params
 
@@ -507,6 +509,14 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "params": {}
+}
+```
+
 `GET /twilight-project/nyks/volt/params`
 
 *Parameters queries the parameters of the module.*
@@ -521,26 +531,6 @@ console.log(data);
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "RefundTxSnapshot": {
-    "ReserveId": "1000000",
-    "RoundId": "1000000",
-    "refundAccounts": [
-      {
-        "Amount": "1000000",
-        "BtcDepositAddress": "0x1234567890abcdef...",
-        "BtcDepositAddressIdentifier": 0
-      }
-    ],
-    "EndBlockerHeightTwilight": "EndBlockerHeightTwilight..."
-  }
-}
-```
-
 
 ### Response Schema
 
@@ -564,6 +554,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## RefundTxSnapshot
 
 > Code samples
@@ -582,6 +574,25 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/vol
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "RefundTxSnapshot": {
+    "ReserveId": "1000000",
+    "RoundId": "1000000",
+    "refundAccounts": [
+      {
+        "Amount": "1000000",
+        "BtcDepositAddress": "0x1234567890abcdef...",
+        "BtcDepositAddressIdentifier": 0
+      }
+    ],
+    "EndBlockerHeightTwilight": "EndBlockerHeightTwilight..."
+  }
+}
 ```
 
 `GET /twilight-project/nyks/volt/refund_tx_snapshot/{reserveId}/{roundId}`
@@ -604,29 +615,6 @@ console.log(data);
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "ReserveClearingAccountsAll": [
-    {
-      "TwilightAddress": "twilight1abc123def456...",
-      "BtcDepositAddress": "0x1234567890abcdef...",
-      "BtcDepositAddressIdentifier": 0,
-      "BtcWithdrawAddress": "0x1234567890abcdef...",
-      "BtcWithdrawAddressIdentifier": 0,
-      "ReserveAccountBalances": [
-        {
-          "ReserveId": "1000000",
-          "Amount": "1000000"
-        }
-      ]
-    }
-  ]
-}
-```
-
 |default|Default|An unexpected error response.|Inline|
 
 ### Response Schema
@@ -657,6 +645,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ReserveClearingAccountsAll
 
 > Code samples
@@ -677,6 +667,28 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "ReserveClearingAccountsAll": [
+    {
+      "TwilightAddress": "twilight1abc123def456...",
+      "BtcDepositAddress": "0x1234567890abcdef...",
+      "BtcDepositAddressIdentifier": 0,
+      "BtcWithdrawAddress": "0x1234567890abcdef...",
+      "BtcWithdrawAddressIdentifier": 0,
+      "ReserveAccountBalances": [
+        {
+          "ReserveId": "1000000",
+          "Amount": "1000000"
+        }
+      ]
+    }
+  ]
+}
+```
+
 `GET /twilight-project/nyks/volt/reserve_clearing_accounts_all/{reserveId}`
 
 *Queries a list of ReserveClearingAccountsAll items.*
@@ -690,25 +702,6 @@ console.log(data);
 > Example responses
 
 > 200 Response
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "ReserveWithdrawPool": {
-    "ReserveID": "1000000",
-    "RoundID": "1000000",
-    "processingWithdrawIdentifiers": [
-      0
-    ],
-    "queuedWithdrawIdentifiers": [
-      0
-    ],
-    "currentProcessingIndex": 0
-  }
-}
-```
-
 
 ### Responses
 
@@ -746,6 +739,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ReserveWithdrawPool
 
 > Code samples
@@ -766,27 +761,25 @@ const data = await response.json();
 console.log(data);
 ```
 
-`GET /twilight-project/nyks/volt/reserve_withdraw_pool/{reserveId}`
-
-
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "ReserveWithdrawSnapshot": {
-    "ReserveId": "1000000",
-    "RoundId": "1000000",
-    "withdrawRequests": [
-      {
-        "withdrawIdentifier": 0,
-        "withdrawAddress": "0x1234567890abcdef...",
-        "withdrawAmount": "1000000"
-      }
+  "ReserveWithdrawPool": {
+    "ReserveID": "1000000",
+    "RoundID": "1000000",
+    "processingWithdrawIdentifiers": [
+      0
     ],
-    "EndBlockerHeightTwilight": "EndBlockerHeightTwilight..."
+    "queuedWithdrawIdentifiers": [
+      0
+    ],
+    "currentProcessingIndex": 0
   }
 }
 ```
+
+`GET /twilight-project/nyks/volt/reserve_withdraw_pool/{reserveId}`
 
 *Queries a list of ReserveWithdrawPool items.*
 
@@ -832,6 +825,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ReserveWithdrawSnapshot
 
 > Code samples
@@ -856,19 +851,20 @@ console.log(data);
 
 ```json
 {
-  "SignerApplications": [
-    {
-      "applicationId": "1000000",
-      "fragmentId": "1000000",
-      "applicationFee": "1000000",
-      "feeBips": "1000000",
-      "btcPubKey": "btcPubKey...",
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
+  "ReserveWithdrawSnapshot": {
+    "ReserveId": "1000000",
+    "RoundId": "1000000",
+    "withdrawRequests": [
+      {
+        "withdrawIdentifier": 0,
+        "withdrawAddress": "0x1234567890abcdef...",
+        "withdrawAmount": "1000000"
+      }
+    ],
+    "EndBlockerHeightTwilight": "EndBlockerHeightTwilight..."
+  }
 }
 ```
-
 
 `GET /twilight-project/nyks/volt/reserve_withdraw_snapshot/{reserveId}/{roundId}`
 
@@ -920,6 +916,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## SignerApplications
 
 > Code samples
@@ -938,6 +936,23 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/vol
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "SignerApplications": [
+    {
+      "applicationId": "1000000",
+      "fragmentId": "1000000",
+      "applicationFee": "1000000",
+      "feeBips": "1000000",
+      "btcPubKey": "btcPubKey...",
+      "signerAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
 ```
 
 `GET /twilight-project/nyks/volt/signer_applications/{fragmentId}`

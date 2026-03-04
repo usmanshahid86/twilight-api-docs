@@ -7,7 +7,7 @@ search: true
 code_clipboard: false
 meta:
   - name: description
-    content: Developer documentation for the Twilight Protocol — Nyks Chain API, zkOS RPC, Indexer API, and Client SDK.
+    content: Developer documentation for the Twilight Protocol — Nyks Chain API, zkOS RPC, and Indexer API.
 ---
 
 # Twilight Protocol
@@ -22,7 +22,6 @@ Welcome to the Twilight Protocol developer documentation. Twilight is a privacy-
 | Submit or simulate transactions, broadcast txs | **Nyks Chain API** | [Chain API](chain.html) |
 | Privacy layer: UTXOs, shielded transfers, burn/mint | **zkOS RPC** | [zkOS RPC](zkos.html) |
 | Indexed data: blocks, tx history, search, analytics | **Indexer API** | [Indexer API](indexer.html) |
-| Build wallets, trading apps, relayer integrations | **Client SDK** | [Client SDK](sdk.html) |
 | Browse everything in one page | **Full Reference** | [Full Reference](reference.html) |
 
 ## Section Guides
@@ -51,12 +50,12 @@ Read-only REST + WebSocket API for indexed chain data. Search blocks, transactio
 
 ---
 
-### [Client SDK →](sdk.html)
-
-Rust crate that wraps all APIs into a high-level interface. The recommended starting point for building wallets and applications.
-
----
-
 ### [Full Reference →](reference.html)
 
 All sections combined in a single scrollable page with unified sidebar and search.
+
+---
+
+### See Also
+
+- **Client SDK** (Rust): [github.com/AhmadAshraf2/zkos-client-wallet](https://github.com/AhmadAshraf2/zkos-client-wallet)

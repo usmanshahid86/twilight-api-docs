@@ -3,7 +3,6 @@ title: Nyks Chain API — Twilight Protocol
 language_tabs:
   - shell
   - javascript
-  - rust
 toc_footers:
   - Twilight © 2025
 includes:
@@ -38,4 +37,4 @@ The Nyks Chain exposes a Cosmos SDK LCD (Light Client Daemon) REST API. Use it t
 ---
 
 **Navigate to another section:**
-[Home](index.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Client SDK](sdk.html) · [Full Reference](reference.html)
+[Home](index.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Full Reference](reference.html)

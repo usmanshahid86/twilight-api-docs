@@ -1,26 +1,52 @@
-# Zkos RPC API 
+# Zkos RPC API
 
 ## Overview
 
-Welcome to the ZkoS API!  
-You can use this API to access ZkoS server endpoints that expose the UTXO-based account state and individual encrypted account details tracked by the node.
-
-These endpoints are primarily used by indexers, explorers, and frontends to track balances, commitments, and UTXO outputs associated with shielded accounts.
+The zkOS RPC API exposes the UTXO-based account state and encrypted account details tracked by the zkOS node. Use it to submit shielded transactions, query UTXOs and outputs, and interact with the zero-knowledge privacy layer.
 
 **Base URL:** `https://nykschain.twilight.rest/zkos/`
 
 **Development URL:** `http://localhost:3030/` (Local development)
 
-> 🔐 No authentication required.
+> No authentication required. All requests use JSON-RPC 2.0 via HTTP POST.
 
 ---
 
-## Use Cases
+## Parameter Formats
 
-- Retrieve encrypted account state for frontend wallets
-- Index UTXO data for explorers
-- Monitor nullifier sets to prevent double-spending
-- Get UTXO statistics for ZkoS metrics/monitoring
+Methods accept parameters in two formats:
+
+- **Positional (array):** Methods like `getUtxos`, `getOutput`, `txCommit` accept a JSON array of positional parameters.
+- **Named (object):** Methods like `get_utxos_id`, `get_utxos_detail`, `getUtxosFromDB` accept a JSON object with named fields.
+
+Check each endpoint's parameter table for the correct format.
+
+> All hex-encoded values should be valid hexadecimal **without** the `0x` prefix.
+
+---
+
+## Error Responses
+
+All errors follow the JSON-RPC 2.0 error format:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "error": {
+    "code": -32602,
+    "message": "Invalid params: expected hex-encoded address"
+  },
+  "id": 1
+}
+```
+
+| Code | Meaning |
+|------|---------|
+| -32700 | Parse error — invalid JSON |
+| -32600 | Invalid request — missing required fields |
+| -32601 | Method not found |
+| -32602 | Invalid params — wrong type or format |
+| -32603 | Internal error — server-side failure |
 
 ---
 
@@ -29,7 +55,6 @@ These endpoints are primarily used by indexers, explorers, and frontends to trac
 2. [UTXO Queries](#utxo-queries)
 3. [Output Queries](#output-queries)
 4. [Database Queries](#database-queries)
-5. [Test Commands](#test-commands)
 
 ---
 
@@ -37,31 +62,7 @@ These endpoints are primarily used by indexers, explorers, and frontends to trac
 
 ### Submit Transaction
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "txCommit",
-  "params": ["your_hex_encoded_transaction_here"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 # Transfer/Script Transaction
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
@@ -83,6 +84,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'txCommit',
+    params: ['your_hex_encoded_transaction_here'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -96,15 +112,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Commits a transaction to the blockchain with cryptographic verification and UTXO state updates. For message transactions with burn type, a twilight address must be provided as the second parameter.
-
-**Use Cases:**
-
-- Submit zero-knowledge proof transactions for privacy-preserving transfers
-- Execute smart contract operations on the zkOS blockchain
-- Burn tokens with message transactions for cross-chain operations
-- Batch transaction processing for improved efficiency
-- Integration with wallet applications for transaction broadcasting
+Commits a transaction to the blockchain with cryptographic verification and UTXO state updates. For message transactions with burn type, a twilight address must be provided as the second parameter.
 
 ### HTTP Method
 
@@ -116,17 +124,17 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                                                     |
-| ------ | --------- | -------- | -------------------------------------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded transaction data                                               |
-| [1]    | string    | **Conditional** | **Twilight address (required ONLY for message transactions with burn type)** |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded transaction data |
+| [1] | string | **Conditional** | Twilight address (required ONLY for message transactions with burn type) |
 
 ### Response Fields
 
-| Field   | Data_Type | Description                                    |
-| ------- | --------- | ---------------------------------------------- |
-| tx_hash | string    | Transaction hash for blockchain confirmation   |
-| status  | string    | Transaction status ("success" or "failed")     |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| tx_hash | string | Transaction hash for blockchain confirmation |
+| status | string | Transaction status ("success" or "failed") |
 
 ---
 
@@ -134,31 +142,9 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Get UTXOs by Address
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+Use `getUtxos` for coin UTXOs associated with a specific address. For all coin UTXOs system-wide, use `allCoinUtxos`.
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getUtxos",
-  "params": ["hex_encoded_zkos_account_address"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -169,6 +155,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getUtxos',
+    params: ['hex_encoded_zkos_account_address'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -176,7 +177,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "a1b2c3d4e5f67890abcdef1234567890abcdef12...",
       "block_height": 12345
     }
   ],
@@ -184,14 +185,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves coin-type UTXOs for a specific address, showing transaction history.
-
-**Use Cases:**
-
-- Wallet balance calculation and display for user interfaces
-- Transaction history reconstruction for account management
-- UTXO selection for optimal transaction fee calculation
-
+Retrieves coin-type UTXOs for a specific address.
 
 ### HTTP Method
 
@@ -203,46 +197,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                          |
-| ------ | --------- | -------- | ----------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded address to query UTXOs for          |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded address to query UTXOs for |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the UTXO                    |
-| block_height | integer   | Block height when UTXO was created               |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the UTXO |
+| block_height | integer | Block height when UTXO was created |
 
 ---
 
 ### Get Memo UTXOs by Address
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+Use `getMemoUtxos` for memo UTXOs associated with a specific address. For all memo UTXOs system-wide, use `allMemoUtxos`.
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getMemoUtxos",
-  "params": ["hex_encoded_zkos_account_address"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -253,6 +225,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getMemoUtxos',
+    params: ['hex_encoded_zkos_account_address'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -260,7 +247,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "b2c3d4e5f67890abcdef1234567890abcdef1234...",
       "memo_data": "encrypted_memo_content",
       "block_height": 12346
     }
@@ -269,13 +256,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves memo-type UTXOs containing encrypted message data for a specific address.
-
-**Use Cases:**
-
-- Encrypted messaging and communication through blockchain transactions
-- Transaction metadata storage for compliance and audit purposes
-- Smart contract event logging and state tracking
+Retrieves memo-type UTXOs containing encrypted message data for a specific address.
 
 ### HTTP Method
 
@@ -287,47 +268,25 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                             |
-| ------ | --------- | -------- | -------------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded address to query memo UTXOs for        |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded address to query memo UTXOs for |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the memo UTXO               |
-| memo_data    | string    | Encrypted memo content                            |
-| block_height | integer   | Block height when memo UTXO was created          |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the memo UTXO |
+| memo_data | string | Encrypted memo content |
+| block_height | integer | Block height when memo UTXO was created |
 
 ---
 
 ### Get State UTXOs by Address
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+Use `getStateUtxos` for state UTXOs associated with a specific address. For all state UTXOs system-wide, use `allStateUtxos`.
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getStateUtxos",
-  "params": ["hex_encoded_zkos_account_address"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -338,6 +297,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getStateUtxos',
+    params: ['hex_encoded_zkos_account_address'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -345,7 +319,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "c3d4e5f67890abcdef1234567890abcdef123456...",
       "state_data": "encrypted_state_content",
       "block_height": 12347
     }
@@ -354,13 +328,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves state-type UTXOs containing smart contract state data for a specific address.
-
-**Use Cases:**
-
-- Smart contract state management and persistence
-- Decentralized application state synchronization
-- Privacy-preserving computation result storage
+Retrieves state-type UTXOs containing smart contract state data for a specific address.
 
 ### HTTP Method
 
@@ -372,47 +340,23 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                             |
-| ------ | --------- | -------- | -------------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded address to query state UTXOs for       |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded address to query state UTXOs for |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the state UTXO              |
-| state_data   | string    | Encrypted state content                           |
-| block_height | integer   | Block height when state UTXO was created         |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the state UTXO |
+| state_data | string | Encrypted state content |
+| block_height | integer | Block height when state UTXO was created |
 
 ---
 
 ### Get All Coin UTXOs
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "allCoinUtxos",
-  "params": [],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -423,6 +367,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'allCoinUtxos',
+    params: [],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -430,7 +389,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "d4e5f67890abcdef1234567890abcdef12345678...",
       "block_height": 12348
     }
   ],
@@ -438,13 +397,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves all coin-type UTXOs in the system for network analysis and monitoring.
-
-**Use Cases:**
-
-- Network statistics and total supply calculation
-- Blockchain explorer and indexer data collection
-- Network health monitoring and analysis
+Retrieves all coin-type UTXOs in the system.
 
 ### HTTP Method
 
@@ -456,46 +409,22 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                 |
-| ------ | --------- | -------- | ---------------------- |
-| N/A    | null      | No       | No parameters required |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| N/A | null | No | No parameters required |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the UTXO                    |
-| block_height | integer   | Block height when UTXO was created               |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the UTXO |
+| block_height | integer | Block height when UTXO was created |
 
 ---
 
 ### Get All Memo UTXOs
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "allMemoUtxos",
-  "params": [],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -506,6 +435,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'allMemoUtxos',
+    params: [],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -513,7 +457,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "e5f67890abcdef1234567890abcdef1234567890...",
       "memo_data": "encrypted_memo_content",
       "block_height": 12349
     }
@@ -522,13 +466,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves all memo-type UTXOs in the system for comprehensive message data analysis.
-
-**Use Cases:**
-
-- System-wide message and communication analysis
-- Network-level memo data indexing and search
-- Compliance monitoring for encrypted communications
+Retrieves all memo-type UTXOs in the system.
 
 ### HTTP Method
 
@@ -540,47 +478,23 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                 |
-| ------ | --------- | -------- | ---------------------- |
-| N/A    | null      | No       | No parameters required |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| N/A | null | No | No parameters required |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the memo UTXO               |
-| memo_data    | string    | Encrypted memo content                            |
-| block_height | integer   | Block height when memo UTXO was created          |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the memo UTXO |
+| memo_data | string | Encrypted memo content |
+| block_height | integer | Block height when memo UTXO was created |
 
 ---
 
 ### Get All State UTXOs
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "allStateUtxos",
-  "params": [],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -591,6 +505,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'allStateUtxos',
+    params: [],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -598,7 +527,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "f67890abcdef1234567890abcdef123456789012...",
       "state_data": "encrypted_state_content",
       "block_height": 12350
     }
@@ -607,13 +536,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves all state-type UTXOs in the system for comprehensive smart contract state analysis.
-
-**Use Cases:**
-
-- System-wide smart contract state monitoring
-- Network-level state data indexing and analytics
-- Decentralized application ecosystem analysis
+Retrieves all state-type UTXOs in the system.
 
 ### HTTP Method
 
@@ -625,50 +548,25 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                 |
-| ------ | --------- | -------- | ---------------------- |
-| N/A    | null      | No       | No parameters required |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| N/A | null | No | No parameters required |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the state UTXO              |
-| state_data   | string    | Encrypted state content                           |
-| block_height | integer   | Block height when state UTXO was created         |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the state UTXO |
+| state_data | string | Encrypted state content |
+| block_height | integer | Block height when state UTXO was created |
 
 ---
 
 ### Get UTXO IDs by Address
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+This method uses **named parameters** (object) instead of positional parameters (array).
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "get_utxos_id",
-  "params": {
-    "address_or_id": "hex_encoded_address",
-    "input_type": "Coin"
-  },
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -682,6 +580,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'get_utxos_id',
+    params: {
+      address_or_id: 'hex_encoded_address',
+      input_type: 'Coin'
+    },
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -692,13 +608,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves UTXO IDs associated with a specific address and input type for targeted UTXO operations.
-
-**Use Cases:**
-
-- Get specific UTXO identifiers for transaction construction
-- Query UTXO IDs by type (Coin, Memo, State)
-- Address-based UTXO ID lookup for wallet operations
+Retrieves UTXO IDs associated with a specific address and input type.
 
 ### HTTP Method
 
@@ -710,49 +620,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Field        | Data_Type | Required | Values                                    |
-| ------------ | --------- | -------- | ----------------------------------------- |
-| address_or_id| string    | Yes      | Hex-encoded address to query              |
-| input_type   | string    | Yes      | UTXO type ("Coin", "Memo", or "State")    |
+| Field | Data_Type | Required | Values |
+| ----- | --------- | -------- | ------ |
+| address_or_id | string | Yes | Hex-encoded address to query |
+| input_type | string | Yes | UTXO type: `"Coin"`, `"Memo"`, or `"State"` |
 
 ### Response Fields
 
-| Field  | Data_Type | Description                    |
-| ------ | --------- | ------------------------------ |
-| result | string    | Hex-encoded UTXO ID            |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| result | string | Hex-encoded UTXO ID |
 
 ---
 
 ### Get UTXO Details by Address
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+This method uses **named parameters** (object) instead of positional parameters (array).
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "get_utxos_detail",
-  "params": {
-    "address_or_id": "hex_encoded_address",
-    "input_type": "Coin"
-  },
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -764,6 +649,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
     },
     "id": 1
   }'
+```
+
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'get_utxos_detail',
+    params: {
+      address_or_id: 'hex_encoded_address',
+      input_type: 'Coin'
+    },
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
 ```
 
 > The result from the above endpoint looks like this:
@@ -785,14 +688,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves comprehensive UTXO information including both the UTXO ID and associated output data for complete transaction analysis.
-
-**Use Cases:**
-
-- Get detailed UTXO information for transaction verification
-- Retrieve both input and output data for specific addresses
-- Comprehensive UTXO analysis for wallet applications
-- Transaction construction with full UTXO context
+Retrieves comprehensive UTXO information including both the UTXO ID and associated output data.
 
 ### HTTP Method
 
@@ -804,50 +700,25 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Field        | Data_Type | Required | Values                                    |
-| ------------ | --------- | -------- | ----------------------------------------- |
-| address_or_id| string    | Yes      | Hex-encoded address to query              |
-| input_type   | string    | Yes      | UTXO type ("Coin", "Memo", or "State")    |
+| Field | Data_Type | Required | Values |
+| ----- | --------- | -------- | ------ |
+| address_or_id | string | Yes | Hex-encoded address to query |
+| input_type | string | Yes | UTXO type: `"Coin"`, `"Memo"`, or `"State"` |
 
 ### Response Fields
 
-| Field  | Data_Type | Description                              |
-| ------ | --------- | ---------------------------------------- |
-| id     | object    | UTXO object containing commitment and nullifier data |
-| output | object    | Output object containing encrypted transaction data |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| id | object | UTXO object containing commitment and nullifier data |
+| output | object | Output object containing encrypted transaction data |
 
 ---
 
 ### Get Output by UTXO Key (Structured)
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+This method uses **named parameters** (object) instead of positional parameters (array).
 
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "get_output",
-  "params": {
-    "address_or_id": "hex_encoded_utxo_key",
-    "input_type": "Coin"
-  },
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -859,6 +730,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
     },
     "id": 1
   }'
+```
+
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'get_output',
+    params: {
+      address_or_id: 'hex_encoded_utxo_key',
+      input_type: 'Coin'
+    },
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
 ```
 
 > The result from the above endpoint looks like this:
@@ -875,14 +764,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Alternative method to retrieve output data by UTXO key using structured parameters with explicit type specification.
-
-**Use Cases:**
-
-- Alternative output retrieval with explicit type specification
-- Structured parameter approach for type-safe output queries
-- Enhanced output data retrieval with input type validation
-- Programmatic output access with type safety
+Retrieves output data by UTXO key using structured parameters with explicit type specification.
 
 ### HTTP Method
 
@@ -894,18 +776,18 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Field        | Data_Type | Required | Values                                    |
-| ------------ | --------- | -------- | ----------------------------------------- |
-| address_or_id| string    | Yes      | Hex-encoded UTXO key to query             |
-| input_type   | string    | Yes      | UTXO type ("Coin", "Memo", or "State")    |
+| Field | Data_Type | Required | Values |
+| ----- | --------- | -------- | ------ |
+| address_or_id | string | Yes | Hex-encoded UTXO key to query |
+| input_type | string | Yes | UTXO type: `"Coin"`, `"Memo"`, or `"State"` |
 
 ### Response Fields
 
-| Field      | Data_Type | Description                                |
-| ---------- | --------- | ------------------------------------------ |
-| value      | string    | Encrypted output value                     |
-| data       | string    | Encrypted output data                      |
-| commitment | string    | Hex-encoded commitment for the output      |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| value | string | Encrypted output value |
+| data | string | Encrypted output data |
+| commitment | string | Hex-encoded commitment for the output |
 
 ---
 
@@ -913,31 +795,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Get All Coin Outputs
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "allOutputs",
-  "params": [],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -948,6 +806,21 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'allOutputs',
+    params: [],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
@@ -955,7 +828,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "output_key": "FILL IT HERE",
+      "output_key": "7890abcdef1234567890abcdef12345678901234...",
       "value": "1000000",
       "block_height": 12351
     }
@@ -964,13 +837,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Retrieves all coin-type outputs in the system for transaction output analysis.
-
-**Use Cases:**
-
-- Transaction output tracking and verification
-- Network-wide output analysis and statistics
-- Blockchain explorer transaction detail display
+Retrieves all coin-type outputs in the system.
 
 ### HTTP Method
 
@@ -982,47 +849,23 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                 |
-| ------ | --------- | -------- | ---------------------- |
-| N/A    | null      | No       | No parameters required |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| N/A | null | No | No parameters required |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| output_key   | string    | Unique identifier for the output                  |
-| value        | string    | Output value in base currency units               |
-| block_height | integer   | Block height when output was created              |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| output_key | string | Unique identifier for the output |
+| value | string | Output value in base currency units |
+| block_height | integer | Block height when output was created |
 
 ---
 
 ### Get Specific Coin Output
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getOutput",
-  "params": ["hex_encoded_utxo_key"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -1033,28 +876,37 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getOutput',
+    params: ['hex_encoded_utxo_key'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
 {
   "jsonrpc": "2.0",
   "result": {
-    "output_key": "FILL IT HERE",
+    "output_key": "90abcdef1234567890abcdef123456789012abcd...",
     "value": "1000000",
     "block_height": 12352,
-    "transaction_hash": "FILL IT HERE"
+    "transaction_hash": "abcdef1234567890abcdef1234567890abcdef12..."
   },
   "id": 1
 }
 ```
 
-**Description:** Retrieves a specific coin output by its UTXO key for detailed transaction analysis.
-
-**Use Cases:**
-
-- Individual output verification and validation
-- Transaction detail lookup for wallet applications
-- Output tracing for compliance and audit purposes
+Retrieves a specific coin output by its UTXO key.
 
 ### HTTP Method
 
@@ -1066,48 +918,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                  |
-| ------ | --------- | -------- | --------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded UTXO key to query output for |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded UTXO key to query output for |
 
 ### Response Fields
 
-| Field            | Data_Type | Description                                       |
-| ---------------- | --------- | ------------------------------------------------- |
-| output_key       | string    | Unique identifier for the output                  |
-| value            | string    | Output value in base currency units               |
-| block_height     | integer   | Block height when output was created              |
-| transaction_hash | string    | Transaction hash containing this output           |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| output_key | string | Unique identifier for the output |
+| value | string | Output value in base currency units |
+| block_height | integer | Block height when output was created |
+| transaction_hash | string | Transaction hash containing this output |
 
 ---
 
 ### Get Specific Memo Output
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getMemoOutput",
-  "params": ["hex_encoded_utxo_key"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -1118,28 +946,37 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getMemoOutput',
+    params: ['hex_encoded_utxo_key'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
 {
   "jsonrpc": "2.0",
   "result": {
-    "output_key": "FILL IT HERE",
+    "output_key": "bcdef1234567890abcdef1234567890abcdef1234...",
     "memo_data": "encrypted_memo_content",
     "block_height": 12353,
-    "transaction_hash": "FILL IT HERE"
+    "transaction_hash": "cdef1234567890abcdef1234567890abcdef1234..."
   },
   "id": 1
 }
 ```
 
-**Description:** Retrieves a specific memo output by its UTXO key for detailed message analysis.
-
-**Use Cases:**
-
-- Individual memo verification and decryption
-- Message detail lookup for communication applications
-- Memo tracing for compliance and audit purposes
+Retrieves a specific memo output by its UTXO key.
 
 ### HTTP Method
 
@@ -1151,48 +988,24 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                       |
-| ------ | --------- | -------- | -------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded UTXO key to query memo output for |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded UTXO key to query memo output for |
 
 ### Response Fields
 
-| Field            | Data_Type | Description                                       |
-| ---------------- | --------- | ------------------------------------------------- |
-| output_key       | string    | Unique identifier for the memo output             |
-| memo_data        | string    | Encrypted memo content                            |
-| block_height     | integer   | Block height when memo output was created         |
-| transaction_hash | string    | Transaction hash containing this memo output      |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| output_key | string | Unique identifier for the memo output |
+| memo_data | string | Encrypted memo content |
+| block_height | integer | Block height when memo output was created |
+| transaction_hash | string | Transaction hash containing this memo output |
 
 ---
 
 ### Get Specific State Output
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getStateOutput",
-  "params": ["hex_encoded_utxo_key"],
-  "id": 1
-});
-
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -1203,28 +1016,37 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   }'
 ```
 
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getStateOutput',
+    params: ['hex_encoded_utxo_key'],
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
 > The result from the above endpoint looks like this:
 
 ```json
 {
   "jsonrpc": "2.0",
   "result": {
-    "output_key": "FILL IT HERE",
+    "output_key": "def1234567890abcdef1234567890abcdef123456...",
     "state_data": "encrypted_state_content",
     "block_height": 12354,
-    "transaction_hash": "FILL IT HERE"
+    "transaction_hash": "ef1234567890abcdef1234567890abcdef123456..."
   },
   "id": 1
 }
 ```
 
-**Description:** Retrieves a specific state output by its UTXO key for detailed smart contract state analysis.
-
-**Use Cases:**
-
-- Individual state verification and smart contract debugging
-- State detail lookup for decentralized applications
-- State tracing for compliance and audit purposes
+Retrieves a specific state output by its UTXO key.
 
 ### HTTP Method
 
@@ -1236,18 +1058,18 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params | Data_Type | Required | Values                                        |
-| ------ | --------- | -------- | --------------------------------------------- |
-| [0]    | string    | Yes      | Hex-encoded UTXO key to query state output for |
+| Params | Data_Type | Required | Values |
+| ------ | --------- | -------- | ------ |
+| [0] | string | Yes | Hex-encoded UTXO key to query state output for |
 
 ### Response Fields
 
-| Field            | Data_Type | Description                                       |
-| ---------------- | --------- | ------------------------------------------------- |
-| output_key       | string    | Unique identifier for the state output            |
-| state_data       | string    | Encrypted state content                           |
-| block_height     | integer   | Block height when state output was created        |
-| transaction_hash | string    | Transaction hash containing this state output     |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| output_key | string | Unique identifier for the state output |
+| state_data | string | Encrypted state content |
+| block_height | integer | Block height when state output was created |
+| transaction_hash | string | Transaction hash containing this state output |
 
 ---
 
@@ -1255,38 +1077,11 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Query UTXOs from Database
 
-```javascript
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+> **Maximum limit:** 10,000 records per request. Requests exceeding this limit will be capped.
 
-// Query coin UTXOs
-var raw = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "getUtxosFromDB",
-  "params": {
-    "start_block": 0,
-    "end_block": 1000,
-    "limit": 100,
-    "pagination": 0,
-    "io_type": "Coin"
-  },
-  "id": 1
-});
+This method uses **named parameters** (object) instead of positional parameters (array).
 
-var requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow",
-};
-
-fetch("https://nykschain.twilight.rest/zkos/", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-```
-
-```bash
+```shell
 # Query coin UTXOs
 curl -X POST https://nykschain.twilight.rest/zkos/ \
   -H "Content-Type: application/json" \
@@ -1302,38 +1097,27 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
     },
     "id": 1
   }'
+```
 
-# Query memo UTXOs
-curl -X POST https://nykschain.twilight.rest/zkos/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "jsonrpc": "2.0",
-    "method": "getUtxosFromDB",
-    "params": {
-      "start_block": 0,
-      "end_block": 1000,
-      "limit": 50,
-      "pagination": 0,
-      "io_type": "Memo"
+```javascript
+const response = await fetch('https://nykschain.twilight.rest/zkos/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    method: 'getUtxosFromDB',
+    params: {
+      start_block: 0,
+      end_block: 1000,
+      limit: 100,
+      pagination: 0,
+      io_type: 'Coin'
     },
-    "id": 1
-  }'
-
-# Query state UTXOs
-curl -X POST https://nykschain.twilight.rest/zkos/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "jsonrpc": "2.0",
-    "method": "getUtxosFromDB",
-    "params": {
-      "start_block": 0,
-      "end_block": 1000,
-      "limit": 75,
-      "pagination": 0,
-      "io_type": "State"
-    },
-    "id": 1
-  }'
+    id: 1
+  })
+});
+const data = await response.json();
+console.log(data);
 ```
 
 > The result from the above endpoint looks like this:
@@ -1343,7 +1127,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
   "jsonrpc": "2.0",
   "result": [
     {
-      "utxo_key": "FILL IT HERE",
+      "utxo_key": "1234567890abcdef1234567890abcdef12345678...",
       "block_height": 12355,
       "io_type": "Coin",
       "data": "encrypted_utxo_data"
@@ -1353,14 +1137,7 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 }
 ```
 
-**Description:** Queries UTXOs from the PostgreSQL database with specific filtering parameters including block range, pagination, and UTXO type.
-
-**Use Cases:**
-
-- Advanced UTXO filtering and search operations
-- Historical data analysis within specific block ranges
-- Paginated UTXO retrieval for large datasets
-- Database-level UTXO management and analytics
+Queries UTXOs from the PostgreSQL database with filtering by block range, type, and pagination.
 
 ### HTTP Method
 
@@ -1372,28 +1149,27 @@ curl -X POST https://nykschain.twilight.rest/zkos/ \
 
 ### Message Parameters
 
-| Params     | Data_Type | Required | Values                                    |
-| ---------- | --------- | -------- | ----------------------------------------- |
-| start_block| integer   | Yes      | Starting block height (i128)             |
-| end_block  | integer   | Yes      | Ending block height (i128)               |
-| limit      | integer   | Yes      | Maximum number of results (**max: 10,000**) |
-| pagination | integer   | Yes      | Pagination offset for result sets        |
-| io_type    | string    | Yes      | Type of UTXO ("Coin", "Memo", or "State")|
+| Field | Data_Type | Required | Values |
+| ----- | --------- | -------- | ------ |
+| start_block | integer | Yes | Starting block height |
+| end_block | integer | Yes | Ending block height |
+| limit | integer | Yes | Maximum number of results (max: 10,000) |
+| pagination | integer | Yes | Pagination offset for result sets |
+| io_type | string | Yes | Type of UTXO: `"Coin"`, `"Memo"`, or `"State"` |
 
 ### Response Fields
 
-| Field        | Data_Type | Description                                       |
-| ------------ | --------- | ------------------------------------------------- |
-| utxo_key     | string    | Unique identifier for the UTXO                    |
-| block_height | integer   | Block height when UTXO was created               |
-| io_type      | string    | Type of UTXO (Coin, Memo, or State)              |
-| data         | string    | Encrypted UTXO content based on type             |
+| Field | Data_Type | Description |
+| ----- | --------- | ----------- |
+| utxo_key | string | Unique identifier for the UTXO |
+| block_height | integer | Block height when UTXO was created |
+| io_type | string | Type of UTXO (Coin, Memo, or State) |
+| data | string | Encrypted UTXO content based on type |
 
 ---
 
 ## Notes
 
-1. All hex strings should be valid hexadecimal without the "0x" prefix
+1. All hex strings should be valid hexadecimal without the `0x` prefix
 2. Some endpoints return empty results with error messages if no data is found
 3. Transaction verification is performed before committing transactions
-

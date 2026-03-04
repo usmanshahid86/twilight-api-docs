@@ -1733,7 +1733,7 @@ Searches across blocks, transactions, accounts, and deposits. Auto-detects query
 
 | Parameter | Type | Required | Description |
 |---|---:|:---:|---|
-| `q` | string | Yes | Search query (min 3 chars). Accepts block height, tx hash, or address |
+| `q` | string | Yes | Search query (min 3 chars). Auto-detects: numeric = block height, hex string = tx hash, `twilight1` prefix = account address |
 
 **Example**
 
@@ -1932,3 +1932,19 @@ Clients subscribe to all channels by default. Server pings every 30 seconds; unr
 | `429` | Rate limit exceeded |
 | `500` | Internal server error |
 | `503` | Service unavailable (health check failed) |
+
+**Error response bodies:**
+
+```json
+// 400 Bad Request
+{ "error": "Invalid page parameter" }
+
+// 404 Not Found
+{ "error": "Block not found" }
+
+// 429 Too Many Requests
+{ "error": "Rate limit exceeded. Try again later." }
+
+// 500 Internal Server Error
+{ "error": "Internal server error" }
+```

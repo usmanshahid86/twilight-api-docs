@@ -1,5 +1,11 @@
 # Forkscanner Module
 
+The Forks module (Forkscanner) manages validator delegate key mappings. Validators register their BTC oracle address, public key, and zkOS oracle address through this module. These delegate keys are used by the bridge module for BTC chain tip attestation and the zkOS module for oracle operations.
+
+**Base URL:** `https://lcd.twilight.org`
+
+---
+
 ## DelegateKeysAll
 
 > Code samples
@@ -35,7 +41,6 @@ console.log(data);
 }
 ```
 
-
 `GET /twilight-project/nyks/forks/delegate_keys_all`
 
 *Queries a list of DelegateKeysAll items.*
@@ -70,8 +75,6 @@ Status Code **default**
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
 |» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|A URL/resource name that uniquely identifies the type of the serializedprotocol buffer message. This string must contain at leastone "/" character. The last segment of the URL's path must representthe fully qualified name of the type (as in`path/google.protobuf.Duration`). The name should be in a canonical form(e.g., leading "." is not accepted).In practice, teams usually precompile into the binary all types that theyexpect it to use in the context of Any. However, for URLs which use thescheme `http`, `https`, or no scheme, one can optionally set up a typeserver that maps type URLs to message definitions as follows:* If no scheme is provided, `https` is assumed.* An HTTP GET on the URL must yield a [google.protobuf.Type][]  value in binary format, or produce an error.* Applications are allowed to cache lookup results based on the  URL, or have them precompiled into a binary to avoid any  lookup. Therefore, binary compatibility needs to be preserved  on changes to types. (Use versioned type names to manage  breaking changes.)Note: this functionality is not currently available in the officialprotobuf release, and it is not used for type URLs beginning withtype.googleapis.com.Schemes other than `http`, `https` (or the empty scheme) might beused with implementation specific semantics.|
 
 > This operation does not require authentication
 
@@ -81,12 +84,19 @@ Status Code **default**
 
 ```shell
 curl --request GET \
-  --url https://lcd.twilight.org/twilight-project/nyks/forks/delegate_keys_by_btc_oracle_address/string \
+  --url https://lcd.twilight.org/twilight-project/nyks/forks/delegate_keys_by_btc_oracle_address/{btcOracleAddress} \
   --header 'Accept: */*'
 ```
 
 ```javascript
-const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/forks/delegate_keys_by_btc_oracle_address/string', {
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/forks/delegate_keys_by_btc_oracle_address/{btcOracleAddress}', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -99,14 +109,6 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/for
     "zkOracleAddress": "0x1234567890abcdef..."
   }
 }
-```
-
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/forks/delegate_keys_by_btc_oracle_address/{btcOracleAddress}`
@@ -149,7 +151,5 @@ Status Code **default**
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
 |» details|[object]|false|none|none|
-|»» **additionalProperties**|any|false|none|none|
-|»» @type|string|false|none|A URL/resource name that uniquely identifies the type of the serializedprotocol buffer message. This string must contain at leastone "/" character. The last segment of the URL's path must representthe fully qualified name of the type (as in`path/google.protobuf.Duration`). The name should be in a canonical form(e.g., leading "." is not accepted).In practice, teams usually precompile into the binary all types that theyexpect it to use in the context of Any. However, for URLs which use thescheme `http`, `https`, or no scheme, one can optionally set up a typeserver that maps type URLs to message definitions as follows:* If no scheme is provided, `https` is assumed.* An HTTP GET on the URL must yield a [google.protobuf.Type][]  value in binary format, or produce an error.* Applications are allowed to cache lookup results based on the  URL, or have them precompiled into a binary to avoid any  lookup. Therefore, binary compatibility needs to be preserved  on changes to types. (Use versioned type names to manage  breaking changes.)Note: this functionality is not currently available in the officialprotobuf release, and it is not used for type URLs beginning withtype.googleapis.com.Schemes other than `http`, `https` (or the empty scheme) might beused with implementation specific semantics.|
 
 > This operation does not require authentication

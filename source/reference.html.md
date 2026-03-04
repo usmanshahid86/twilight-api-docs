@@ -3,7 +3,6 @@ title: Full API Reference — Twilight Protocol
 language_tabs:
   - shell
   - javascript
-  - rust
 toc_footers:
   - Twilight © 2025
 includes:
@@ -35,13 +34,11 @@ includes:
   - indexer_api
   - indexer
 
-  # === CLIENT SDK ===
-  - sdk
 search: true
 code_clipboard: true
 meta:
   - name: description
-    content: Complete all-in-one API reference for the Twilight Protocol — Chain, zkOS, Indexer, and Client SDK.
+    content: Complete all-in-one API reference for the Twilight Protocol — Chain, zkOS, and Indexer.
 ---
 
 # Twilight Protocol — Full Reference
@@ -54,9 +51,8 @@ This page consolidates all Twilight API documentation in a single scrollable vie
 - [Nyks Chain API](#twilight-chain-api) — LCD REST endpoints
 - [zkOS RPC](#zkos-rpc-api) — Privacy layer
 - [Indexer API](#indexer-api) — Indexed data & WebSocket
-- [Client SDK](#twilight-client-sdk) — Rust SDK
 
 ---
 
 **Browse by section:**
-[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html) · [Client SDK](sdk.html)
+[Home](index.html) · [Chain API](chain.html) · [zkOS RPC](zkos.html) · [Indexer API](indexer.html)

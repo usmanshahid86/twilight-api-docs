@@ -1,5 +1,11 @@
 # Twilight BTC Bridge Module
 
+The Bridge module manages the BTC-Twilight bridge, including deposits, withdrawals, sweep/refund transactions, and reserve management. Validators (judges) coordinate multi-signature Bitcoin transactions to move BTC between the Bitcoin network and Twilight. Key concepts: **reserves** hold BTC in multi-sig addresses, **judges** are trusted validators that sign bridge transactions, and **sweep rounds** periodically consolidate reserve UTXOs.
+
+**Base URL:** `https://lcd.twilight.org`
+
+---
+
 ## BroadcastTxRefund
 
 > Code samples
@@ -10,17 +16,14 @@ curl --request GET \
   --header 'Accept: */*'
 ```
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "broadcastRefundMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "signedRefundTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_refund/string/string', {
+  headers: {
+    'Accept': '*/*'
   }
-}
+});
+const data = await response.json();
+console.log(data);
 ```
 
 > The result from the above endpoint looks like this:
@@ -35,22 +38,6 @@ curl --request GET \
   }
 }
 ```
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "broadcastRefundMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "signedRefundTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-
-
 
 `GET /twilight-project/nyks/bridge/broadcast_tx_refund/{reserveId}/{roundId}`
 
@@ -98,39 +85,9 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## BroadcastTxRefundAll
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "BroadcastTxRefundMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signedRefundTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "BroadcastTxRefundMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signedRefundTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
 
 > Code samples
 
@@ -142,6 +99,13 @@ curl --request GET \
 
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_refund_all', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -156,14 +120,6 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
     }
   ]
 }
-```
-
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/broadcast_tx_refund_all`
@@ -201,58 +157,18 @@ Status Code **default**
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
 |» details|[object]|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "broadcastSweepMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "signedSweepTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "broadcastSweepMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "signedSweepTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## BroadcastTxSweep
 
 > Code samples
 
 ```shell
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "broadcastSweepMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "signedSweepTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 curl --request GET \
   --url https://lcd.twilight.org/twilight-project/nyks/bridge/broadcast_tx_sweep/string/string \
   --header 'Accept: */*'
@@ -266,6 +182,19 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "broadcastSweepMsg": {
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "signedSweepTx": "0x1234567890abcdef...",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
 ```
 
 `GET /twilight-project/nyks/bridge/broadcast_tx_sweep/{reserveId}/{roundId}`
@@ -302,38 +231,6 @@ Status Code **200**
 |»» signedSweepTx|string|false|none|none|
 |»» judgeAddress|string|false|none|none|
 
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "BroadcastTxSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signedSweepTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "BroadcastTxSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signedSweepTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
@@ -344,23 +241,9 @@ Status Code **default**
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "BroadcastTxSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signedSweepTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 > This operation does not require authentication
+
+---
 
 ## BroadcastTxSweepAll
 
@@ -380,6 +263,21 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "BroadcastTxSweepMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signedSweepTx": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
 ```
 
 `GET /twilight-project/nyks/bridge/broadcast_tx_sweep_all`
@@ -403,24 +301,6 @@ Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "params": {}
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "params": {}
-}
-```
-
 |» BroadcastTxSweepMsg|[object]|false|none|none|
 |»» 7. MsgBroadcastTxSweep|object|false|none|none|
 |»»» reserveId|string(uint64)|false|none|none|
@@ -431,15 +311,6 @@ Status Code **200**
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "params": {}
-}
-```
-
 |---|---|---|---|---|
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
@@ -448,6 +319,8 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## Params
 
@@ -469,6 +342,14 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "params": {}
+}
+```
+
 `GET /twilight-project/nyks/bridge/params`
 
 *Parameters queries the parameters of the module.*
@@ -480,34 +361,6 @@ console.log(data);
 ### Responses
 
 |Status|Meaning|Description|Schema|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeRefundHashMsg": [
-    {
-      "refundHash": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeRefundHashMsg": [
-    {
-      "refundHash": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
@@ -517,20 +370,6 @@ console.log(data);
 Status Code **200**
 
 *QueryParamsResponse is response type for the Query/Params RPC method.*
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeRefundHashMsg": [
-    {
-      "refundHash": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
@@ -547,6 +386,8 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## ProposeRefundHashAll
 
@@ -568,39 +409,22 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "proposeRefundHashMsg": [
+    {
+      "refundHash": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 `GET /twilight-project/nyks/bridge/propose_refund_hash_all`
 
 *Queries a list of ProposeRefundHashAll items.*
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsg": {
-    "btcAddress": "0x1234567890abcdef...",
-    "btcScript": "btcScript...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsg": {
-    "btcAddress": "0x1234567890abcdef...",
-    "btcScript": "btcScript...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
 
 > Example responses
 
@@ -612,21 +436,6 @@ console.log(data);
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsg": {
-    "btcAddress": "0x1234567890abcdef...",
-    "btcScript": "btcScript...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 
 ### Response Schema
 
@@ -650,6 +459,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ProposeSweepAddress
 
 > Code samples
@@ -670,6 +481,20 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "proposeSweepAddressMsg": {
+    "btcAddress": "0x1234567890abcdef...",
+    "btcScript": "btcScript...",
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
+```
+
 `GET /twilight-project/nyks/bridge/propose_sweep_address/{reserveId}/{roundId}`
 
 *Queries a list of ProposeSweepAddress items.*
@@ -677,40 +502,6 @@ console.log(data);
 ### Parameters
 
 |Name|In|Type|Required|Description|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsgs": [
-    {
-      "btcAddress": "0x1234567890abcdef...",
-      "btcScript": "btcScript...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsgs": [
-    {
-      "btcAddress": "0x1234567890abcdef...",
-      "btcScript": "btcScript...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |---|---|---|---|---|
 |reserveId|path|string(uint64)|true|none|
 |roundId|path|string(uint64)|true|none|
@@ -720,23 +511,6 @@ console.log(data);
 > 200 Response
 
 ### Responses
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "proposeSweepAddressMsgs": [
-    {
-      "btcAddress": "0x1234567890abcdef...",
-      "btcScript": "btcScript...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -768,6 +542,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## ProposeSweepAddressesAll
 
 > Code samples
@@ -788,17 +564,23 @@ const data = await response.json();
 console.log(data);
 ```
 
-`GET /twilight-project/nyks/bridge/propose_sweep_addresses_all/{limit}`
-
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "depositAddress": "0x1234567890abcdef...",
-  "twilightDepositAddress": "twilight1abc123def456..."
+  "proposeSweepAddressMsgs": [
+    {
+      "btcAddress": "0x1234567890abcdef...",
+      "btcScript": "btcScript...",
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
 }
 ```
 
+`GET /twilight-project/nyks/bridge/propose_sweep_addresses_all/{limit}`
 
 *Queries a list of ProposeSweepAddressesAll items.*
 
@@ -810,16 +592,6 @@ console.log(data);
 
 > Example responses
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "depositAddress": "0x1234567890abcdef...",
-  "twilightDepositAddress": "twilight1abc123def456..."
-}
-```
-
-
 > 200 Response
 
 ### Responses
@@ -828,16 +600,6 @@ console.log(data);
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "depositAddress": "0x1234567890abcdef...",
-  "twilightDepositAddress": "twilight1abc123def456..."
-}
-```
 
 ### Response Schema
 
@@ -864,17 +626,9 @@ Status Code **default**
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "depositAddress": "0x1234567890abcdef...",
-  "twilightDepositAddress": "twilight1abc123def456..."
-}
-```
-
 > This operation does not require authentication
+
+---
 
 ## RegisteredBtcDepositAddress
 
@@ -896,13 +650,6 @@ const data = await response.json();
 console.log(data);
 ```
 
-`GET /twilight-project/nyks/bridge/registered_btc_deposit_address/{depositAddress}`
-
-*Queries a list of RegisteredBtcDepositAddress items.*
-
-### Parameters
-
-
 > The result from the above endpoint looks like this:
 
 ```json
@@ -911,6 +658,12 @@ console.log(data);
   "twilightDepositAddress": "twilight1abc123def456..."
 }
 ```
+
+`GET /twilight-project/nyks/bridge/registered_btc_deposit_address/{depositAddress}`
+
+*Queries a list of RegisteredBtcDepositAddress items.*
+
+### Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -939,24 +692,6 @@ Status Code **200**
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "addresses": [
-    {
-      "btcDepositAddress": "0x1234567890abcdef...",
-      "btcSatoshiTestAmount": "1000000",
-      "twilightStakingAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
-}
-```
-
 |---|---|---|---|---|
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
@@ -966,32 +701,35 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## RegisteredBtcDepositAddressByTwilightAddress
 
 > Code samples
 
 ```shell
+curl --request GET \
+  --url https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_address_by_twilight_address/string \
+  --header 'Accept: */*'
+```
+
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_address_by_twilight_address/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "addresses": [
-    {
-      "btcDepositAddress": "0x1234567890abcdef...",
-      "btcSatoshiTestAmount": "1000000",
-      "twilightStakingAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
+  "depositAddress": "0x1234567890abcdef...",
+  "twilightDepositAddress": "twilight1abc123def456..."
 }
-```
-
-curl --request GET \
-  --url https://lcd.twilight.org/twilight-project/nyks/bridge/registered_btc_deposit_address_by_twilight_address/string \
-  --header 'Accept: */*'
 ```
 
 `GET /twilight-project/nyks/bridge/registered_btc_deposit_address_by_twilight_address/{twilightDepositAddress}`
@@ -1019,38 +757,6 @@ curl --request GET \
 
 Status Code **200**
 
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "addresses": [
-    {
-      "btcDepositAddress": "0x1234567890abcdef...",
-      "btcSatoshiTestAmount": "1000000",
-      "twilightStakingAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
-}
-```
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "judgeAddress": "0x1234567890abcdef...",
-  "numOfSigners": "1000000",
-  "threshold": "1000000",
-  "signerApplicationFee": "1000000",
-  "arbitraryData": "arbitraryData...",
-  "validatorAddress": "0x1234567890abcdef..."
-}
-```
-
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» depositAddress|string|false|none|none|
@@ -1068,21 +774,9 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## RegisteredBtcDepositAddresses
-
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "judgeAddress": "0x1234567890abcdef...",
-  "numOfSigners": "1000000",
-  "threshold": "1000000",
-  "signerApplicationFee": "1000000",
-  "arbitraryData": "arbitraryData...",
-  "validatorAddress": "0x1234567890abcdef..."
-}
-```
 
 > Code samples
 
@@ -1100,6 +794,23 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "addresses": [
+    {
+      "btcDepositAddress": "0x1234567890abcdef...",
+      "btcSatoshiTestAmount": "1000000",
+      "twilightStakingAmount": "1000000",
+      "twilightAddress": "twilight1abc123def456...",
+      "isConfirmed": true,
+      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
+    }
+  ]
+}
 ```
 
 `GET /twilight-project/nyks/bridge/registered_btc_deposit_addresses`
@@ -1124,39 +835,6 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» addresses|[object]|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "Judges": [
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "judgeAddress": "0x1234567890abcdef...",
-  "numOfSigners": "1000000",
-  "threshold": "1000000",
-  "signerApplicationFee": "1000000",
-  "arbitraryData": "arbitraryData...",
-  "validatorAddress": "0x1234567890abcdef..."
-}
-```
-
-    {
-      "judgeAddress": "0x1234567890abcdef...",
-      "numOfSigners": "1000000",
-      "threshold": "1000000",
-      "signerApplicationFee": "1000000",
-      "fragmentFeeBips": "1000000",
-      "arbitraryData": "arbitraryData...",
-      "validatorAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |»» btcDepositAddress|string|false|none|none|
 |»» btcSatoshiTestAmount|string(uint64)|false|none|none|
 |»» twilightStakingAmount|string(uint64)|false|none|none|
@@ -1174,26 +852,9 @@ Status Code **default**
 |»» **additionalProperties**|any|false|none|none|
 |»» @type|string|false|none|none|
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "Judges": [
-    {
-      "judgeAddress": "0x1234567890abcdef...",
-      "numOfSigners": "1000000",
-      "threshold": "1000000",
-      "signerApplicationFee": "1000000",
-      "fragmentFeeBips": "1000000",
-      "arbitraryData": "arbitraryData...",
-      "validatorAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
 > This operation does not require authentication
+
+---
 
 ## RegisteredJudgeAddressByValidatorAddress
 
@@ -1215,6 +876,19 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "judgeAddress": "0x1234567890abcdef...",
+  "numOfSigners": "1000000",
+  "threshold": "1000000",
+  "signerApplicationFee": "1000000",
+  "arbitraryData": "arbitraryData...",
+  "validatorAddress": "0x1234567890abcdef..."
+}
+```
+
 `GET /twilight-project/nyks/bridge/registered_judge_address_by_validator_address/{validatorAddress}`
 
 *Queries a list of RegisteredJudgeAddressByValidatorAddress items.*
@@ -1230,41 +904,6 @@ console.log(data);
 > 200 Response
 
 ### Responses
-
-
-> The result from the above endpoint looks like this:
-
-```json
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "Judges": [
-    {
-      "judgeAddress": "0x1234567890abcdef...",
-      "numOfSigners": "1000000",
-      "threshold": "1000000",
-      "signerApplicationFee": "1000000",
-      "fragmentFeeBips": "1000000",
-      "arbitraryData": "arbitraryData...",
-      "validatorAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-{
-  "addresses": [
-    {
-      "fragmentId": "1000000",
-      "reserveScript": "reserveScript...",
-      "reserveAddress": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1286,22 +925,6 @@ Status Code **200**
 
 Status Code **default**
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "addresses": [
-    {
-      "fragmentId": "1000000",
-      "reserveScript": "reserveScript...",
-      "reserveAddress": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» code|integer(int32)|false|none|none|
@@ -1311,6 +934,8 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## RegisteredJudges
 
@@ -1328,46 +953,29 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
     'Accept': '*/*'
   }
 });
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "addresses": [
-    {
-      "fragmentId": "1000000",
-      "reserveScript": "reserveScript...",
-      "reserveAddress": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 const data = await response.json();
 console.log(data);
 ```
 
-`GET /twilight-project/nyks/bridge/registered_judges`
-
-
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "signRefundMsg": [
+  "Judges": [
     {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "refundSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
+      "judgeAddress": "0x1234567890abcdef...",
+      "numOfSigners": "1000000",
+      "threshold": "1000000",
+      "signerApplicationFee": "1000000",
+      "fragmentFeeBips": "1000000",
+      "arbitraryData": "arbitraryData...",
+      "validatorAddress": "0x1234567890abcdef..."
     }
   ]
 }
 ```
+
+`GET /twilight-project/nyks/bridge/registered_judges`
 
 *Queries a list of RegisteredJudges items.*
 
@@ -1409,6 +1017,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## RegisteredReserveAddresses
 
 > Code samples
@@ -1429,26 +1039,22 @@ const data = await response.json();
 console.log(data);
 ```
 
-`GET /twilight-project/nyks/bridge/registered_reserve_addresses`
-
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "signRefundMsg": [
+  "addresses": [
     {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "refundSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
+      "fragmentId": "1000000",
+      "reserveScript": "reserveScript...",
+      "reserveAddress": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
     }
   ]
 }
 ```
 
+`GET /twilight-project/nyks/bridge/registered_reserve_addresses`
 
 *Queries a list of RegisteredReserveAddresses items.*
 
@@ -1487,13 +1093,27 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## SignRefund
 
 > Code samples
 
 ```shell
 curl --request GET \
+  --url https://lcd.twilight.org/twilight-project/nyks/bridge/sign_refund/string/string \
+  --header 'Accept: */*'
+```
 
+```javascript
+const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_refund/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -1511,28 +1131,6 @@ curl --request GET \
     }
   ]
 }
-```
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "signSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "sweepSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
-  --url https://lcd.twilight.org/twilight-project/nyks/bridge/sign_refund/string/string \
-  --header 'Accept: */*'
 ```
 
 `GET /twilight-project/nyks/bridge/sign_refund/{reserveId}/{roundId}`
@@ -1549,25 +1147,6 @@ curl --request GET \
 > Example responses
 
 > 200 Response
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "signRefundMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "refundSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 
 ### Responses
 
@@ -1590,25 +1169,6 @@ Status Code **200**
 |»»» refundSignature|[string]|false|none|none|
 |»»» signerAddress|string|false|none|none|
 
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "signSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "sweepSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
@@ -1621,24 +1181,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "signSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "sweepSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
+---
 
 ## SignRefundAll
 
@@ -1655,28 +1198,27 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
   headers: {
     'Accept': '*/*'
   }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "signSweepMsg": [
+  "signRefundMsg": [
     {
       "reserveId": "1000000",
       "roundId": "1000000",
       "signerPublicKey": "signerPublicKey...",
-      "sweepSignature": [
+      "refundSignature": [
         "item..."
       ],
       "signerAddress": "0x1234567890abcdef..."
     }
   ]
 }
-```
-
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/sign_refund_all`
@@ -1705,25 +1247,6 @@ Status Code **200**
 |»»» reserveId|string(uint64)|false|none|none|
 |»»» roundId|string(uint64)|false|none|none|
 |»»» signerPublicKey|string|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "signSweepMsg": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "signerPublicKey": "signerPublicKey...",
-      "sweepSignature": [
-        "item..."
-      ],
-      "signerAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |»»» refundSignature|[string]|false|none|none|
 |»»» signerAddress|string|false|none|none|
 
@@ -1731,20 +1254,6 @@ Status Code **default**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxRefundMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "btcUnsignedRefundTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 |» code|integer(int32)|false|none|none|
 |» message|string|false|none|none|
 |» details|[object]|false|none|none|
@@ -1752,6 +1261,8 @@ Status Code **default**
 |»» @type|string|false|none|none|
 
 > This operation does not require authentication
+
+---
 
 ## SignSweep
 
@@ -1765,6 +1276,13 @@ curl --request GET \
 
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/sign_sweep/string/string', {
+  headers: {
+    'Accept': '*/*'
+  }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
@@ -1782,14 +1300,6 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
     }
   ]
 }
-```
-
-  headers: {
-    'Accept': '*/*'
-  }
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/sign_sweep/{reserveId}/{roundId}`
@@ -1812,20 +1322,6 @@ console.log(data);
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxRefundMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "btcUnsignedRefundTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 |default|Default|An unexpected error response.|Inline|
 
 ### Response Schema
@@ -1837,22 +1333,6 @@ Status Code **200**
 |» signSweepMsg|[object]|false|none|none|
 |»» 5. MsgSignSweep|object|false|none|none|
 |»»» reserveId|string(uint64)|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxRefundMsgs": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "btcUnsignedRefundTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |»»» roundId|string(uint64)|false|none|none|
 |»»» signerPublicKey|string|false|none|none|
 |»»» sweepSignature|[string]|false|none|none|
@@ -1870,19 +1350,7 @@ Status Code **default**
 
 > This operation does not require authentication
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxRefundMsg": {
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "btcUnsignedRefundTx": "0x1234567890abcdef...",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
+---
 
 ## SignSweepAll
 
@@ -1904,6 +1372,24 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "signSweepMsg": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "signerPublicKey": "signerPublicKey...",
+      "sweepSignature": [
+        "item..."
+      ],
+      "signerAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 `GET /twilight-project/nyks/bridge/sign_sweep_all`
 
 *Queries a list of SignSweepAll items.*
@@ -1916,22 +1402,6 @@ console.log(data);
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxRefundMsgs": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "btcUnsignedRefundTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
 
@@ -1942,21 +1412,6 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» signSweepMsg|[object]|false|none|none|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsg": {
-    "txId": "0x1234567890abcdef...",
-    "btcUnsignedSweepTx": "0x1234567890abcdef...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
 |»» 5. MsgSignSweep|object|false|none|none|
 |»»» reserveId|string(uint64)|false|none|none|
 |»»» roundId|string(uint64)|false|none|none|
@@ -1976,6 +1431,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## UnsignedTxRefund
 
 > Code samples
@@ -1991,25 +1448,22 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
   headers: {
     'Accept': '*/*'
   }
+});
+const data = await response.json();
+console.log(data);
+```
 
 > The result from the above endpoint looks like this:
 
 ```json
 {
-  "unsignedTxRefundMsgs": [
-    {
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "btcUnsignedRefundTx": "0x1234567890abcdef...",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
+  "unsignedTxRefundMsg": {
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "btcUnsignedRefundTx": "0x1234567890abcdef...",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
 }
-```
-
-});
-const data = await response.json();
-console.log(data);
 ```
 
 `GET /twilight-project/nyks/bridge/unsigned_tx_refund/{reserveId}/{roundId}`
@@ -2027,44 +1481,12 @@ console.log(data);
 
 > 200 Response
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsg": {
-    "txId": "0x1234567890abcdef...",
-    "btcUnsignedSweepTx": "0x1234567890abcdef...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-
 ### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsgs": [
-    {
-      "txId": "0x1234567890abcdef...",
-      "btcUnsignedSweepTx": "0x1234567890abcdef...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 
 ### Response Schema
 
@@ -2090,39 +1512,9 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## UnsignedTxRefundAll
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsgs": [
-    {
-      "txId": "0x1234567890abcdef...",
-      "btcUnsignedSweepTx": "0x1234567890abcdef...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsg": {
-    "txId": "0x1234567890abcdef...",
-    "btcUnsignedSweepTx": "0x1234567890abcdef...",
-    "reserveId": "1000000",
-    "roundId": "1000000",
-    "judgeAddress": "0x1234567890abcdef..."
-  }
-}
-```
-
-  ]
-}
-```
-
 
 > Code samples
 
@@ -2142,6 +1534,21 @@ const data = await response.json();
 console.log(data);
 ```
 
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxRefundMsgs": [
+    {
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "btcUnsignedRefundTx": "0x1234567890abcdef...",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
+```
+
 `GET /twilight-project/nyks/bridge/unsigned_tx_refund_all`
 
 *Queries a list of UnsignedTxRefundAll items.*
@@ -2158,67 +1565,12 @@ console.log(data);
 
 ### Responses
 
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "withdrawRequest": [
-    {
-      "withdrawIdentifier": 0,
-      "withdrawAddress": "0x1234567890abcdef...",
-      "withdrawReserveId": "1000000",
-      "withdrawAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
-}
-```
-
-
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "unsignedTxSweepMsgs": [
-    {
-      "txId": "0x1234567890abcdef...",
-      "btcUnsignedSweepTx": "0x1234567890abcdef...",
-      "reserveId": "1000000",
-      "roundId": "1000000",
-      "judgeAddress": "0x1234567890abcdef..."
-    }
-  ]
-}
-```
-
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A successful response.|Inline|
 |default|Default|An unexpected error response.|Inline|
 
 ### Response Schema
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "withdrawRequest": [
-    {
-      "withdrawIdentifier": 0,
-      "withdrawAddress": "0x1234567890abcdef...",
-      "withdrawReserveId": "1000000",
-      "withdrawAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
-}
-```
-
 
 Status Code **200**
 
@@ -2243,6 +1595,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## UnsignedTxSweep
 
 > Code samples
@@ -2256,30 +1610,25 @@ curl --request GET \
 ```javascript
 const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bridge/unsigned_tx_sweep/string/string', {
   headers: {
-
-> The result from the above endpoint looks like this:
-
-```json
-{
-  "withdrawRequest": [
-    {
-      "withdrawIdentifier": 0,
-      "withdrawAddress": "0x1234567890abcdef...",
-      "withdrawReserveId": "1000000",
-      "withdrawAmount": "1000000",
-      "twilightAddress": "twilight1abc123def456...",
-      "isConfirmed": true,
-      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
-    }
-  ]
-}
-```
-
     'Accept': '*/*'
   }
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxSweepMsg": {
+    "txId": "0x1234567890abcdef...",
+    "btcUnsignedSweepTx": "0x1234567890abcdef...",
+    "reserveId": "1000000",
+    "roundId": "1000000",
+    "judgeAddress": "0x1234567890abcdef..."
+  }
+}
 ```
 
 `GET /twilight-project/nyks/bridge/unsigned_tx_sweep/{reserveId}/{roundId}`
@@ -2329,6 +1678,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## UnsignedTxSweepAll
 
 > Code samples
@@ -2347,6 +1698,22 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "unsignedTxSweepMsgs": [
+    {
+      "txId": "0x1234567890abcdef...",
+      "btcUnsignedSweepTx": "0x1234567890abcdef...",
+      "reserveId": "1000000",
+      "roundId": "1000000",
+      "judgeAddress": "0x1234567890abcdef..."
+    }
+  ]
+}
 ```
 
 `GET /twilight-project/nyks/bridge/unsigned_tx_sweep_all`
@@ -2396,6 +1763,8 @@ Status Code **default**
 
 > This operation does not require authentication
 
+---
+
 ## WithdrawBtcRequestAll
 
 > Code samples
@@ -2414,6 +1783,24 @@ const response = await fetch('https://lcd.twilight.org/twilight-project/nyks/bri
 });
 const data = await response.json();
 console.log(data);
+```
+
+> The result from the above endpoint looks like this:
+
+```json
+{
+  "withdrawRequest": [
+    {
+      "withdrawIdentifier": 0,
+      "withdrawAddress": "0x1234567890abcdef...",
+      "withdrawReserveId": "1000000",
+      "withdrawAmount": "1000000",
+      "twilightAddress": "twilight1abc123def456...",
+      "isConfirmed": true,
+      "CreationTwilightBlockHeight": "CreationTwilightBlockHeight..."
+    }
+  ]
+}
 ```
 
 `GET /twilight-project/nyks/bridge/withdraw_btc_request_all`
